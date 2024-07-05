@@ -1,8 +1,0 @@
-C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLink.dir
-C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLinkTest.dir
-C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLink_autogen_timestamp_deps.dir
-C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLink_autogen.dir
-C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLinkTest_autogen_timestamp_deps.dir
-C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLinkTest_autogen.dir
