@@ -25,6 +25,7 @@ class Player:public QWidget
 public:
     explicit Player(const int & playerLeftTopXInput , const int & playerLeftTopYInput , const int & playerWidthInput , const int & playerHeightInput , const int & playerSpeedInput,
     const int& playerSkin = 1);
+    ~Player();
     void resizePlayer(double xScaleRatio, double yScaleRatio);
     void drawPlayer(QPainter & painter);
     void playerMove(const int &direction,LinkGame * game,const int &xLoc = 0,const int &yLoc = 0);
@@ -48,6 +49,8 @@ private:
     int playerHeight;
     int playerSpeed;
     int score;
+    int freezeTime;
+    int dizzyTime;
     QString scoreString;
     QPixmap playerImage;
     QVector<QPair<int,int>> currentSelected;

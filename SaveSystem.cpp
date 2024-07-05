@@ -19,16 +19,20 @@ void SaveSystem::saveGame(LinkGame * game)
         dir.mkdir("save");
     }
     // 保存游戏数据，如果gameData.sav文件不存在，创建gameData.sav文件
-    QFile saveFile("save/gameData.txt");
+    QFile saveFile("save/gameData.sav");
     saveFile.open(QIODevice::WriteOnly);
     QDataStream out(&saveFile);
     out << game->boxRow << game->boxCol;
     out << game->gameFps << game->remainBoxNumber << game->boxWidth << game->boxHeight <<  game->passageWidth <<  game->passageHeight;
     out << game->xScaleRatio << game->yScaleRatio;
-    out << game->gameEnd << game->gamePause;
+    out << game->gameEnd << game->gamePause << game->noSolution;
 
-    out << game->remainTime;
+    out << game->remainTime << game->gameType;
     savePlayerData(out,game->player1);
+    if(game->gameType != 0){
+        std::cout << "ok!" << std::endl;
+        savePlayerData(out,game->player2);
+    }
     out << game->removeText << game->leftTimeText << game->summaryText;
     out << game->linePath.size();
     for(auto i :game->linePath){
@@ -39,7 +43,6 @@ void SaveSystem::saveGame(LinkGame * game)
     for(auto i :game->toBeRemovedBox){
         out << i.first << i.second;
     }
-    //保存player1数据
     out << game->removeTimerOn;
 
     out << game->gadgets.size();
@@ -53,6 +56,7 @@ void SaveSystem::saveGame(LinkGame * game)
         out << i.first << i.second;
     }
     out << game->flashTime << game->flashTimerOn;
+    out << game->dizzyTimerOn << game->freezeTimerOn;
 
     for(int row = 0;row < game->boxRow;row ++){
         for(int col = 0;col < game->boxCol;col ++){
@@ -71,6 +75,7 @@ void SaveSystem::savePlayerData(QDataStream &out, Player *player)
 {
     out << player->playerLeftTopX << player->playerLeftTopY << player->playerWidth << player->playerHeight
         << player->playerSpeed << player->score << player->scoreString;
+    out << player->freezeTime << player->dizzyTime;
     out << player->currentSelected.size();
     for(auto i : player->currentSelected){
         out << i.first << i.second;
@@ -80,16 +85,20 @@ void SaveSystem::savePlayerData(QDataStream &out, Player *player)
 LinkGame * SaveSystem::loadGame()
 {
     LinkGame * game = new LinkGame();
-    QFile saveFile("save/gameData.txt");
+    QFile saveFile("save/gameData.sav");
     saveFile.open(QIODevice::ReadOnly);
     QDataStream in(&saveFile);
     in >> game->boxRow >> game->boxCol;
     in >> game->gameFps >> game->remainBoxNumber >> game->boxWidth >> game->boxHeight >>  game->passageWidth >>  game->passageHeight;
     in >> game->xScaleRatio >> game->yScaleRatio;
-    in >> game->gameEnd >> game->gamePause;
+    in >> game->gameEnd >> game->gamePause >> game->noSolution;
 
-    in >> game->remainTime;
+    in >> game->remainTime >> game->gameType;
     loadPlayerData(in,game->player1);
+    if(game->gameType != 0){
+        game->player2 = new Player(0,0,0,0,0,0);
+        loadPlayerData(in,game->player2);
+    }
     in >> game->removeText >> game->leftTimeText >> game->summaryText;
     qsizetype linePathSize;
     in >> linePathSize;
@@ -107,7 +116,6 @@ LinkGame * SaveSystem::loadGame()
         game->toBeRemovedBox.push_back(QPair<int,int>(x,y));
     }
 
-    //读取player1数据
 
     in >> game->removeTimerOn;
     qsizetype gadgetSize;
@@ -133,6 +141,7 @@ LinkGame * SaveSystem::loadGame()
         game->hintedBoxes.push_back(QPair<int,int>(x,y));
     }
     in >> game->flashTime >> game->flashTimerOn;
+    in >> game->dizzyTimerOn >> game->freezeTimerOn;
     //所有箱子初始化
     game->initGlobalBox(game->boxRow,game->boxCol);
     for(int row = 0;row < game->boxRow;row ++){
@@ -143,12 +152,20 @@ LinkGame * SaveSystem::loadGame()
                 >> game->boxMap[row][col]->boxColor >> game->boxMap[row][col]->boarderColor;
         }
     }
+    if(game->gamePause){
+        game->setGamePause();
+    }
     return game;
 }
 
 void SaveSystem::loadPlayerData(QDataStream &in, Player *player) {
-    in >> player->playerLeftTopX >> player->playerLeftTopY >> player->playerWidth >> player->playerHeight
-       >> player->playerSpeed >> player->score >> player->scoreString;
+    in >> player->playerLeftTopX
+    >> player->playerLeftTopY
+    >> player->playerWidth
+    >> player->playerHeight
+       >> player->playerSpeed
+       >> player->score >> player->scoreString;
+    in >> player->freezeTime >> player->dizzyTime;
     qsizetype currentSelectedSize;
     in >> currentSelectedSize;
     for (int i = 0; i < currentSelectedSize; i++) {

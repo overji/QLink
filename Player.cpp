@@ -17,11 +17,20 @@ Player::Player(const int &playerLeftTopXInput, const int &playerLeftTopYInput, c
     this->playerLeftTopY = playerLeftTopYInput;
     this->playerSpeed = playerSpeedInput;
     this->playerWidth = playerWidthInput;
+    this->freezeTime = 0;
+    this->dizzyTime = 0;
     this->score = 0;
     this->scoreString = "分数: 0";
     if(playerSkin == 1){
         this->playerImage = QPixmap("images/PlayerImages/20f432ebdfe483eee238d36d99e42a13.png");
+    } else {
+        this->playerImage = QPixmap("images/PlayerImages/1b49f5bd6f8f4d03052778304564cc38.png");
     }
+}
+
+Player::~Player()
+{
+    this->currentSelected.clear();
 }
 
 void Player::leftMove(LinkGame * game)
@@ -61,7 +70,7 @@ void Player::leftMove(LinkGame * game)
         }
         int topBoxRight = (topBox == nullptr) ? -1000 : topBox->LeftTopX + game->boxWidth;
         int bottomBoxRight = (bottomBox == nullptr) ? -1000 : bottomBox->LeftTopX + game->boxWidth;
-        if(playerLeftTopX < topBoxRight && playerLeftTopX > (topBoxRight - this->playerSpeed))
+        if(playerLeftTopX <= topBoxRight && playerLeftTopX >= (topBoxRight - this->playerSpeed))
         {
             //左边遇到箱子，限制移动，并且选中箱子
             topBox->boxState.boxSelected = true;
@@ -70,7 +79,7 @@ void Player::leftMove(LinkGame * game)
             SelectChecker::checkSelected(game,this);
             return;
         }
-        if(playerLeftTopX < bottomBoxRight && playerLeftTopX > (bottomBoxRight - this->playerSpeed))
+        if(playerLeftTopX <= bottomBoxRight && playerLeftTopX >= (bottomBoxRight - this->playerSpeed))
         {
             //左边遇到箱子，限制移动，并且选中箱子
             bottomBox->boxState.boxSelected = true;
@@ -290,6 +299,13 @@ void Player::playerMove(const int &direction,LinkGame * game,const int &xLoc,con
     if(game->gameEnd){
         return;
     }
+    if(this->freezeTime != 0){
+        return;
+    }
+    bool startDizzy = false;
+    if(this->dizzyTime != 0){
+        startDizzy = true;
+    }
     if(!SelectChecker::solutionExist(game,this)){
         game->removeText = "无解!";
         game->gameEnd = true;
@@ -297,22 +313,42 @@ void Player::playerMove(const int &direction,LinkGame * game,const int &xLoc,con
         game->summaryText = "游戏结束!";
         return;
     }
-    switch (direction) {
-        case 0:
-            upMove(game);
-            break;
-        case 1:
-            downMove(game);
-            break;
-        case 2:
-            leftMove(game);
-            break;
-        case 3:
-            rightMove(game);
-            break;
-        default:
-            break;
+    if(!startDizzy){
+        switch (direction) {
+            case 0:
+                upMove(game);
+                break;
+            case 1:
+                downMove(game);
+                break;
+            case 2:
+                leftMove(game);
+                break;
+            case 3:
+                rightMove(game);
+                break;
+            default:
+                break;
+        }
+    } else {
+        switch (direction) {
+            case 0:
+                downMove(game);
+                break;
+            case 1:
+                upMove(game);
+                break;
+            case 2:
+                rightMove(game);
+                break;
+            case 3:
+                leftMove(game);
+                break;
+            default:
+                break;
+        }
     }
+
     if(direction == -5){
         flashMove(game,xLoc,yLoc);
     }
@@ -322,27 +358,25 @@ void Player::playerMove(const int &direction,LinkGame * game,const int &xLoc,con
 
 void Player::checkClose(LinkGame * game)
 {
-    int currentLeftX = specialDiv((playerLeftTopX - game->passageWidth),game->boxWidth);
-    int currentTopY = specialDiv((playerLeftTopY - game->passageHeight),game->boxHeight);
+    int currentLeftX = specialDiv((playerLeftTopX - playerSpeed - game->passageWidth),game->boxWidth);
+    int currentTopY = specialDiv((playerLeftTopY - playerSpeed - game->passageHeight),game->boxHeight);
+    int currentRightX = specialDiv((playerLeftTopX + playerWidth - game->passageWidth + playerSpeed),game->boxWidth);
+    int currentBottomY = specialDiv((playerLeftTopY + playerHeight - game->passageHeight + playerSpeed),game->boxHeight);
     if(checkColIndexValid(game, currentLeftX) && checkRowIndexValid(game, currentTopY))
     {
         game->boxMap[currentTopY][currentLeftX]->boxState.closeBox = true;
     }
-    if(checkColIndexValid(game, currentLeftX) && checkRowIndexValid(game, currentTopY - 1))
+    if(checkColIndexValid(game, currentLeftX) && checkRowIndexValid(game, currentBottomY))
     {
-        game->boxMap[currentTopY-1][currentLeftX]->boxState.closeBox = true;
+        game->boxMap[currentBottomY][currentLeftX]->boxState.closeBox = true;
     }
-    if(checkColIndexValid(game, currentLeftX - 1) && checkRowIndexValid(game, currentTopY))
+    if(checkColIndexValid(game, currentRightX) && checkRowIndexValid(game, currentTopY))
     {
-        game->boxMap[currentTopY][currentLeftX-1]->boxState.closeBox = true;
+        game->boxMap[currentTopY][currentRightX]->boxState.closeBox = true;
     }
-    if(checkColIndexValid(game, currentLeftX + 1) && checkRowIndexValid(game, currentTopY))
+    if(checkColIndexValid(game, currentRightX) && checkRowIndexValid(game, currentBottomY))
     {
-        game->boxMap[currentTopY][currentLeftX+1]->boxState.closeBox = true;
-    }
-    if(checkColIndexValid(game, currentLeftX) && checkRowIndexValid(game, currentTopY + 1))
-    {
-        game->boxMap[currentTopY+1][currentLeftX]->boxState.closeBox = true;
+        game->boxMap[currentBottomY][currentRightX]->boxState.closeBox = true;
     }
 }
 
@@ -384,7 +418,15 @@ void Player::checkGadgetHit(LinkGame *game)
     for(auto gadget:game->gadgets){
         if(gadget->leftTopX <= playerLeftTopX + playerWidth && gadget->leftTopX + gadget->gadgetWidth >= playerLeftTopX &&
            gadget->leftTopY <= playerLeftTopY + playerHeight && gadget->leftTopY + gadget->gadgetHeight >= playerLeftTopY){
-            gadget->singleGameGadgetEffect(game, this);
+            if(game->gameType == 0){
+                gadget->singleGameGadgetEffect(game, this);
+            } else {
+                if(this == game->player1){
+                    gadget->doubleGameGadgetEffect(game, game->player2);
+                } else {
+                    gadget->doubleGameGadgetEffect(game, game->player1);
+                }
+            }
             game->gadgets.removeOne(gadget);
             delete gadget;
         }

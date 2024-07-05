@@ -1,13 +1,15 @@
 #include <QApplication>
 #include "LinkGame.h"
+#include "MainPage.h"
 #include <iostream>
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-    LinkGame game(6,6);
-    game.show();
-//    LinkGame * game = SaveSystem::loadGame();
-//    game->show();
+
+    MainPage mainPage;
+    mainPage.show();
+//    LinkGame game(6,6,0);
+//    game.show();
 
     return QApplication::exec();
 }

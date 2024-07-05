@@ -29,8 +29,12 @@ add_executable(QLink main.cpp
         Gadget.h
         SaveSystem.cpp
         SaveSystem.h
+        MainPage.cpp
+        MainPage.h
 )
 add_executable(QLinkTest
+        SimpleTest.cpp
+        SimpleTest.h
         LinkGame.cpp
         LinkGame.h
         BoxOfGame.cpp
@@ -40,9 +44,14 @@ add_executable(QLinkTest
         SelectChecker.cpp
         SelectChecker.h
         SpecialAlgorithm.h
-        SimpleTest.cpp
-        SimpleTest.h
+        Garget.cpp
+        Gadget.h
+        SaveSystem.cpp
+        SaveSystem.h
+        MainPage.cpp
+        MainPage.h
 )
+
 target_link_libraries(QLink
         Qt::Core
         Qt::Gui

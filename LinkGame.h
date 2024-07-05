@@ -15,6 +15,7 @@
 #include "SaveSystem.h"
 #include "SelectChecker.h"
 #include "SpecialAlgorithm.h"
+#include "MainPage.h"
 
 class Player;
 class BoxOfGame;
@@ -30,7 +31,8 @@ class LinkGame : public QWidget
     friend class Gadget;
     friend class SaveSystem;
 public:
-    explicit LinkGame(const int& M = 10, const int& N = 10, QWidget * parent = nullptr,const int &remainTimeInput = 0);
+    explicit LinkGame(const int& M = 10, const int& N = 10,int gameTypeInput = 0,const int &remainTimeInput = 0 ,QWidget * parent = nullptr);
+    ~LinkGame();
     void shuffleMap();
     void setGamePause();
 public slots:
@@ -38,24 +40,30 @@ public slots:
     void updateRemainTime();
     void updateHintTime();
     void updateFlashTime();
+    void updateFreezeTime();
+    void updateDizzyTime();
+    void startNewGame();
+    void loadGame();
 private:
     void paintEvent(QPaintEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
     void keyPressEvent(QKeyEvent * event) override;
     void mousePressEvent(QMouseEvent * event) override;
     void drawMap(QPainter & painter);
-    void drawEndRect(QPainter & painter);
-    void drawPauseRect(QPainter & painter);
+    void drawEndPage(QPainter & painter);
+    void drawPausePage(QPainter & painter);
     void initGlobalBox(const int& M,const int& N);
     void initMap();
     void initTimers(const int &remainTimeInput);
     void initBoxType();
-    void initPlayer();
+    void initPlayer(int gameTypeInput);
     void gameUpdate();
     void drawLine(QPainter & painter);
     void checkGameEnd();
     void generateGadget();
     void hintBox();
+    void clearHintBox();
+
 
     int gameFps;
     int remainBoxNumber;
@@ -69,7 +77,9 @@ private:
     double yScaleRatio;
     bool gameEnd;
     bool gamePause;
+    bool noSolution;
     int remainTime;
+    int gameType;//0是单人游戏，1是双人游戏
 
     QVector<QColor> typeToColor;
     QVector<QVector<int>> boxType;
@@ -87,6 +97,8 @@ private:
     QTimer * remainTimeTimer;
     QTimer * flashTimeTimer;
     QTimer * hintTimeTimer;
+    QTimer * freezeTimeTimer;
+    QTimer * dizzyTimeTimer;
 
     QVector<Gadget *> gadgets;
     int maxGadgetNumber;
@@ -99,7 +111,10 @@ private:
     int flashTime;
     bool flashTimerOn;
 
-    Player * player1;
+    bool dizzyTimerOn;
+    bool freezeTimerOn;
 
+    Player * player1;
+    Player * player2;
 };
 

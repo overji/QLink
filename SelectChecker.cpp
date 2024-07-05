@@ -267,6 +267,7 @@ bool SelectChecker::solutionExist(LinkGame *game, Player *player)
             }
         }
     }
+    game->noSolution = true;
     return false;
 }
 

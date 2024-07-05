@@ -11,8 +11,11 @@
 #include <QKeyEvent>
 #include <QTimer>
 #include <QRandomGenerator>
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QLabel>
 
-LinkGame::LinkGame(const int& M , const int& N, QWidget * parent,const int &remainTimeInput): QWidget(parent)
+LinkGame::LinkGame(const int& M , const int& N, int gameTypeInput ,const int &remainTimeInput, QWidget * parent): QWidget(parent)
 {
     if((M * N) % 2 != 0){
         throw std::runtime_error("In M and N there must be an even number!");
@@ -31,6 +34,7 @@ LinkGame::LinkGame(const int& M , const int& N, QWidget * parent,const int &rema
     this->summaryText = "";
     this->gameEnd = false;
     this->gamePause = false;
+    this->gameType = gameTypeInput;
 
     this->initTimers(remainTimeInput);
     this->leftTimeText = QString::number(remainTime) + "s";
@@ -39,8 +43,30 @@ LinkGame::LinkGame(const int& M , const int& N, QWidget * parent,const int &rema
 
     this->hintedBoxes.resize(2);
     initMap();
-    initPlayer();
+    initPlayer(gameTypeInput);
 };
+
+LinkGame:: ~LinkGame()
+{
+    for(int i = 0; i < boxRow; i ++){
+        for(int j = 0; j < boxCol; j ++){
+            delete boxMap[i][j];
+        }
+    }
+    delete player1;
+    if(player2 != nullptr){
+        delete player2;
+    }
+    for(auto i:gadgets){
+        delete i;
+    }
+    delete removeBoxTimer;
+    delete remainTimeTimer;
+    delete hintTimeTimer;
+    delete flashTimeTimer;
+    delete dizzyTimeTimer;
+    delete freezeTimeTimer;
+}
 
 void LinkGame::initGlobalBox(const int& M,const int& N)
 {
@@ -94,6 +120,16 @@ void LinkGame::initTimers(const int &remainTimeInput)
     connect(flashTimeTimer,SIGNAL(timeout()),this,SLOT(updateFlashTime()));
     flashTimeTimer->start(1000);
     flashTimerOn = false;
+
+    this->dizzyTimerOn = false;
+    dizzyTimeTimer = new QTimer();
+    connect(dizzyTimeTimer,SIGNAL(timeout()),this,SLOT(updateDizzyTime()));
+    dizzyTimeTimer->start(1000);
+
+    this->freezeTimerOn = false;
+    freezeTimeTimer = new QTimer();
+    connect(freezeTimeTimer,SIGNAL(timeout()),this,SLOT(updateFreezeTime()));
+    freezeTimeTimer->start(1000);
 }
 
 void LinkGame::paintEvent(QPaintEvent *event)
@@ -109,6 +145,9 @@ void LinkGame::paintEvent(QPaintEvent *event)
 
     drawMap(painter);
     player1->drawPlayer(painter);
+    if(player2 != nullptr){
+        player2->drawPlayer(painter);
+    }
     drawLine(painter);
     for(auto i:gadgets){
         i->drawGarget(painter);
@@ -120,11 +159,15 @@ void LinkGame::paintEvent(QPaintEvent *event)
     painter.drawText(QRect(400,0,200,this->passageHeight),Qt::AlignCenter,this->leftTimeText);
     painter.setFont(QFont("Arial", 12));
     painter.drawText(QRect(0,550,100,50),Qt::AlignCenter,player1->scoreString);
+    if(player2 != nullptr){
+        painter.drawText(QRect(700,550,100,50),Qt::AlignCenter,player2->scoreString);
+    }
     if(gamePause){
-        drawPauseRect(painter);
+        drawPausePage(painter);
     }
     if(gameEnd){
-        drawEndRect(painter);
+        this->removeText = "";
+        drawEndPage(painter);
     }
 }
 
@@ -164,6 +207,9 @@ void LinkGame::resizeEvent(QResizeEvent *event)
         }
     }
     player1->resizePlayer(xScaleRatio,yScaleRatio);
+    if(player2 != nullptr){
+        player2->resizePlayer(xScaleRatio,yScaleRatio);
+    }
 }
 
 void LinkGame::drawMap(QPainter &painter) {
@@ -174,24 +220,95 @@ void LinkGame::drawMap(QPainter &painter) {
     }
 }
 
-void LinkGame::drawEndRect(QPainter &painter)
+void LinkGame::drawEndPage(QPainter &painter)
 {
-    painter.setBrush(QColor(58, 255, 222));
-    QRect rect(200,200,400,200);
+    painter.setBrush(QColor(61, 199, 255 ,233));
+    QRect rect(0,0,800,600);
     painter.drawConvexPolygon(rect);
-    painter.setPen(Qt::black);
-    painter.setFont(QFont("Arial",20));
-    painter.drawText(rect,Qt::AlignCenter,summaryText);
+    if(this->layout() != nullptr){
+        return;
+    }
+
+    QGridLayout *layout = new QGridLayout;
+    QPushButton *newGameButton = new QPushButton("新游戏");
+    QPushButton *loadButton = new QPushButton("加载游戏");
+    QPushButton *exitButton = new QPushButton("退出游戏");
+    QLabel * pauseLabel = new QLabel("游戏结束");
+    if(noSolution){
+        pauseLabel->setText("无解，游戏结束");
+    }
+    QLabel * player1Score = new QLabel(player1->scoreString);
+    QLabel * player2Score;
+    if(player2 != nullptr){
+        player2Score = new QLabel(QString("玩家2") + player2->scoreString);
+        player1Score = new QLabel(QString("玩家1") + player1->scoreString);
+    } else {
+        player2Score = new QLabel("");
+    }
+    QVector<QLabel*>labels = {pauseLabel,player1Score,player2Score};
+    for(auto label:labels){
+        label->setStyleSheet("font-size: 30px;");
+        label->setAlignment(Qt::AlignCenter);
+    }
+    QVector<QPushButton*>buttons = {newGameButton,loadButton,exitButton};
+    for(auto i:buttons){
+        i->setStyleSheet("font-size: 20px;"
+                         "background-color: rgb(255, 255, 255);"
+                         "border: 2px solid black;"
+                         "border-radius: 6px;"
+                         "padding: 3px;");
+    }
+    connect(newGameButton,&QPushButton::clicked,this,&LinkGame::startNewGame);
+    connect(loadButton,&QPushButton::clicked,this,&LinkGame::loadGame);
+    connect(exitButton,&QPushButton::clicked,[this](){
+        this->close();
+    });
+    layout->addWidget(pauseLabel,0,0,1,8);
+    layout->addWidget(player1Score,1,0,1,4);
+    layout->addWidget(player2Score,1,4,1,4);
+    layout->addWidget(newGameButton,2,2,1,4);
+    layout->addWidget(loadButton,3,2,1,4);
+    layout->addWidget(exitButton,4,2,1,4);
+    layout->addWidget(new QLabel,5,0,1,8);
+    this->setLayout(layout);
 }
 
-void LinkGame::drawPauseRect(QPainter &painter)
+void LinkGame::drawPausePage(QPainter &painter)
 {
-    painter.setBrush(QColor(245, 143, 208));
-    QRect rect(200,200,400,200);
+    painter.setBrush(QColor(255, 241, 250,210));
+    QRect rect(0,0,800,600);
     painter.drawConvexPolygon(rect);
-    painter.setPen(Qt::black);
-    painter.setFont(QFont("Arial",20));
-    painter.drawText(rect,Qt::AlignCenter,"游戏暂停");
+    if(this->layout() != nullptr){
+        return;
+    }
+    QGridLayout *layout = new QGridLayout;
+    QPushButton *resumeButton = new QPushButton("继续游戏");
+    QPushButton *saveButton = new QPushButton("保存游戏");
+    QPushButton *exitButton = new QPushButton("退出游戏");
+    QLabel * pauseLabel = new QLabel("游戏暂停");
+    pauseLabel->setStyleSheet("font-size: 30px;");
+    pauseLabel->setAlignment(Qt::AlignCenter);
+    QVector<QPushButton*>buttons = {resumeButton,saveButton,exitButton};
+    for(auto i:buttons){
+        i->setStyleSheet("font-size: 20px;"
+                         "background-color: rgb(255, 255, 255);"
+                         "border: 2px solid black;"
+                         "border-radius: 6px;"
+                         "padding: 3px;");
+    }
+    connect(resumeButton,&QPushButton::clicked,this,&LinkGame::setGamePause);
+    connect(saveButton,&QPushButton::clicked,[this](){
+        SaveSystem::saveGame(this);
+    });
+    connect(exitButton,&QPushButton::clicked,[this](){
+        this->close();
+    });
+    layout->addWidget(pauseLabel,0,0,1,8);
+    layout->addWidget(resumeButton,2,2,1,4);
+    layout->addWidget(saveButton,3,2,1,4);
+    layout->addWidget(exitButton,4,2,1,4);
+    layout->addWidget(new QLabel,5,0,1,8);
+    this->setLayout(layout);
 }
 
 void LinkGame::initBoxType()
@@ -264,12 +381,17 @@ void LinkGame::initMap()
     }
 }
 
-void LinkGame::initPlayer()
+void LinkGame::initPlayer(int gameTypeInput)
 {
     int playerWidth = 20;
     int playerHeight = (1*playerWidth*this->xScaleRatio)/this->yScaleRatio;
     int initialSpeed = 15;
     player1 = new Player(playerWidth,300-playerHeight/2,playerWidth,playerHeight,initialSpeed,1);
+    if(gameTypeInput){
+        player2 = new Player(800-playerWidth-20,300-playerHeight/2,playerWidth,playerHeight,initialSpeed,2);
+    } else {
+        player2 = nullptr;
+    }
 }
 
 void LinkGame::keyPressEvent(QKeyEvent *event)
@@ -287,11 +409,23 @@ void LinkGame::keyPressEvent(QKeyEvent *event)
         case Qt::Key_D:
             player1->playerMove(3,this);
             break;
+        case Qt::Key_Up:
+            player2->playerMove(0,this);
+            break;
+        case Qt::Key_Down:
+            player2->playerMove(1,this);
+            break;
+        case Qt::Key_Left:
+            player2->playerMove(2,this);
+            break;
+        case Qt::Key_Right:
+            player2->playerMove(3,this);
+            break;
         case Qt::Key_Space:
             setGamePause();
             break;
         case Qt::Key_Escape:
-            SaveSystem::saveGame(this);
+            setGamePause();
             break;
         default:
             break;
@@ -309,6 +443,9 @@ void LinkGame::removeBox()
     }
     toBeRemovedBox.clear();
     player1->currentSelected.clear();
+    if(player2 != nullptr){
+        player2->currentSelected.clear();
+    }
     linePath.clear();
     removeTimerOn = false;
     checkGameEnd();
@@ -320,7 +457,7 @@ void LinkGame::checkGameEnd()
     {
         this->gameEnd = true;
         this->gamePause = false;
-        this->summaryText = "游戏结束!";
+        this->summaryText = "";
     }
     //剩余时间为0，游戏结束
 }
@@ -349,13 +486,14 @@ void LinkGame::generateGadget()
     }
     double randomPossibility = QRandomGenerator::global()->bounded(100000000)/100000000.0;
     if(randomPossibility < gadgetSummonPossibility) {
-        auto *garget = new Gadget(this, 1);
+        auto *garget = new Gadget(this, this->gameType);
         gadgets.push_back(garget);
     }
 }
 
 void LinkGame::shuffleMap()
 {
+    clearHintBox();
     std::cout << "shuffle!" << std::endl;
     QVector<QPair<int,int>> boxesOfMap;
     //找出所有没有被删除的箱子
@@ -383,14 +521,7 @@ void LinkGame::hintBox()
 {
     if(!hintTimerOn){
         if(!hintedBoxes.empty()){
-            boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->boxState.boxHinted = false;
-            boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->boxState.boxHinted = false;
-            if(!boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->boxState.boxRemoved &&
-               !boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->boxState.boxRemoved){
-                boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->boxState.boxHinted = false;
-                boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->boxState.boxHinted = false;
-            }
-            hintedBoxes.clear();
+            clearHintBox();
         }
         return;
     }
@@ -410,6 +541,19 @@ void LinkGame::hintBox()
     hintedBoxes.push_back(pairs.second);
 }
 
+void LinkGame::clearHintBox()
+{
+    if(!hintedBoxes.empty()){
+        boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->boxState.boxHinted = false;
+        boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->boxState.boxHinted = false;
+        if(!boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->boxState.boxRemoved &&
+           !boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->boxState.boxRemoved){
+            boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->boxState.boxHinted = false;
+            boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->boxState.boxHinted = false;
+        }
+        hintedBoxes.clear();
+    }
+}
 void LinkGame::updateHintTime()
 {
     if(gamePause){
@@ -438,8 +582,48 @@ void LinkGame::updateFlashTime()
     }
 }
 
+void LinkGame::updateDizzyTime() {
+    if (gamePause) {
+        return;
+    }
+    if (!dizzyTimerOn) {
+        return;
+    }
+    if(player1->dizzyTime > 0){
+        player1->dizzyTime--;
+    }
+    if(player2->dizzyTime > 0){
+        player2->dizzyTime--;
+    }
+    if(player1->dizzyTime == 0 && player2->dizzyTime == 0){
+        dizzyTimerOn = false;
+    }
+}
+
+void LinkGame::updateFreezeTime() {
+    if (gamePause) {
+        return;
+    }
+    if (!freezeTimerOn) {
+        return;
+    }
+    if(player1->freezeTime > 0){
+        player1->freezeTime--;
+    }
+    if(player2->freezeTime > 0){
+        player2->freezeTime--;
+    }
+    if(player1->freezeTime == 0 && player2->freezeTime == 0){
+        freezeTimerOn = false;
+    }
+}
+
+
 void LinkGame::mousePressEvent(QMouseEvent *event)
 {
+    if(gameType == 1){
+        return;
+    }
     if(gamePause){
         return;
     }
@@ -454,12 +638,43 @@ void LinkGame::mousePressEvent(QMouseEvent *event)
 void LinkGame::setGamePause()
 {
     gamePause = !gamePause;
+    if(!gamePause){
+        QLayout *layout = this->layout();
+        if (layout)
+        {
+            QLayoutItem *item;
+            while ((item = layout->takeAt(0)) != nullptr)
+            {
+                delete item->widget();
+                delete item;
+            }
+            delete layout;
+        }
+    }
+}
+
+void LinkGame::startNewGame()
+{
+    MainPage *mainPage = new MainPage();
+    mainPage->show();
+    this->close();
+}
+
+void LinkGame::loadGame()
+{
+    LinkGame *game = SaveSystem::loadGame();
+    game->show();
+    this->close();
 }
 
 void LinkGame::gameUpdate()
 {
     player1->clearClose(this);
     player1->checkClose(this);
+    if(player2 != nullptr){
+        player2->clearClose(this);
+        player2->checkClose(this);
+    }
     if(gameEnd || gamePause)return;
     generateGadget();
     hintBox();

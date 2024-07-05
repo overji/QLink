@@ -17,8 +17,13 @@ Gadget::Gadget(LinkGame * game, int gameType)
     this->leftTopX = QRandomGenerator::global()->bounded(1, 800 - gadgetWidth - 1);
     int colLoc = specialDiv(leftTopX-game->passageWidth,game->boxWidth);
     randomRowLoc(game,colLoc);
-    if(gameType == 1 || gameType == 2){
+    if(gameType == 0){
         this->gargetType = QRandomGenerator::global()->bounded(1,5);
+    } else {
+        this->gargetType = QRandomGenerator::global()->bounded(1,6);
+        if(this->gargetType == 4){
+            this->gargetType = 6;
+        }
     }
     switch(gargetType){
         case 1:
@@ -32,6 +37,12 @@ Gadget::Gadget(LinkGame * game, int gameType)
             break;
         case 4:
             this->gadgetMap = QPixmap("images/GargetImages/flash.png");
+            break;
+        case 5:
+            this->gadgetMap = QPixmap("images/GargetImages/freeze.png");
+            break;
+        case 6:
+            this->gadgetMap = QPixmap("images/GargetImages/dizzy.png");
             break;
     }
 }
@@ -92,6 +103,26 @@ void Gadget::singleGameGadgetEffect(LinkGame *game, Player *player) {
     }
 }
 
+void Gadget::doubleGameGadgetEffect(LinkGame *game, Player *anotherPlayer) {
+    switch(gargetType){
+        case 1:
+            plus1sEffect(game);
+            break;
+        case 2:
+            shuffleEffect(game);
+            break;
+        case 3:
+            hintEffect(game);
+            break;
+        case 5:
+            freezeEffect(game,anotherPlayer);
+            break;
+        case 6:
+            dizzyEffect(game,anotherPlayer);
+            break;
+    }
+}
+
 void Gadget::plus1sEffect(LinkGame *game) {
     game->remainTime += 30;
 }
@@ -109,5 +140,15 @@ void Gadget::flashEffect(LinkGame *game,Player *player) {
     game->flashTime = 5;
     game->flashTimerOn = true;
     return;
+}
+
+void Gadget::freezeEffect(LinkGame *game,Player *player) {
+    player->freezeTime = 3;
+    game->freezeTimerOn = true;
+}
+
+void Gadget::dizzyEffect(LinkGame *game,Player *player) {
+    player->dizzyTime = 10;
+    game->dizzyTimerOn = true;
 }
 

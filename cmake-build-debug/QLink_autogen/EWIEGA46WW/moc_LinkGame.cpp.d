@@ -3,6 +3,7 @@ C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink_autogen/EWIEGA46W
   C:/Users/overji/Desktop/homework/QLink/BoxOfGame.h \
   C:/Users/overji/Desktop/homework/QLink/Gadget.h \
   C:/Users/overji/Desktop/homework/QLink/LinkGame.h \
+  C:/Users/overji/Desktop/homework/QLink/MainPage.h \
   C:/Users/overji/Desktop/homework/QLink/Player.h \
   C:/Users/overji/Desktop/homework/QLink/SaveSystem.h \
   C:/Users/overji/Desktop/homework/QLink/SelectChecker.h \
@@ -694,9 +695,15 @@ C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink_autogen/EWIEGA46W
   D:/qt/6.6.2/mingw_64/include/QtTest/qttestlib-config.h \
   D:/qt/6.6.2/mingw_64/include/QtTest/qttestversion.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/QSizePolicy \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/QStackedLayout \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/QWidget \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qapplication.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/qboxlayout.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/qgridlayout.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/qlayout.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/qlayoutitem.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qsizepolicy.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/qstackedlayout.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qtestsupport_widgets.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
