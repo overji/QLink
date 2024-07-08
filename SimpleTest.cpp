@@ -10,6 +10,7 @@
 
 void SimpleTest::noTwistHorizontalCorrectTest()
 {
+    //测试无折线横向无阻挡，应当正确消除方块
     LinkGame * linkGame = new LinkGame(6,5);
     Player * player = new Player(0,0,0,0,0,1);
     linkGame->boxMap[0][0]->typeOfBox = 1;
@@ -28,6 +29,7 @@ void SimpleTest::noTwistHorizontalCorrectTest()
 
 void SimpleTest::noTwistVerticalCorrectTest()
 {
+    //测试无折线纵向无阻挡，应当正确消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0);
     linkGame->boxMap[0][0]->typeOfBox = 1;
@@ -47,6 +49,7 @@ void SimpleTest::noTwistVerticalCorrectTest()
 
 void SimpleTest::noTwistHorizontalWrongTest()
 {
+    //测试无折线横向有阻挡，应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0);
     linkGame->boxMap[1][1]->typeOfBox = 1;
@@ -65,6 +68,7 @@ void SimpleTest::noTwistHorizontalWrongTest()
 
 void SimpleTest::noTwistVerticalWrongTest()
 {
+    //测试无折线纵向有阻挡，应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0);
     linkGame->boxMap[1][1]->typeOfBox = 1;
@@ -83,6 +87,7 @@ void SimpleTest::noTwistVerticalWrongTest()
 
 void SimpleTest::oneTwistCorrectTest()
 {
+    //测试一折线正确消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0);
     linkGame->boxMap[1][1]->typeOfBox = 1;
@@ -102,6 +107,7 @@ void SimpleTest::oneTwistCorrectTest()
 
 void SimpleTest::oneTwistCorrectTest2()
 {
+    //测试一折线正确消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0);
     linkGame->boxMap[1][1]->typeOfBox = 1;
@@ -121,6 +127,7 @@ void SimpleTest::oneTwistCorrectTest2()
 
 void SimpleTest::oneTwistWrongTest()
 {
+    //测试一折线应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0);
     linkGame->boxMap[1][1]->typeOfBox = 1;
@@ -139,6 +146,7 @@ void SimpleTest::oneTwistWrongTest()
 
 void SimpleTest::oneTwistWithOneLineTest()
 {
+    //测试一折线，一条线较长，应当正确消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0);
     linkGame->boxMap[1][1]->typeOfBox = 1;
@@ -159,6 +167,7 @@ void SimpleTest::oneTwistWithOneLineTest()
 
 void SimpleTest::oneTwistWithOneLineBlockedTest()
 {
+    //测试一折线，一条线较长且存在阻挡，应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0);
     linkGame->boxMap[1][1]->typeOfBox = 1;
@@ -178,6 +187,7 @@ void SimpleTest::oneTwistWithOneLineBlockedTest()
 
 void SimpleTest::twoTwistCorrectTest()
 {
+    //测试两折线正确消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0);
     linkGame->boxMap[0][0]->typeOfBox = 1;
@@ -196,6 +206,7 @@ void SimpleTest::twoTwistCorrectTest()
 
 void SimpleTest::twoTwistCorrectTest2()
 {
+    //测试两折线正确消除方块
     LinkGame * linkGame = new LinkGame(6,5);
     Player * player = new Player(0,0,0,0,0);
     linkGame->boxMap[1][1]->typeOfBox = 1;
@@ -218,6 +229,7 @@ void SimpleTest::twoTwistCorrectTest2()
 
 void SimpleTest::threeTwistWrongTest1()
 {
+    //测试三折线应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0);
     linkGame->boxMap[1][0]->typeOfBox = 1;
@@ -236,6 +248,7 @@ void SimpleTest::threeTwistWrongTest1()
 
 void SimpleTest::threeTwistWrongTest2()
 {
+    //测试三折线应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0);
     linkGame->boxMap[0][1]->typeOfBox = 1;
@@ -254,6 +267,7 @@ void SimpleTest::threeTwistWrongTest2()
 
 void SimpleTest::differentTypeWrongTest()
 {
+    //测试不同类型的方块应当不消除
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0,1);
     linkGame->boxMap[0][0]->typeOfBox = 1;
@@ -272,6 +286,7 @@ void SimpleTest::differentTypeWrongTest()
 
 void SimpleTest::popSameBoxTest()
 {
+    //测试相同方块只选择一次
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0,1);
     linkGame->boxMap[0][0]->typeOfBox = 1;
@@ -289,6 +304,7 @@ void SimpleTest::popSameBoxTest()
 
 void SimpleTest::removeSelectedTest()
 {
+    //测试消除选中的方块
     LinkGame * linkGame = new LinkGame(6,5);
     Player * player = new Player(0,0,0,0,0,1);
     linkGame->boxMap[0][0]->typeOfBox = 1;
@@ -309,6 +325,7 @@ void SimpleTest::removeSelectedTest()
 
 void SimpleTest::reversedBoxSequenceTest()
 {
+    //测试从另一个先后顺序消除方块
     LinkGame * linkGame = new LinkGame(6,5);
     Player * player = new Player(0,0,0,0,0,1);
     linkGame->boxMap[1][1]->typeOfBox = 1;
@@ -328,4 +345,5 @@ void SimpleTest::reversedBoxSequenceTest()
     delete linkGame;
     delete player;
 }
+
 QTEST_MAIN(SimpleTest);

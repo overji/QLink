@@ -22,34 +22,39 @@ void SaveSystem::saveGame(LinkGame * game)
     QFile saveFile("save/gameData.sav");
     saveFile.open(QIODevice::WriteOnly);
     QDataStream out(&saveFile);
+    // 保存游戏数据
     out << game->boxRow << game->boxCol;
     out << game->gameFps << game->remainBoxNumber << game->boxWidth << game->boxHeight <<  game->passageWidth <<  game->passageHeight;
     out << game->xScaleRatio << game->yScaleRatio;
     out << game->gameEnd << game->gamePause << game->noSolution;
 
     out << game->remainTime << game->gameType;
+    //保存玩家数据
     savePlayerData(out,game->player1);
     if(game->gameType != 0){
-        std::cout << "ok!" << std::endl;
         savePlayerData(out,game->player2);
     }
+    //保存游戏文本
     out << game->removeText << game->leftTimeText << game->summaryText;
+    //保存路径
     out << game->linePath.size();
     for(auto i :game->linePath){
         out << i.x() <<i.y();
     }
-
+    //保存待消除箱子
     out << game->toBeRemovedBox.size();
     for(auto i :game->toBeRemovedBox){
         out << i.first << i.second;
     }
-    out << game->removeTimerOn;
 
+    out << game->removeTimerOn;
+    //保存道具
     out << game->gadgets.size();
     for(auto i : game->gadgets){
         out << i->gadgetWidth <<  i->gadgetHeight << i->leftTopX << i->leftTopY << i->gargetType;
     }
     out << game->maxGadgetNumber << game->gadgetSummonPossibility;
+    //保存道具相关计时情况
     out << game->hintTime << game->hintTimerOn;
     out << game->hintedBoxes.size();
     for(auto i : game->hintedBoxes){
@@ -58,6 +63,7 @@ void SaveSystem::saveGame(LinkGame * game)
     out << game->flashTime << game->flashTimerOn;
     out << game->dizzyTimerOn << game->freezeTimerOn;
 
+    //保存所有箱子
     for(int row = 0;row < game->boxRow;row ++){
         for(int col = 0;col < game->boxCol;col ++){
             out << game->boxMap[row][col]->boxState.boxRemoved << game->boxMap[row][col]->boxState.boxSelected << game->boxMap[row][col]->boxState.closeBox  <<
@@ -68,11 +74,11 @@ void SaveSystem::saveGame(LinkGame * game)
     }
 
     std::cout << "Save Game Success" << std::endl;
-
 }
 
 void SaveSystem::savePlayerData(QDataStream &out, Player *player)
 {
+    //保存玩家数据
     out << player->playerLeftTopX << player->playerLeftTopY << player->playerWidth << player->playerHeight
         << player->playerSpeed << player->score << player->scoreString;
     out << player->freezeTime << player->dizzyTime;
@@ -84,22 +90,27 @@ void SaveSystem::savePlayerData(QDataStream &out, Player *player)
 
 LinkGame * SaveSystem::loadGame()
 {
+    //加载游戏数据
     LinkGame * game = new LinkGame();
     QFile saveFile("save/gameData.sav");
     saveFile.open(QIODevice::ReadOnly);
     QDataStream in(&saveFile);
+    //加载游戏数据
     in >> game->boxRow >> game->boxCol;
     in >> game->gameFps >> game->remainBoxNumber >> game->boxWidth >> game->boxHeight >>  game->passageWidth >>  game->passageHeight;
     in >> game->xScaleRatio >> game->yScaleRatio;
     in >> game->gameEnd >> game->gamePause >> game->noSolution;
 
     in >> game->remainTime >> game->gameType;
+    //加载玩家数据
     loadPlayerData(in,game->player1);
     if(game->gameType != 0){
         game->player2 = new Player(0,0,0,0,0,0);
         loadPlayerData(in,game->player2);
     }
+    //加载游戏文本
     in >> game->removeText >> game->leftTimeText >> game->summaryText;
+    //加载路径
     qsizetype linePathSize;
     in >> linePathSize;
     for(int i = 0;i < linePathSize;i ++){
@@ -107,7 +118,7 @@ LinkGame * SaveSystem::loadGame()
         in >> x >> y;
         game->linePath.push_back(QPoint(x,y));
     }
-
+    //加载待消除箱子
     qsizetype toBeRemovedBoxSize;
     in >> toBeRemovedBoxSize;
     for(int i = 0;i < toBeRemovedBoxSize;i ++){
@@ -116,7 +127,7 @@ LinkGame * SaveSystem::loadGame()
         game->toBeRemovedBox.push_back(QPair<int,int>(x,y));
     }
 
-
+    //加载道具
     in >> game->removeTimerOn;
     qsizetype gadgetSize;
     in >> gadgetSize;
@@ -159,6 +170,7 @@ LinkGame * SaveSystem::loadGame()
 }
 
 void SaveSystem::loadPlayerData(QDataStream &in, Player *player) {
+    //加载玩家数据
     in >> player->playerLeftTopX
     >> player->playerLeftTopY
     >> player->playerWidth

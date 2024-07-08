@@ -16,27 +16,31 @@ void SelectChecker::checkSelected(LinkGame *game, Player *player)
 void SelectChecker::checkNumber(LinkGame *game, Player *player)
 {
     QVector<QPair<int,int>>path;
+    //如果选中的箱子数为2，那么我们就可以进行消除操作了
     if(player->currentSelected.size() == 2) {
         if (player->currentSelected[0] == player->currentSelected[1]) {
             player->currentSelected.pop_back();
             return;
         }
+        //清除箱子的被选择情况
         for (auto i: player->currentSelected) {
             game->boxMap[i.first][i.second]->boxState.boxSelected = false;
         }
+        //检查是否可以消除，返回的是一个路径的vector，可以消除的话直接给玩家加分，过0.2s后再让箱子和路径消失不见
         path = checkValid(game, player);
         if (path.size() == 1) {
             if (path[0].first == -1 && path[0].second == -1) {
                 //这里输出"错误！"
                 game->removeText = "错误!";
             } else if (path[0].first == -2 && path[0].second == -2) {
+                //零折线情况
                 for (auto i: player->currentSelected) {
                     game->toBeRemovedBox.push_back(i);
                     player->score += game->boxMap[i.first][i.second]->addBoxScore();
                 }
                 game->removeText = "消除成功!";
             } else {
-                //一折线情况，别忘了画一下线
+                //一折线情况
                 for (auto i: player->currentSelected) {
                     game->toBeRemovedBox.push_back(i);
                     player->score += game->boxMap[i.first][i.second]->addBoxScore();
@@ -44,6 +48,7 @@ void SelectChecker::checkNumber(LinkGame *game, Player *player)
                 game->removeText = "消除成功!";
             }
         } else if (path.size() == 2){
+            //二折线情况
             for (auto i: player->currentSelected) {
                 game->toBeRemovedBox.push_back(i);
                 player->score += game->boxMap[i.first][i.second]->addBoxScore();
@@ -58,6 +63,7 @@ void SelectChecker::checkNumber(LinkGame *game, Player *player)
 
 QVector<QPair<int,int>> SelectChecker::checkValid(LinkGame *game, Player *player)
 {
+    //寻找可行的路径
     QVector<QPair<int,int>>path;
     BoxOfGame* box1 = game->boxMap[player->currentSelected[0].first][player->currentSelected[0].second];
     BoxOfGame* box2 = game->boxMap[player->currentSelected[1].first][player->currentSelected[1].second];
@@ -117,6 +123,7 @@ QVector<QPair<int,int>> SelectChecker::checkValid(LinkGame *game, Player *player
 
 bool SelectChecker::checkLine(LinkGame *game, Player *player, int direction, int start, int end,int anotherLocation)
 {
+    //检查路径是否可行，没有障碍存在
     //应当注意start和end传入的是画面的坐标，相对应与800,600
     //dirction为1时是横线，y大小不变
     //dirction为2时是竖线，x大小不变
@@ -128,6 +135,7 @@ bool SelectChecker::checkLine(LinkGame *game, Player *player, int direction, int
     if(direction == 1){
         int p = start + game->boxWidth;
         for(;p < end;p += game->boxWidth){
+            //遍历这一条线上所有的箱子，看看是否有未被消除的箱子在这条线上
             int colLoc = specialDiv(p - game->passageWidth, game->boxWidth);
             int rowLoc = specialDiv(anotherLocation - game->passageHeight, game->boxHeight);
             if(player->checkColIndexValid(game, colLoc) && player->checkRowIndexValid(game, rowLoc)){
@@ -139,6 +147,7 @@ bool SelectChecker::checkLine(LinkGame *game, Player *player, int direction, int
     } else {
         int p = start + game->boxHeight;
         for (; p < end; p += game->boxHeight) {
+            //遍历这一条线上所有的箱子，看看是否有未被消除的箱子在这条线上
             int colLoc = specialDiv(anotherLocation - game->passageWidth, game->boxWidth);
             int rowLoc = specialDiv(p - game->passageHeight, game->boxHeight);
             if (player->checkColIndexValid(game, colLoc) && player->checkRowIndexValid(game, rowLoc)) {
@@ -153,6 +162,7 @@ bool SelectChecker::checkLine(LinkGame *game, Player *player, int direction, int
 
 bool SelectChecker::checkExist(LinkGame *game, Player *player, int x, int y)
 {
+    //检查(x,y)处是否有箱子
     int colLoc = specialDiv(x - game->passageWidth, game->boxWidth);
     int rowLoc = specialDiv(y - game->passageHeight, game->boxHeight);
     if (player->checkColIndexValid(game, colLoc) && player->checkRowIndexValid(game, rowLoc)) {
@@ -165,6 +175,7 @@ bool SelectChecker::checkExist(LinkGame *game, Player *player, int x, int y)
 
 QVector<QPair<int,int>> SelectChecker::twoTwistCheck(LinkGame * game,Player * player,int x1,int y1,int x2,int y2)
 {
+    //寻找二折线的路径
     QVector<QPair<int,int>>path;
     //首先看x方向的情况
     //第一步我们确定x与y开始的地方
@@ -217,6 +228,7 @@ QVector<QPair<int,int>> SelectChecker::twoTwistCheck(LinkGame * game,Player * pl
 
 QVector<QPair<int,int>> SelectChecker::getEdgeBox(LinkGame *game, Player *player)
 {
+    //获取周边存在一处没有被包围起来的箱子
     QVector<QPair<int,int>>EdgeBox;
     for(int row = 0; row < game->boxRow; row ++){
         for(int col = 0; col < game->boxCol; col ++){
@@ -230,12 +242,15 @@ QVector<QPair<int,int>> SelectChecker::getEdgeBox(LinkGame *game, Player *player
 
 bool SelectChecker::isEdge(LinkGame *game, Player *player, int colLoc, int rowLoc)
 {
+    //判断是否是边缘箱子
     if(player->checkColIndexValid(game, colLoc) && player->checkRowIndexValid(game, rowLoc) && game->boxMap[rowLoc][colLoc]->boxState.boxRemoved){
         return false;
     }
+    //在地图边缘必然是边缘箱子
     if(colLoc == 0 || rowLoc == 0 || colLoc == game->boxCol - 1 || rowLoc == game->boxRow - 1){
         return true;
     }
+    //判断是否有一个方向有箱子被消除了
     if(player->checkColIndexValid(game, colLoc - 1) && player->checkRowIndexValid(game, rowLoc) && game->boxMap[rowLoc][colLoc - 1]->boxState.boxRemoved){
         return true;
     } else if(player->checkColIndexValid(game, colLoc + 1) && player->checkRowIndexValid(game, rowLoc) && game->boxMap[rowLoc][colLoc + 1]->boxState.boxRemoved){
@@ -250,10 +265,12 @@ bool SelectChecker::isEdge(LinkGame *game, Player *player, int colLoc, int rowLo
 
 bool SelectChecker::solutionExist(LinkGame *game, Player *player)
 {
+    //检查是否有解
     QVector<QPair<int,int>>edgeBox = getEdgeBox(game,player);
     Player * tmpPlayer = new Player(0,0,0,0,0);
     for(int i = 0;i < edgeBox.size();i ++){
         for(int j = i+1;j < edgeBox.size();j ++){
+            //遍历所有的箱子，看看是否有两个箱子可以消除
             tmpPlayer->currentSelected.push_back(QPair<int,int>(edgeBox[i].first,edgeBox[i].second));
             tmpPlayer->currentSelected.push_back(QPair<int,int>(edgeBox[j].first,edgeBox[j].second));
             if(tmpPlayer->currentSelected.size() != 2){
@@ -273,6 +290,7 @@ bool SelectChecker::solutionExist(LinkGame *game, Player *player)
 
 bool SelectChecker::checkValidReturnBool(LinkGame *game, Player *player)
 {
+    //检查是否有解，返回bool值
     BoxOfGame* box1 = game->boxMap[player->currentSelected[0].first][player->currentSelected[0].second];
     BoxOfGame* box2 = game->boxMap[player->currentSelected[1].first][player->currentSelected[1].second];
     if(box1->typeOfBox != box2->typeOfBox)return false;
@@ -347,6 +365,7 @@ bool SelectChecker::checkValidReturnBool(LinkGame *game, Player *player)
 
 QPair<QPair<int,int>,QPair<int,int>> SelectChecker::searchPair(LinkGame *game)
 {
+    //搜索一对可以消除的箱子，思路同上
     Player * tmpPlayer = new Player(0,0,0,0,0);
     QVector<QPair<int,int>>edgeBox = getEdgeBox(game,tmpPlayer);
     for(int i = 0;i < edgeBox.size();i ++){

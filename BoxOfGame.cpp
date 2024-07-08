@@ -17,23 +17,26 @@ BoxOfGame::BoxOfGame(const int & boxWid , const int & boxHeit,const int & LeftTo
     this->boarderHeight = boxHeight/20;
     this->LeftTopX = LeftTopX;
     this->LeftTopY = LeftTopY;
+    //箱子颜色、边框颜色、箱子类型
     this->boxColor = boxColorInput;
     this->boarderColor = boarderColorInput;
     this->typeOfBox = TypeOfBoxInput;
-    this->moveCondition = 0;
+    //箱子状态
     this->boxState.boxSelected = false;
     this->boxState.boxToBeRemoved = false;
     this->boxState.closeBox = false;
-    boxState.boxRemoved = false;
-    boxState.boxHinted = false;
+    this->boxState.boxRemoved = false;
+    this->boxState.boxHinted = false;
 }
 
 void BoxOfGame::drawBox(QPainter &painter)
 {
+    //绘制箱子
     if(boxState.boxRemoved){
         return;
     }
     this->checkBoxBoarderColor();
+    //确定箱子含边框的四个角的位置，以及箱子不含边框的四个角的位置
     const QPoint Boarders[4] = {
             QPoint(LeftTopX,LeftTopY),
             QPoint(LeftTopX+boxWidth,LeftTopY),
@@ -49,8 +52,10 @@ void BoxOfGame::drawBox(QPainter &painter)
     //绘制箱子
     painter.save();
     painter.setPen(Qt::NoPen);
+    //绘制箱子含有边框的矩形
     painter.setBrush(boarderColor);
     painter.drawConvexPolygon(Boarders,4);
+    //绘制箱子内部不含边框的矩形，以此达到绘制边框的效果
     painter.setBrush(boxColor);
     painter.drawConvexPolygon(InnerBox,4);
     painter.restore();
@@ -58,6 +63,7 @@ void BoxOfGame::drawBox(QPainter &painter)
 
 void BoxOfGame::resizeBox(const int &boxWid, const int &boxHeit, const int &leftTopX, const int &leftTopY)
 {
+    //页面大小变换时调整箱子大小
     this->boxWidth = boxWid;
     this->boxHeight = boxHeit;
     this->LeftTopX = leftTopX;
@@ -66,22 +72,13 @@ void BoxOfGame::resizeBox(const int &boxWid, const int &boxHeit, const int &left
     this->boarderHeight = boxHeit/20;
 }
 
-void BoxOfGame::changeBoarderColor(const QColor &color)
-{
-    this->boarderColor = color;
-}
-
-void BoxOfGame::changeBoxColor(const QColor &color)
-{
-    this->boxColor = color;
-}
-
-void BoxOfGame::changeBoxRemovedState(const bool &state)
-{
-    this->boxState.boxRemoved = state;
-}
-
 void BoxOfGame::checkBoxBoarderColor() {
+    //检查箱子边框颜色，优先级逐渐递减，为
+    // 1. 被选中的箱子
+    // 2. 即将被移除的箱子
+    // 3. 靠近的箱子
+    // 4. 被提示的箱子
+    // 5. 其他箱子
     if(boxState.boxSelected){
         boarderColor = QColor(255,0,0);
     }  else if(boxState.boxToBeRemoved) {
@@ -97,6 +94,7 @@ void BoxOfGame::checkBoxBoarderColor() {
 
 int BoxOfGame::addBoxScore()
 {
+    //返回箱子分数
     switch(typeOfBox){
         case 0:
             return 10;
@@ -117,13 +115,14 @@ int BoxOfGame::addBoxScore()
 
 void BoxOfGame::swapBox(BoxOfGame * box1, BoxOfGame * box2)
 {
+    //交换两个箱子的颜色、边框颜色、类型、状态
     std::swap(box1->boxColor,box2->boxColor);
     std::swap(box1->boarderColor,box2->boarderColor);
     std::swap(box1->typeOfBox,box2->typeOfBox);
     std::swap(box1->boxState,box2->boxState);
+    //取消箱子的选中状态和靠近状态
     box1->boxState.closeBox = false;
     box2->boxState.closeBox = false;
     box1->boxState.boxSelected = false;
     box2->boxState.boxSelected = false;
-    std::swap(box1->moveCondition,box2->moveCondition);
 }

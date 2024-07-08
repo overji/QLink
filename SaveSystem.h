@@ -15,11 +15,11 @@ class BoxOfGame;
 
 class SaveSystem {
 public:
-    static void saveGame(LinkGame *game);
-    static LinkGame * loadGame();
+    static void saveGame(LinkGame *game);//保存游戏
+    static LinkGame * loadGame();//加载游戏
 private:
-    static void savePlayerData(QDataStream &out, Player *player);
-    static void loadPlayerData(QDataStream &in, Player *player);
+    static void savePlayerData(QDataStream &out, Player *player);//保存玩家数据
+    static void loadPlayerData(QDataStream &in, Player *player); //加载玩家数据
 };
 
 

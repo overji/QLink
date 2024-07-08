@@ -14,6 +14,7 @@ class SaveSystem;
 
 struct BoxState
 {
+    //箱子状态
     bool boxRemoved;
     bool boxSelected;
     bool closeBox;
@@ -24,6 +25,7 @@ struct BoxState
 class BoxOfGame : public QWidget
 {
     Q_OBJECT
+    //设置友元
     friend class Player;
     friend class SelectChecker;
     friend class SimpleTest;
@@ -32,27 +34,23 @@ class BoxOfGame : public QWidget
     friend class SaveSystem;
 public:
     explicit BoxOfGame(const int & boxWid , const int & boxHeit,const int & LeftTopX ,const int & LeftTopY  ,const QColor boxColorInput
-                       , const QColor boarderColorInput, const int TypeOfBoxInput , QWidget * parent = nullptr );
-    void drawBox(QPainter & painter);
-    void resizeBox(const int & boxWid , const int & boxHeit,const int & leftTopX ,const int & leftTopY);
-    void changeBoxColor(const QColor &color);
-    void changeBoarderColor(const QColor &color);
-    void changeBoxRemovedState(const bool & state);
-    void static swapBox(BoxOfGame * box1,BoxOfGame * box2);
-    int addBoxScore();
+                       , const QColor boarderColorInput, const int TypeOfBoxInput , QWidget * parent = nullptr ); //构造函数
+    void drawBox(QPainter & painter); //绘制箱子
+    void resizeBox(const int & boxWid , const int & boxHeit,const int & leftTopX ,const int & leftTopY); //页面大小变换时调整箱子大小
+    void static swapBox(BoxOfGame * box1,BoxOfGame * box2); //交换两个箱子
+    int addBoxScore(); //返回箱子分数
 
 private:
     //确定箱子边框大小、箱子大小、箱子含边界时候左上角位置
-    void checkBoxBoarderColor();
-    int boxWidth;
-    int boxHeight;
-    int boarderWidth;
-    int boarderHeight;
-    int LeftTopX;
-    int LeftTopY;
-    int typeOfBox;
-    int moveCondition;
-    QColor boxColor;
-    QColor boarderColor;
-    BoxState boxState;
+    void checkBoxBoarderColor(); //检查箱子边框颜色
+    int boxWidth; //箱子宽度
+    int boxHeight; //箱子高度
+    int boarderWidth; //箱子边框宽度
+    int boarderHeight; //箱子边框高度
+    int LeftTopX;   //箱子左上角X坐标
+    int LeftTopY;  //箱子左上角Y坐标
+    int typeOfBox; //箱子类型
+    QColor boxColor; //箱子颜色
+    QColor boarderColor; //箱子边框颜色
+    BoxState boxState; //箱子状态
 };
