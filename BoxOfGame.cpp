@@ -27,6 +27,7 @@ BoxOfGame::BoxOfGame(const int & boxWid , const int & boxHeit,const int & LeftTo
     this->boxState.closeBox = false;
     this->boxState.boxRemoved = false;
     this->boxState.boxHinted = false;
+    this->initBoxPixMap();
 }
 
 void BoxOfGame::drawBox(QPainter &painter)
@@ -58,6 +59,7 @@ void BoxOfGame::drawBox(QPainter &painter)
     //绘制箱子内部不含边框的矩形，以此达到绘制边框的效果
     painter.setBrush(boxColor);
     painter.drawConvexPolygon(InnerBox,4);
+    painter.drawPixmap(InnerBox[0].x(),InnerBox[0].y(),boxWidth-2*boarderWidth,boxHeight-2*boarderHeight,boxPixmap);
     painter.restore();
 }
 
@@ -125,4 +127,31 @@ void BoxOfGame::swapBox(BoxOfGame * box1, BoxOfGame * box2)
     box2->boxState.closeBox = false;
     box1->boxState.boxSelected = false;
     box2->boxState.boxSelected = false;
+}
+
+void BoxOfGame::initBoxPixMap()
+{
+    switch (typeOfBox) {
+        case 0:
+            boxPixmap = QPixmap("images/BoxImages/morfonica.png");
+            break;
+        case 1:
+            boxPixmap = QPixmap("images/BoxImages/pp.png");
+            break;
+        case 2:
+            boxPixmap = QPixmap("images/BoxImages/ppp.png");
+            break;
+        case 3:
+            boxPixmap = QPixmap("images/BoxImages/r.png");
+            break;
+        case 4:
+            boxPixmap = QPixmap("images/BoxImages/ras.png");
+            break;
+        case 5:
+            boxPixmap = QPixmap("images/BoxImages/ag.png");
+            break;
+        default:
+            boxPixmap = QPixmap("images/BoxImages/hhw.png");
+            break;
+    }
 }

@@ -43,6 +43,7 @@ public:
 private:
     //确定箱子边框大小、箱子大小、箱子含边界时候左上角位置
     void checkBoxBoarderColor(); //检查箱子边框颜色
+    void initBoxPixMap(); //初始化箱子图片
     int boxWidth; //箱子宽度
     int boxHeight; //箱子高度
     int boarderWidth; //箱子边框宽度
@@ -53,4 +54,5 @@ private:
     QColor boxColor; //箱子颜色
     QColor boarderColor; //箱子边框颜色
     BoxState boxState; //箱子状态
+    QPixmap boxPixmap;
 };

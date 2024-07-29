@@ -251,8 +251,7 @@ void SimpleTest::threeTwistWrongTest2()
     //测试三折线应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0,linkGame);
-    linkGame->boxMap[0][1]->typeOfBox = 1;
-    linkGame->boxMap[3][2]->typeOfBox = 1;
+    linkGame->boxMap[0][1]->typeOfBox = 1;    linkGame->boxMap[3][2]->typeOfBox = 1;
     player->currentSelected.push_back(QPair<int,int>(0,1));
     player->currentSelected.push_back(QPair<int,int>(3,2));
     SelectChecker::checkSelected(linkGame, player);

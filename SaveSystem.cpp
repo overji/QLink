@@ -58,6 +58,7 @@ void SaveSystem::saveGame(LinkGame * game)
             game->boxMap[row][col]->boxState.boxToBeRemoved << game->boxMap[row][col]->boxState.boxHinted;
             out << game->boxMap[row][col]->LeftTopX  << game->boxMap[row][col]->LeftTopY << game->boxMap[row][col]->typeOfBox
                 << game->boxMap[row][col]->boxColor << game->boxMap[row][col]->boarderColor;
+            out << game->boxMap[row][col]->boxPixmap;
         }
     }
     std::cout << "Save Game Success" << std::endl;
@@ -141,6 +142,7 @@ LinkGame * SaveSystem::loadGame()
             game->boxMap[row][col]->boxState.boxToBeRemoved >> game->boxMap[row][col]->boxState.boxHinted;
             in >> game->boxMap[row][col]->LeftTopX  >> game->boxMap[row][col]->LeftTopY >> game->boxMap[row][col]->typeOfBox
                 >> game->boxMap[row][col]->boxColor >> game->boxMap[row][col]->boarderColor;
+            in >> game->boxMap[row][col]->boxPixmap;
         }
     }
     if(game->gamePause){
