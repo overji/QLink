@@ -19,7 +19,7 @@ void SimpleTest::noTwistHorizontalCorrectTest()
     player->currentSelected.push_back(QPair<int,int>(0,1));
     SelectChecker::checkSelected(linkGame,player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[0][0]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[0][1]->boxState.boxToBeRemoved == true);
@@ -39,7 +39,7 @@ void SimpleTest::noTwistVerticalCorrectTest()
     QVERIFY(player->currentSelected.size() == 2);
     SelectChecker::checkSelected(linkGame,player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[0][0]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[1][0]->boxState.boxToBeRemoved == true);
@@ -58,7 +58,7 @@ void SimpleTest::noTwistHorizontalWrongTest()
     player->currentSelected.push_back(QPair<int,int>(1,3));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[1][3]->boxState.boxToBeRemoved == false);
@@ -77,7 +77,7 @@ void SimpleTest::noTwistVerticalWrongTest()
     player->currentSelected.push_back(QPair<int,int>(3,1));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[3][1]->boxState.boxToBeRemoved == false);
@@ -97,7 +97,7 @@ void SimpleTest::oneTwistCorrectTest()
     player->currentSelected.push_back(QPair<int,int>( 2,2));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[2][2]->boxState.boxToBeRemoved == true);
@@ -117,7 +117,7 @@ void SimpleTest::oneTwistCorrectTest2()
     player->currentSelected.push_back(QPair<int,int>( 2,2));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[2][2]->boxState.boxToBeRemoved == true);
@@ -136,7 +136,7 @@ void SimpleTest::oneTwistWrongTest()
     player->currentSelected.push_back(QPair<int,int>( 2,2));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[2][2]->boxState.boxToBeRemoved == false);
@@ -157,7 +157,7 @@ void SimpleTest::oneTwistWithOneLineTest()
     player->currentSelected.push_back(QPair<int,int>( 2,3));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[2][3]->boxState.boxToBeRemoved == true);
@@ -177,7 +177,7 @@ void SimpleTest::oneTwistWithOneLineBlockedTest()
     player->currentSelected.push_back(QPair<int,int>( 2,3));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[2][3]->boxState.boxToBeRemoved == false);
@@ -196,7 +196,7 @@ void SimpleTest::twoTwistCorrectTest()
     player->currentSelected.push_back(QPair<int,int>(0,2));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[0][0]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[0][2]->boxState.boxToBeRemoved == true);
@@ -219,7 +219,7 @@ void SimpleTest::twoTwistCorrectTest2()
     player->currentSelected.push_back(QPair<int,int>(4,3));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[4][3]->boxState.boxToBeRemoved == true);
@@ -238,7 +238,7 @@ void SimpleTest::threeTwistWrongTest1()
     player->currentSelected.push_back(QPair<int,int>(1,4));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][0]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[1][4]->boxState.boxToBeRemoved == false);
@@ -256,8 +256,6 @@ void SimpleTest::threeTwistWrongTest2()
     player->currentSelected.push_back(QPair<int,int>(0,1));
     player->currentSelected.push_back(QPair<int,int>(3,2));
     SelectChecker::checkSelected(linkGame, player);
-    QPainter painter;
-    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[0][1]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[3][2]->boxState.boxToBeRemoved == false);
@@ -276,7 +274,7 @@ void SimpleTest::differentTypeWrongTest()
     player->currentSelected.push_back(QPair<int,int>(0,1));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[0][0]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[0][1]->boxState.boxToBeRemoved == false);
@@ -295,7 +293,7 @@ void SimpleTest::popSameBoxTest()
     player->currentSelected.push_back(QPair<int,int>(0,0));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 1);
     QVERIFY(linkGame->boxMap[0][0]->boxState.boxToBeRemoved == false);
     delete linkGame;
@@ -313,7 +311,7 @@ void SimpleTest::removeSelectedTest()
     player->currentSelected.push_back(QPair<int,int>(1,1));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[0][0]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == false);
@@ -338,7 +336,7 @@ void SimpleTest::reversedBoxSequenceTest()
     player->currentSelected.push_back(QPair<int,int>(1,1));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    player->drawLine(painter,linkGame);
+    player->drawLine(painter);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[4][3]->boxState.boxToBeRemoved == true);
