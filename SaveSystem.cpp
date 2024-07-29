@@ -36,18 +36,6 @@ void SaveSystem::saveGame(LinkGame * game)
     }
     //保存游戏文本
     out << game->removeText << game->leftTimeText << game->summaryText;
-    //保存路径
-    out << game->linePath.size();
-    for(auto i :game->linePath){
-        out << i.x() <<i.y();
-    }
-    //保存待消除箱子
-    out << game->toBeRemovedBox.size();
-    for(auto i :game->toBeRemovedBox){
-        out << i.first << i.second;
-    }
-
-    out << game->removeTimerOn;
     //保存道具
     out << game->gadgets.size();
     for(auto i : game->gadgets){
@@ -72,7 +60,6 @@ void SaveSystem::saveGame(LinkGame * game)
                 << game->boxMap[row][col]->boxColor << game->boxMap[row][col]->boarderColor;
         }
     }
-
     std::cout << "Save Game Success" << std::endl;
 }
 
@@ -82,10 +69,21 @@ void SaveSystem::savePlayerData(QDataStream &out, Player *player)
     out << player->playerLeftTopX << player->playerLeftTopY << player->playerWidth << player->playerHeight
         << player->playerSpeed << player->score << player->scoreString;
     out << player->freezeTime << player->dizzyTime;
+    out << player->playerImage;
     out << player->currentSelected.size();
     for(auto i : player->currentSelected){
         out << i.first << i.second;
     }
+
+    out << player->toBeRemovedBox.size();
+    for(auto i :player->toBeRemovedBox){
+        out << i.first << i.second;
+    }
+    out << player->linePath.size();
+    for(auto i :player->linePath){
+        out << i.x() <<i.y();
+    }
+    out << player->removeTimerOn;
 }
 
 LinkGame * SaveSystem::loadGame()
@@ -103,32 +101,14 @@ LinkGame * SaveSystem::loadGame()
 
     in >> game->remainTime >> game->gameType;
     //加载玩家数据
-    loadPlayerData(in,game->player1);
+    loadPlayerData(in,game->player1,game);
     if(game->gameType != 0){
         game->player2 = new Player(0,0,0,0,0,0);
-        loadPlayerData(in,game->player2);
+        loadPlayerData(in,game->player2,game);
     }
     //加载游戏文本
     in >> game->removeText >> game->leftTimeText >> game->summaryText;
-    //加载路径
-    qsizetype linePathSize;
-    in >> linePathSize;
-    for(int i = 0;i < linePathSize;i ++){
-        int x,y;
-        in >> x >> y;
-        game->linePath.push_back(QPoint(x,y));
-    }
-    //加载待消除箱子
-    qsizetype toBeRemovedBoxSize;
-    in >> toBeRemovedBoxSize;
-    for(int i = 0;i < toBeRemovedBoxSize;i ++){
-        int x,y;
-        in >> x >> y;
-        game->toBeRemovedBox.push_back(QPair<int,int>(x,y));
-    }
 
-    //加载道具
-    in >> game->removeTimerOn;
     qsizetype gadgetSize;
     in >> gadgetSize;
     for(int i = 0;i < gadgetSize;i ++){
@@ -169,7 +149,7 @@ LinkGame * SaveSystem::loadGame()
     return game;
 }
 
-void SaveSystem::loadPlayerData(QDataStream &in, Player *player) {
+void SaveSystem::loadPlayerData(QDataStream &in, Player *player,LinkGame * game) {
     //加载玩家数据
     in >> player->playerLeftTopX
     >> player->playerLeftTopY
@@ -178,6 +158,7 @@ void SaveSystem::loadPlayerData(QDataStream &in, Player *player) {
        >> player->playerSpeed
        >> player->score >> player->scoreString;
     in >> player->freezeTime >> player->dizzyTime;
+    in >> player->playerImage;
     qsizetype currentSelectedSize;
     in >> currentSelectedSize;
     for (int i = 0; i < currentSelectedSize; i++) {
@@ -185,4 +166,23 @@ void SaveSystem::loadPlayerData(QDataStream &in, Player *player) {
         in >> x >> y;
         player->currentSelected.push_back(QPair<int, int>(x, y));
     }
+    //加载待消除箱子
+    qsizetype toBeRemovedBoxSize;
+    in >> toBeRemovedBoxSize;
+    for(int i = 0;i < toBeRemovedBoxSize;i ++){
+        int x,y;
+        in >> x >> y;
+        player->toBeRemovedBox.push_back(QPair<int,int>(x,y));
+    }
+
+    qsizetype linePathSize;
+    in >> linePathSize;
+    for(int i = 0;i < linePathSize;i ++){
+        int x,y;
+        in >> x >> y;
+        player->linePath.push_back(QPoint(x,y));
+    }
+    //加载道具
+    in >> player->removeTimerOn;
+    player->game = game;
 }

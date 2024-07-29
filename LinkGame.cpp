@@ -64,7 +64,7 @@ LinkGame:: ~LinkGame()
     for(auto i:gadgets){
         delete i;
     }
-    delete removeBoxTimer;
+
     delete remainTimeTimer;
     delete hintTimeTimer;
     delete flashTimeTimer;
@@ -104,11 +104,6 @@ void LinkGame::initTimers(const int &remainTimeInput)
     gameFps = 60;
     int gameFlashMs = 1000/gameFps; //每秒刷新gameFps次
     gameFlashTimer->start(gameFlashMs); //计时器开始计时
-
-    removeBoxTimer = new QTimer(this);  // 初始化QTimer对象
-    connect(removeBoxTimer, SIGNAL(timeout()), this, SLOT(removeBox()));  // 连接QTimer的timeout信号和槽函数
-    removeTimerOn = false;  // 初始化定时器关闭状态
-    removeBoxTimer->setSingleShot(true);  // 设置定时器为单次触发模式
 
     remainTime = (remainTimeInput == 0) ? 3 * boxRow * boxCol : remainTimeInput; //初始化剩余时间
     remainTimeTimer = new QTimer(); //初始化计时器
@@ -156,7 +151,10 @@ void LinkGame::paintEvent(QPaintEvent *event)
     if(player2 != nullptr){
         player2->drawPlayer(painter);
     }
-    drawLine(painter);
+    player1->drawLine(painter);
+    if(player2 != nullptr){
+        player2->drawLine(painter);
+    }
     for(auto i:gadgets){
         i->drawGarget(painter);
     }
@@ -182,24 +180,7 @@ void LinkGame::paintEvent(QPaintEvent *event)
     }
 }
 
-void LinkGame::drawLine(QPainter &painter)
-{
-    //绘制线路，并且在箱子上标记需要删除的箱子
-    if(linePath.size() == 0)return;
-    painter.setPen(QPen(QColor(255,0,0),5));
-    for(int i = 0; i < linePath.size() - 1; i ++){
-        painter.drawLine(linePath[i],linePath[i+1]);
-    }
-    for(auto i : toBeRemovedBox){
-        boxMap[i.first][i.second]->boxState.boxToBeRemoved = true;
-    }
-    if(!removeTimerOn)
-    {
-        //如果没有开启定时器，就开启定时器
-        removeTimerOn = true;
-        removeBoxTimer->start(200);
-    }
-}
+
 
 void LinkGame::resizeEvent(QResizeEvent *event)
 {
@@ -429,10 +410,10 @@ void LinkGame::initPlayer(int gameTypeInput)
     int playerHeight = (1*playerWidth*this->xScaleRatio)/this->yScaleRatio; //玩家高度
     int initialSpeed = 15; //玩家初始速度
     //初始化玩家1
-    player1 = new Player(playerWidth,300-playerHeight/2,playerWidth,playerHeight,initialSpeed,1);
+    player1 = new Player(playerWidth,300-playerHeight/2,playerWidth,playerHeight,initialSpeed,this,1);
     if(gameTypeInput){
         //如果为双人游戏，初始化玩家2
-        player2 = new Player(800-playerWidth-20,300-playerHeight/2,playerWidth,playerHeight,initialSpeed,2);
+        player2 = new Player(800-playerWidth-20,300-playerHeight/2,playerWidth,playerHeight,initialSpeed,this,2);
     } else {
         player2 = nullptr;
     }
@@ -444,29 +425,29 @@ void LinkGame::keyPressEvent(QKeyEvent *event)
     switch (event->key()) {
         //玩家1的移动
         case Qt::Key_W:
-            player1->playerMove(0,this);
+            player1->playerMove(0);
             break;
         case Qt::Key_S:
-            player1->playerMove(1,this);
+            player1->playerMove(1);
             break;
         case Qt::Key_A:
-            player1->playerMove(2,this);
+            player1->playerMove(2);
             break;
         case Qt::Key_D:
-            player1->playerMove(3,this);
+            player1->playerMove(3);
             break;
         //玩家2的移动
         case Qt::Key_Up:
-            player2->playerMove(0,this);
+            player2->playerMove(0);
             break;
         case Qt::Key_Down:
-            player2->playerMove(1,this);
+            player2->playerMove(1);
             break;
         case Qt::Key_Left:
-            player2->playerMove(2,this);
+            player2->playerMove(2);
             break;
         case Qt::Key_Right:
-            player2->playerMove(3,this);
+            player2->playerMove(3);
             break;
         //暂停游戏
         case Qt::Key_Space:
@@ -480,29 +461,7 @@ void LinkGame::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void LinkGame::removeBox()
-{
-    //0.2s过后消除箱子
-    if(gamePause){
-        return;
-    }
-    //消除箱子
-    for(auto i:toBeRemovedBox){
-        boxMap[i.first][i.second]->boxState.boxRemoved = true;
-        remainBoxNumber--;
-    }
-    toBeRemovedBox.clear();
-    //清除玩家选中的箱子
-    player1->currentSelected.clear();
-    if(player2 != nullptr){
-        player2->currentSelected.clear();
-    }
-    //清除线路
-    linePath.clear();
-    //关闭计时器，检查游戏是否结束
-    removeTimerOn = false;
-    checkGameEnd();
-}
+
 
 void LinkGame::checkGameEnd()
 {
@@ -729,7 +688,7 @@ void LinkGame::mousePressEvent(QMouseEvent *event)
     int x = event->x()/xScaleRatio;
     int y = event->y()/yScaleRatio;
     //玩家1的鼠标点击事件
-    player1->playerMove(-5,this,x,y);
+    player1->playerMove(-5,x,y);
 }
 
 void LinkGame::setGamePause()
@@ -772,14 +731,24 @@ void LinkGame::gameUpdate()
 {
     //游戏更新
     //检查玩家的临近箱子情况
-    player1->clearClose(this);
-    player1->checkClose(this);
+    clearClose();
+    player1->checkClose();
     if(player2 != nullptr){
-        player2->clearClose(this);
-        player2->checkClose(this);
+        player2->checkClose();
     }
     if(gameEnd || gamePause)return;
     generateGadget(); //生成道具
     hintBox(); //提示箱子
 }
 
+void LinkGame::clearClose()
+{
+    //清除玩家原先临近方块的临近情况
+    for(int i = 0;i < boxRow; i ++)
+    {
+        for(int j = 0;j < boxCol; j ++)
+        {
+            boxMap[i][j]->boxState.closeBox = false;
+        }
+    }
+}

@@ -37,7 +37,6 @@ public:
     void shuffleMap(); //重排地图
     void setGamePause(); //设置游戏暂停或继续
 public slots:
-    void removeBox(); //消除方块
     void updateRemainTime(); //更新剩余时间
     void updateHintTime(); //更新hint时间
     void updateFlashTime(); //更新flash时间
@@ -59,7 +58,8 @@ private:
     void initBoxType(); //初始化箱子类型
     void initPlayer(int gameTypeInput); //初始化玩家
     void gameUpdate(); //游戏更新
-    void drawLine(QPainter & painter); //绘制线
+    void clearClose(); //消除相邻的两个方块
+
     void checkGameEnd(); //检查游戏是否结束
     void generateGadget(); //生成道具
     void hintBox(); //提示箱子
@@ -90,11 +90,6 @@ private:
     QString summaryText; //总结字符串
     int types; //箱子类型数
 
-    QVector<QPoint> linePath; //路径
-    QVector<QPair<int,int>> toBeRemovedBox; //待消除箱子
-    bool removeTimerOn; //消除计时器是否开启
-
-    QTimer * removeBoxTimer; //消除计时器
     QTimer * remainTimeTimer; //剩余时间计时器
     QTimer * flashTimeTimer; //flash计时器
     QTimer * hintTimeTimer; //hint计时器

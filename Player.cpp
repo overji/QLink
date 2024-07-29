@@ -10,7 +10,7 @@
 #include "SpecialAlgorithm.h"
 
 Player::Player(const int &playerLeftTopXInput, const int &playerLeftTopYInput, const int &playerWidthInput,
-               const int &playerHeightInput, const int &playerSpeedInput,const int& playerSkin)
+               const int &playerHeightInput, const int &playerSpeedInput,LinkGame * game,const int& playerSkin)
 {
     //初始化玩家的各项参数
     this->playerHeight = playerHeightInput;
@@ -28,15 +28,22 @@ Player::Player(const int &playerLeftTopXInput, const int &playerLeftTopYInput, c
     } else {
         this->playerImage = QPixmap("images/PlayerImages/1b49f5bd6f8f4d03052778304564cc38.png");
     }
+
+    removeBoxTimer = new QTimer(this);  // 初始化QTimer对象
+    this->game = game;
+    connect(removeBoxTimer, SIGNAL(timeout()), this, SLOT(removeBox()));  // 连接QTimer的timeout信号和槽函数
+    removeTimerOn = false;  // 初始化定时器关闭状态
+    removeBoxTimer->setSingleShot(true);  // 设置定时器为单次触发模式
 }
 
 Player::~Player()
 {
     //析构函数
     this->currentSelected.clear();
+    delete removeBoxTimer;
 }
 
-void Player::leftMove(LinkGame * game)
+void Player::leftMove()
 {
     //玩家向左移动
     if(playerLeftTopX >= 0)
@@ -103,7 +110,7 @@ void Player::leftMove(LinkGame * game)
     }
 }
 
-void Player::rightMove(LinkGame * game)
+void Player::rightMove()
 {
     //玩家向右移动
     if(playerLeftTopX + playerWidth <= 800)
@@ -163,7 +170,7 @@ void Player::rightMove(LinkGame * game)
     }
 }
 
-void Player::upMove(LinkGame * game)
+void Player::upMove()
 {
     //玩家向上移动
     if(playerLeftTopY >= 0)
@@ -223,7 +230,7 @@ void Player::upMove(LinkGame * game)
     }
 }
 
-void Player::downMove(LinkGame * game)
+void Player::downMove()
 {
     //玩家向下移动
     if((playerLeftTopY + playerHeight ) <= 600)
@@ -314,7 +321,7 @@ void Player::drawPlayer(QPainter &painter)
     painter.restore();
 }
 
-void Player::playerMove(const int &direction,LinkGame * game,const int &xLoc,const int &yLoc)
+void Player::playerMove(const int &direction,const int &xLoc,const int &yLoc)
 {
     //玩家移动
     if(game->gamePause){
@@ -346,16 +353,16 @@ void Player::playerMove(const int &direction,LinkGame * game,const int &xLoc,con
         //正常移动
         switch (direction) {
             case 0:
-                upMove(game);
+                upMove();
                 break;
             case 1:
-                downMove(game);
+                downMove();
                 break;
             case 2:
-                leftMove(game);
+                leftMove();
                 break;
             case 3:
-                rightMove(game);
+                rightMove();
                 break;
             default:
                 break;
@@ -364,16 +371,16 @@ void Player::playerMove(const int &direction,LinkGame * game,const int &xLoc,con
         //眩晕时，方向相反
         switch (direction) {
             case 0:
-                downMove(game);
+                downMove();
                 break;
             case 1:
-                upMove(game);
+                upMove();
                 break;
             case 2:
-                rightMove(game);
+                rightMove();
                 break;
             case 3:
-                leftMove(game);
+                leftMove();
                 break;
             default:
                 break;
@@ -382,55 +389,43 @@ void Player::playerMove(const int &direction,LinkGame * game,const int &xLoc,con
 
     if(direction == -5){
         //flash移动
-        flashMove(game,xLoc,yLoc);
+        flashMove(xLoc,yLoc);
     }
     //检查是否有相邻的两个方块可以消除
     this->scoreString = "分数: " + QString::number(score);
-    checkGadgetHit(game);
+    checkGadgetHit();
 }
 
-void Player::checkClose(LinkGame * game)
+void Player::checkClose()
 {
     //检查是否有相邻的方块
     int currentLeftX = specialDiv((playerLeftTopX - playerSpeed - game->passageWidth),game->boxWidth);
     int currentTopY = specialDiv((playerLeftTopY - playerSpeed - game->passageHeight),game->boxHeight);
     int currentRightX = specialDiv((playerLeftTopX + playerWidth - game->passageWidth + playerSpeed),game->boxWidth);
     int currentBottomY = specialDiv((playerLeftTopY + playerHeight - game->passageHeight + playerSpeed),game->boxHeight);
-    if(checkColIndexValid(game, currentLeftX) && checkRowIndexValid(game, currentTopY))
+    if(checkColIndexValid( currentLeftX) && checkRowIndexValid( currentTopY))
     {
         //左上方块
         game->boxMap[currentTopY][currentLeftX]->boxState.closeBox = true;
     }
-    if(checkColIndexValid(game, currentLeftX) && checkRowIndexValid(game, currentBottomY))
+    if(checkColIndexValid( currentLeftX) && checkRowIndexValid( currentBottomY))
     {
         //左下方块
         game->boxMap[currentBottomY][currentLeftX]->boxState.closeBox = true;
     }
-    if(checkColIndexValid(game, currentRightX) && checkRowIndexValid(game, currentTopY))
+    if(checkColIndexValid( currentRightX) && checkRowIndexValid( currentTopY))
     {
         //右上方块
         game->boxMap[currentTopY][currentRightX]->boxState.closeBox = true;
     }
-    if(checkColIndexValid(game, currentRightX) && checkRowIndexValid(game, currentBottomY))
+    if(checkColIndexValid( currentRightX) && checkRowIndexValid( currentBottomY))
     {
         //右下方块
         game->boxMap[currentBottomY][currentRightX]->boxState.closeBox = true;
     }
 }
 
-void Player::clearClose(LinkGame *game)
-{
-    //清除玩家原先临近方块的临近情况
-    for(int i = 0;i < game->boxRow; i ++)
-    {
-        for(int j = 0;j < game->boxCol; j ++)
-        {
-            game->boxMap[i][j]->boxState.closeBox = false;
-        }
-    }
-}
-
-void Player::clearSelected(LinkGame *game)
+void Player::clearSelected()
 {
     //清除玩家选中的方块
     for(int i = 0;i < game->boxRow; i ++)
@@ -442,32 +437,32 @@ void Player::clearSelected(LinkGame *game)
     }
 }
 
-bool Player::checkColIndexValid(const LinkGame *game, const int &xIndex)
+bool Player::checkColIndexValid(const int &xIndex)
 {
     //检查列索引是否合法
     return xIndex >= 0 && xIndex < game->boxCol;
 }
 
-bool Player::checkRowIndexValid(const LinkGame *game, const int &yIndex)
+bool Player::checkRowIndexValid(const int &yIndex)
 {
     //检查行索引是否合法
     return yIndex >= 0 && yIndex < game->boxRow;
 }
 
-void Player::checkGadgetHit(LinkGame *game)
+void Player::checkGadgetHit()
 {
     //检查玩家是否碰到道具
     for(auto gadget:game->gadgets){
         if(gadget->leftTopX <= playerLeftTopX + playerWidth && gadget->leftTopX + gadget->gadgetWidth >= playerLeftTopX &&
            gadget->leftTopY <= playerLeftTopY + playerHeight && gadget->leftTopY + gadget->gadgetHeight >= playerLeftTopY){
             if(game->gameType == 0){
-                gadget->singleGameGadgetEffect(game, this);
+                gadget->singleGameGadgetEffect(game,this);
             } else {
                 //双人游戏时，判断玩家1和玩家2，并且给对方加上效果
                 if(this == game->player1){
                     gadget->doubleGameGadgetEffect(game, game->player2);
                 } else {
-                    gadget->doubleGameGadgetEffect(game, game->player1);
+                    gadget->doubleGameGadgetEffect(game,game->player1);
                 }
             }
             game->gadgets.removeOne(gadget);
@@ -476,29 +471,29 @@ void Player::checkGadgetHit(LinkGame *game)
     }
 }
 
-void Player::flashMove(LinkGame *game, int xLoc, int yLoc)
+void Player::flashMove(int xLoc, int yLoc)
 {
     //判断是否点击到了方块上
     int topRowLoc = specialDiv(yLoc - game->passageHeight - playerHeight / 2 ,game->boxWidth);
     int bottomRowLoc = specialDiv(yLoc - game->passageHeight + playerHeight / 2,game->boxWidth);
     int leftColLoc = specialDiv(xLoc - game->passageWidth - playerWidth / 2,game->boxWidth);
     int rightColLoc = specialDiv(xLoc - game->passageWidth + playerWidth / 2,game->boxWidth);
-    if(checkColIndexValid(game,leftColLoc) && checkRowIndexValid(game,topRowLoc) && ! game->boxMap[topRowLoc][leftColLoc]->boxState.boxRemoved){
+    if(checkColIndexValid(leftColLoc) && checkRowIndexValid(topRowLoc) && ! game->boxMap[topRowLoc][leftColLoc]->boxState.boxRemoved){
         //左上角有箱子
         xLoc += playerWidth / 2;
         yLoc += playerWidth / 2;
     }
-    if(checkColIndexValid(game,rightColLoc) && checkRowIndexValid(game,topRowLoc) && ! game->boxMap[topRowLoc][rightColLoc]->boxState.boxRemoved){
+    if(checkColIndexValid(rightColLoc) && checkRowIndexValid(topRowLoc) && ! game->boxMap[topRowLoc][rightColLoc]->boxState.boxRemoved){
         //右上角有箱子
         xLoc -= playerWidth / 2;
         yLoc += playerWidth / 2;
     }
-    if(checkColIndexValid(game,leftColLoc) && checkRowIndexValid(game,bottomRowLoc) && ! game->boxMap[bottomRowLoc][leftColLoc]->boxState.boxRemoved){
+    if(checkColIndexValid(leftColLoc) && checkRowIndexValid(bottomRowLoc) && ! game->boxMap[bottomRowLoc][leftColLoc]->boxState.boxRemoved){
         //左下角有箱子
         xLoc += playerWidth / 2;
         yLoc -= playerWidth / 2;
     }
-    if(checkColIndexValid(game,rightColLoc) && checkRowIndexValid(game,bottomRowLoc) && ! game->boxMap[bottomRowLoc][rightColLoc]->boxState.boxRemoved){
+    if(checkColIndexValid(rightColLoc) && checkRowIndexValid(bottomRowLoc) && ! game->boxMap[bottomRowLoc][rightColLoc]->boxState.boxRemoved){
         //右下角有箱子
         xLoc -= playerWidth / 2;
         yLoc -= playerWidth / 2;
@@ -506,17 +501,17 @@ void Player::flashMove(LinkGame *game, int xLoc, int yLoc)
     int rowLoc = specialDiv(yLoc - game->passageHeight,game->boxHeight);
     int colLoc = specialDiv(xLoc - game->passageWidth,game->boxWidth);
     //判断是否点击到了箱子上
-    if(checkColIndexValid(game,colLoc) && checkRowIndexValid(game,rowLoc)){
+    if(checkColIndexValid(colLoc) && checkRowIndexValid(rowLoc)){
         if(game->boxMap[rowLoc][colLoc]->boxState.boxRemoved){
             //箱子已被清除
             this->playerLeftTopY = yLoc - (this->playerWidth / 2);
             this->playerLeftTopX = xLoc - (this->playerHeight / 2);
         } else {
             //点击到了箱子上，检测是否在箱子中或箱子边缘
-            if(flashMoveCheckEdge(game,rowLoc,colLoc)){
+            if(flashMoveCheckEdge(rowLoc,colLoc)){
                 return;
             }
-            if(flashMoveCheckCenter(game,rowLoc,colLoc)){
+            if(flashMoveCheckCenter(rowLoc,colLoc)){
                 return;
             }
         }
@@ -528,7 +523,7 @@ void Player::flashMove(LinkGame *game, int xLoc, int yLoc)
     }
 }
 
-bool  Player::flashMoveCheckEdge(LinkGame *game, int rowLoc, int colLoc)
+bool  Player::flashMoveCheckEdge(int rowLoc, int colLoc)
 {
     //检查flash移动是否处于箱子边缘处，如果是就把玩家放到箱子边缘，并且选中箱子
     if(rowLoc == 0){
@@ -570,10 +565,10 @@ bool  Player::flashMoveCheckEdge(LinkGame *game, int rowLoc, int colLoc)
     return false;
 }
 
-bool Player::flashMoveCheckCenter(LinkGame *game, int rowLoc,int colLoc)
+bool Player::flashMoveCheckCenter(int rowLoc,int colLoc)
 {
     //检查flash移动是否处于箱子中间，并且点击的箱子周边是否还有空位，如果是就把玩家放到箱子边缘，并且选中箱子
-    if(checkColIndexValid(game,colLoc-1) && checkRowIndexValid(game,rowLoc)) {
+    if(checkColIndexValid(colLoc-1) && checkRowIndexValid(rowLoc)) {
         //左边有空位
         if(game->boxMap[rowLoc][colLoc - 1]->boxState.boxRemoved){
             this->playerLeftTopY = game->boxMap[rowLoc][colLoc - 1]->LeftTopY + (game->boxHeight / 2) - (this->playerWidth / 2);
@@ -584,7 +579,7 @@ bool Player::flashMoveCheckCenter(LinkGame *game, int rowLoc,int colLoc)
             return true;
         }
     }
-    if(checkColIndexValid(game,colLoc+1) && checkRowIndexValid(game,rowLoc)) {
+    if(checkColIndexValid(colLoc+1) && checkRowIndexValid(rowLoc)) {
         //右边有空位
         if(game->boxMap[rowLoc][colLoc + 1]->boxState.boxRemoved){
             this->playerLeftTopY = game->boxMap[rowLoc][colLoc + 1]->LeftTopY + (game->boxHeight / 2) - (this->playerWidth / 2);
@@ -595,7 +590,7 @@ bool Player::flashMoveCheckCenter(LinkGame *game, int rowLoc,int colLoc)
             return true;
         }
     }
-    if(checkColIndexValid(game,colLoc) && checkRowIndexValid(game,rowLoc - 1)) {
+    if(checkColIndexValid(colLoc) && checkRowIndexValid(rowLoc - 1)) {
         //上面有空位
         if(game->boxMap[rowLoc - 1][colLoc]->boxState.boxRemoved){
             this->playerLeftTopY = game->boxMap[rowLoc - 1][colLoc]->LeftTopY + game->boxHeight - this->playerHeight - 2;
@@ -606,7 +601,7 @@ bool Player::flashMoveCheckCenter(LinkGame *game, int rowLoc,int colLoc)
             return true;
         }
     }
-    if(checkColIndexValid(game,colLoc) && checkRowIndexValid(game,rowLoc + 1)) {
+    if(checkColIndexValid(colLoc) && checkRowIndexValid(rowLoc + 1)) {
         //下面有空位
         if(game->boxMap[rowLoc + 1][colLoc]->boxState.boxRemoved){
             this->playerLeftTopY = game->boxMap[rowLoc + 1][colLoc]->LeftTopY + 2;
@@ -618,4 +613,44 @@ bool Player::flashMoveCheckCenter(LinkGame *game, int rowLoc,int colLoc)
         }
     }
     return false;
+}
+
+void Player::drawLine(QPainter &painter)
+{
+    //绘制线路，并且在箱子上标记需要删除的箱子
+    if(linePath.empty())return;
+    painter.setPen(QPen(QColor(255,0,0),5));
+    for(int i = 0; i < linePath.size() - 1; i ++){
+        painter.drawLine(linePath[i],linePath[i+1]);
+    }
+    for(auto i : toBeRemovedBox){
+        game->boxMap[i.first][i.second]->boxState.boxToBeRemoved = true;
+    }
+    if(!removeTimerOn)
+    {
+        //如果没有开启定时器，就开启定时器
+        removeTimerOn = true;
+        removeBoxTimer->start(200);
+    }
+}
+
+void Player::removeBox()
+{
+    //0.2s过后消除箱子
+    if(game->gamePause){
+        return;
+    }
+    //消除箱子
+    for(auto i:toBeRemovedBox){
+        game->boxMap[i.first][i.second]->boxState.boxRemoved = true;
+        game->remainBoxNumber--;
+    }
+    toBeRemovedBox.clear();
+    //清除玩家选中的箱子
+    currentSelected.clear();
+    //清除线路
+    linePath.clear();
+    //关闭计时器，检查游戏是否结束
+    removeTimerOn = false;
+    game->checkGameEnd();
 }

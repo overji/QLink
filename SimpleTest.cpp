@@ -12,14 +12,14 @@ void SimpleTest::noTwistHorizontalCorrectTest()
 {
     //测试无折线横向无阻挡，应当正确消除方块
     LinkGame * linkGame = new LinkGame(6,5);
-    Player * player = new Player(0,0,0,0,0,1);
+    Player * player = new Player(0,0,0,0,0,linkGame,1);
     linkGame->boxMap[0][0]->typeOfBox = 1;
     linkGame->boxMap[0][1]->typeOfBox = 1;
     player->currentSelected.push_back(QPair<int,int>(0,0));
     player->currentSelected.push_back(QPair<int,int>(0,1));
     SelectChecker::checkSelected(linkGame,player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[0][0]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[0][1]->boxState.boxToBeRemoved == true);
@@ -31,7 +31,7 @@ void SimpleTest::noTwistVerticalCorrectTest()
 {
     //测试无折线纵向无阻挡，应当正确消除方块
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0);
+    Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->boxMap[0][0]->typeOfBox = 1;
     linkGame->boxMap[1][0]->typeOfBox = 1;
     player->currentSelected.push_back(QPair<int,int>(0,0));
@@ -39,7 +39,7 @@ void SimpleTest::noTwistVerticalCorrectTest()
     QVERIFY(player->currentSelected.size() == 2);
     SelectChecker::checkSelected(linkGame,player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[0][0]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[1][0]->boxState.boxToBeRemoved == true);
@@ -51,14 +51,14 @@ void SimpleTest::noTwistHorizontalWrongTest()
 {
     //测试无折线横向有阻挡，应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0);
+    Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->boxMap[1][1]->typeOfBox = 1;
     linkGame->boxMap[1][3]->typeOfBox = 1;
     player->currentSelected.push_back(QPair<int,int>(1,1));
     player->currentSelected.push_back(QPair<int,int>(1,3));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[1][3]->boxState.boxToBeRemoved == false);
@@ -70,14 +70,14 @@ void SimpleTest::noTwistVerticalWrongTest()
 {
     //测试无折线纵向有阻挡，应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0);
+    Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->boxMap[1][1]->typeOfBox = 1;
     linkGame->boxMap[3][1]->typeOfBox = 1;
     player->currentSelected.push_back(QPair<int,int>(1,1));
     player->currentSelected.push_back(QPair<int,int>(3,1));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[3][1]->boxState.boxToBeRemoved == false);
@@ -89,7 +89,7 @@ void SimpleTest::oneTwistCorrectTest()
 {
     //测试一折线正确消除方块
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0);
+    Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->boxMap[1][1]->typeOfBox = 1;
     linkGame->boxMap[2][2]->typeOfBox = 1;
     linkGame->boxMap[2][1]->boxState.boxRemoved = true;
@@ -97,7 +97,7 @@ void SimpleTest::oneTwistCorrectTest()
     player->currentSelected.push_back(QPair<int,int>( 2,2));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[2][2]->boxState.boxToBeRemoved == true);
@@ -109,7 +109,7 @@ void SimpleTest::oneTwistCorrectTest2()
 {
     //测试一折线正确消除方块
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0);
+    Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->boxMap[1][1]->typeOfBox = 1;
     linkGame->boxMap[2][2]->typeOfBox = 1;
     linkGame->boxMap[1][2]->boxState.boxRemoved = true;
@@ -117,7 +117,7 @@ void SimpleTest::oneTwistCorrectTest2()
     player->currentSelected.push_back(QPair<int,int>( 2,2));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[2][2]->boxState.boxToBeRemoved == true);
@@ -129,14 +129,14 @@ void SimpleTest::oneTwistWrongTest()
 {
     //测试一折线应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0);
+    Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->boxMap[1][1]->typeOfBox = 1;
     linkGame->boxMap[2][2]->typeOfBox = 1;
     player->currentSelected.push_back(QPair<int,int>(1,1));
     player->currentSelected.push_back(QPair<int,int>( 2,2));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[2][2]->boxState.boxToBeRemoved == false);
@@ -148,7 +148,7 @@ void SimpleTest::oneTwistWithOneLineTest()
 {
     //测试一折线，一条线较长，应当正确消除方块
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0);
+    Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->boxMap[1][1]->typeOfBox = 1;
     linkGame->boxMap[2][3]->typeOfBox = 1;
     linkGame->boxMap[2][1]->boxState.boxRemoved = true;
@@ -157,7 +157,7 @@ void SimpleTest::oneTwistWithOneLineTest()
     player->currentSelected.push_back(QPair<int,int>( 2,3));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[2][3]->boxState.boxToBeRemoved == true);
@@ -169,7 +169,7 @@ void SimpleTest::oneTwistWithOneLineBlockedTest()
 {
     //测试一折线，一条线较长且存在阻挡，应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0);
+    Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->boxMap[1][1]->typeOfBox = 1;
     linkGame->boxMap[2][3]->typeOfBox = 1;
     linkGame->boxMap[2][1]->boxState.boxRemoved = true;
@@ -177,7 +177,7 @@ void SimpleTest::oneTwistWithOneLineBlockedTest()
     player->currentSelected.push_back(QPair<int,int>( 2,3));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[2][3]->boxState.boxToBeRemoved == false);
@@ -189,14 +189,14 @@ void SimpleTest::twoTwistCorrectTest()
 {
     //测试两折线正确消除方块
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0);
+    Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->boxMap[0][0]->typeOfBox = 1;
     linkGame->boxMap[0][2]->typeOfBox = 1;
     player->currentSelected.push_back(QPair<int,int>(0,0));
     player->currentSelected.push_back(QPair<int,int>(0,2));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[0][0]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[0][2]->boxState.boxToBeRemoved == true);
@@ -208,7 +208,7 @@ void SimpleTest::twoTwistCorrectTest2()
 {
     //测试两折线正确消除方块
     LinkGame * linkGame = new LinkGame(6,5);
-    Player * player = new Player(0,0,0,0,0);
+    Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->boxMap[1][1]->typeOfBox = 1;
     linkGame->boxMap[4][3]->typeOfBox = 1;
     linkGame->boxMap[2][1]->boxState.boxRemoved = true;
@@ -219,7 +219,7 @@ void SimpleTest::twoTwistCorrectTest2()
     player->currentSelected.push_back(QPair<int,int>(4,3));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[4][3]->boxState.boxToBeRemoved == true);
@@ -231,14 +231,14 @@ void SimpleTest::threeTwistWrongTest1()
 {
     //测试三折线应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0);
+    Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->boxMap[1][0]->typeOfBox = 1;
     linkGame->boxMap[1][4]->typeOfBox = 1;
     player->currentSelected.push_back(QPair<int,int>(1,0));
     player->currentSelected.push_back(QPair<int,int>(1,4));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][0]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[1][4]->boxState.boxToBeRemoved == false);
@@ -250,14 +250,14 @@ void SimpleTest::threeTwistWrongTest2()
 {
     //测试三折线应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0);
+    Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->boxMap[0][1]->typeOfBox = 1;
     linkGame->boxMap[3][2]->typeOfBox = 1;
     player->currentSelected.push_back(QPair<int,int>(0,1));
     player->currentSelected.push_back(QPair<int,int>(3,2));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[0][1]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[3][2]->boxState.boxToBeRemoved == false);
@@ -269,14 +269,14 @@ void SimpleTest::differentTypeWrongTest()
 {
     //测试不同类型的方块应当不消除
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0,1);
+    Player * player = new Player(0,0,0,0,0,linkGame,1);
     linkGame->boxMap[0][0]->typeOfBox = 1;
     linkGame->boxMap[0][1]->typeOfBox = 2;
     player->currentSelected.push_back(QPair<int,int>(0,0));
     player->currentSelected.push_back(QPair<int,int>(0,1));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[0][0]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[0][1]->boxState.boxToBeRemoved == false);
@@ -288,14 +288,14 @@ void SimpleTest::popSameBoxTest()
 {
     //测试相同方块只选择一次
     LinkGame * linkGame = new LinkGame(4,5);
-    Player * player = new Player(0,0,0,0,0,1);
+    Player * player = new Player(0,0,0,0,0,linkGame,1);
     linkGame->boxMap[0][0]->typeOfBox = 1;
     linkGame->boxMap[0][0]->typeOfBox = 1;
     player->currentSelected.push_back(QPair<int,int>(0,0));
     player->currentSelected.push_back(QPair<int,int>(0,0));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 1);
     QVERIFY(linkGame->boxMap[0][0]->boxState.boxToBeRemoved == false);
     delete linkGame;
@@ -306,14 +306,14 @@ void SimpleTest::removeSelectedTest()
 {
     //测试消除选中的方块
     LinkGame * linkGame = new LinkGame(6,5);
-    Player * player = new Player(0,0,0,0,0,1);
+    Player * player = new Player(0,0,0,0,0,linkGame,1);
     linkGame->boxMap[0][0]->typeOfBox = 1;
     linkGame->boxMap[1][1]->typeOfBox = 1;
     player->currentSelected.push_back(QPair<int,int>(0,0));
     player->currentSelected.push_back(QPair<int,int>(1,1));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[0][0]->boxState.boxToBeRemoved == false);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == false);
@@ -327,7 +327,7 @@ void SimpleTest::reversedBoxSequenceTest()
 {
     //测试从另一个先后顺序消除方块
     LinkGame * linkGame = new LinkGame(6,5);
-    Player * player = new Player(0,0,0,0,0,1);
+    Player * player = new Player(0,0,0,0,0,linkGame,1);
     linkGame->boxMap[1][1]->typeOfBox = 1;
     linkGame->boxMap[4][3]->typeOfBox = 1;
     linkGame->boxMap[2][1]->boxState.boxRemoved = true;
@@ -338,7 +338,7 @@ void SimpleTest::reversedBoxSequenceTest()
     player->currentSelected.push_back(QPair<int,int>(1,1));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
-    linkGame->drawLine(painter);
+    player->drawLine(painter,linkGame);
     QVERIFY(player->currentSelected.size() == 0);
     QVERIFY(linkGame->boxMap[1][1]->boxState.boxToBeRemoved == true);
     QVERIFY(linkGame->boxMap[4][3]->boxState.boxToBeRemoved == true);
