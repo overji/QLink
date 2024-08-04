@@ -451,10 +451,10 @@ void LinkGame::keyPressEvent(QKeyEvent *event)
             break;
         //暂停游戏
         case Qt::Key_Space:
-            setGamePause(!gamePause);
+            setGamePauseNoValue();
             break;
         case Qt::Key_Escape:
-            setGamePause(!gamePause);
+            setGamePauseNoValue();
             break;
         default:
             break;
@@ -693,10 +693,10 @@ void LinkGame::mousePressEvent(QMouseEvent *event)
 
 void LinkGame::setGamePauseNoValue() {
     //设置游戏暂停
-    if(!gamePause){
+    if(gamePause){
         //如果游戏被重新开启，就清除暂停页面
         QLayout *layout = this->layout();
-        if (layout)
+        if (layout != nullptr)
         {
             QLayoutItem *item;
             while ((item = layout->takeAt(0)) != nullptr)
@@ -706,10 +706,10 @@ void LinkGame::setGamePauseNoValue() {
             }
             delete layout;
         }
-        gamePause = true;
+        gamePause = false;
     }
     else{
-        gamePause = false;
+        gamePause = true;
     }
 }
 
