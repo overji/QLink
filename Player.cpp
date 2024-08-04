@@ -453,8 +453,8 @@ void Player::checkGadgetHit()
 {
     //检查玩家是否碰到道具
     for(auto gadget:game->gadgets){
-        if(gadget->leftTopX <= playerLeftTopX + playerWidth && gadget->leftTopX + gadget->gadgetWidth >= playerLeftTopX &&
-           gadget->leftTopY <= playerLeftTopY + playerHeight && gadget->leftTopY + gadget->gadgetHeight >= playerLeftTopY){
+        if(gadget->getLeftTopX()<= playerLeftTopX + playerWidth && gadget->getLeftTopX()+ gadget->getGadgetWidth() >= playerLeftTopX &&
+           gadget->getLeftTopY() <= playerLeftTopY + playerHeight && gadget->getLeftTopY() + gadget->getGadgetHeight() >= playerLeftTopY){
             if(game->gameType == 0){
                 gadget->singleGameGadgetEffect(game,this);
             } else {

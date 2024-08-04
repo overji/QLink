@@ -39,7 +39,9 @@ void SaveSystem::saveGame(LinkGame * game)
     //保存道具
     out << game->gadgets.size();
     for(auto i : game->gadgets){
-        out << i->gadgetWidth <<  i->gadgetHeight << i->leftTopX << i->leftTopY << i->gargetType << i->gadgetMap;
+//        out << i->getGadgetWidth() <<  i->gadgetHeight << i->leftTopX << i->leftTopY << i->gargetType << i->gadgetMap;
+        out << i->getGadgetWidth() <<  i->getGadgetHeight() << i->getLeftTopX() << i->getLeftTopY() << i->gargetType;
+        out << i->getGadgetMap();
     }
     out << game->maxGadgetNumber << game->gadgetSummonPossibility;
     //保存道具相关计时情况
@@ -122,12 +124,14 @@ LinkGame * SaveSystem::loadGame()
         int gadgetWidth,gadgetHeight,leftTopX,leftTopY,gargetType;
         in >> gadgetWidth >> gadgetHeight >> leftTopX >> leftTopY >> gargetType;
         Gadget * gadget = new Gadget(game);
-        gadget->leftTopX = leftTopX;
-        gadget->leftTopY = leftTopY;
-        gadget->gadgetWidth = gadgetWidth;
-        gadget->gadgetHeight = gadgetHeight;
+        gadget->setLeftTopX(leftTopX);
+        gadget->setLeftTopY(leftTopY);
+        gadget->setGadgetWidth(gadgetWidth);
+        gadget->setGadgetHeight(gadgetHeight);
         gadget->gargetType = gargetType;
-        in >> gadget->gadgetMap;
+        QPixmap gadgetMap;
+        in >> gadgetMap;
+        gadget->setGadgetMap(gadgetMap);
         game->gadgets.push_back(gadget);
     }
     in >> game->maxGadgetNumber >> game->gadgetSummonPossibility;

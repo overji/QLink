@@ -14,10 +14,26 @@ class SaveSystem;
 class Gadget: public QWidget
 {
     Q_OBJECT
-    //设置为友元类，方便访问LinkGame的私有成员
-    friend class LinkGame;
-    friend class Player;
-    friend class SaveSystem;
+public:
+    // Getter and setter for leftTopX
+    [[nodiscard]] int getLeftTopX() const { return leftTopX; }
+    void setLeftTopX(int value) { leftTopX = value; }
+
+    // Getter and setter for leftTopY
+    [[nodiscard]] int getLeftTopY() const { return leftTopY; }
+    void setLeftTopY(int value) { leftTopY = value; }
+
+    // Getter and setter for gadgetWidth
+    [[nodiscard]] int getGadgetWidth() const { return gadgetWidth; }
+    void setGadgetWidth(int value) { gadgetWidth = value; }
+
+    // Getter and setter for gadgetHeight
+    [[nodiscard]] int getGadgetHeight() const { return gadgetHeight; }
+    void setGadgetHeight(int value) { gadgetHeight = value; }
+
+    // Getter and setter for gadgetMap
+    [[nodiscard]] QPixmap getGadgetMap() const { return gadgetMap; }
+    void setGadgetMap(QPixmap value) { gadgetMap = value; }
 public:
     void drawGarget(QPainter & painter); //绘制道具
     explicit Gadget(LinkGame * game, int gameType = 1); //构造函数
