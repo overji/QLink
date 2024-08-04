@@ -23,50 +23,49 @@ void SaveSystem::saveGame(LinkGame * game)
     saveFile.open(QIODevice::WriteOnly);
     QDataStream out(&saveFile);
     // 保存游戏数据
-    out << game->boxRow << game->boxCol;
-    out << game->gameFps << game->remainBoxNumber << game->boxWidth << game->boxHeight <<  game->passageWidth <<  game->passageHeight;
-    out << game->xScaleRatio << game->yScaleRatio;
-    out << game->gameEnd << game->gamePause << game->noSolution;
+    out << game->getBoxRow() << game->getBoxCol();
+    out << game->getGameFps() << game->getRemainBoxNumber() << game->getBoxWidth() << game->getBoxHeight() << game->getPassageWidth() << game->getPassageHeight();
+    out << game->getXScaleRatio() << game->getYScaleRatio();
+    out << game->isGameEnd() << game->isGamePause() << game->isNoSolution();
 
-    out << game->remainTime << game->gameType;
-    //保存玩家数据
-    savePlayerData(out,game->player1);
-    if(game->gameType != 0){
-        savePlayerData(out,game->player2);
+    out << game->getRemainTime() << game->getGameType();
+//保存玩家数据
+    savePlayerData(out,game->getPlayer1());
+    if(game->getGameType() != 0){
+        savePlayerData(out,game->getPlayer2());
     }
-    //保存游戏文本
-    out << game->removeText << game->leftTimeText << game->summaryText;
-    //保存道具
-    out << game->gadgets.size();
-    for(auto i : game->gadgets){
-//        out << i->getGadgetWidth() <<  i->gadgetHeight << i->leftTopX << i->leftTopY << i->gargetType << i->gadgetMap;
+//保存游戏文本
+    out << game->getRemoveText() << game->getLeftTimeText() << game->getSummaryText();
+//保存道具
+    out << game->getGadgets().size();
+    for(auto i : game->getGadgets()){
         out << i->getGadgetWidth() <<  i->getGadgetHeight() << i->getLeftTopX() << i->getLeftTopY() << i->gargetType;
         out << i->getGadgetMap();
     }
-    out << game->maxGadgetNumber << game->gadgetSummonPossibility;
-    //保存道具相关计时情况
-    out << game->hintTime << game->hintTimerOn;
-    out << game->hintedBoxes.size();
-    for(auto i : game->hintedBoxes){
+    out << game->getMaxGadgetNumber() << game->getGadgetSummonPossibility();
+//保存道具相关计时情况
+    out << game->getHintTime() << game->isHintTimerOn();
+    out << game->getHintedBoxes().size();
+    for(auto i : game->getHintedBoxes()){
         out << i.first << i.second;
     }
-    out << game->flashTime << game->flashTimerOn;
-    out << game->dizzyTimerOn << game->freezeTimerOn;
+    out << game->getFlashTime() << game->isFlashTimerOn();
+    out << game->isDizzyTimerOn() << game->isFreezeTimerOn();
 
-    //保存所有箱子
-    for(int row = 0;row < game->boxRow;row ++){
-        for(int col = 0;col < game->boxCol;col ++){
-            out << game->boxMap[row][col]->getBoxState().boxRemoved
-                << game->boxMap[row][col]->getBoxState().boxSelected
-                << game->boxMap[row][col]->getBoxState().closeBox
-                << game->boxMap[row][col]->getBoxState().boxToBeRemoved
-                << game->boxMap[row][col]->getBoxState().boxHinted;
-            out << game->boxMap[row][col]->getLeftTopX()
-                << game->boxMap[row][col]->getLeftTopY()
-                << game->boxMap[row][col]->getTypeOfBox()
-                << game->boxMap[row][col]->getBoxColor()
-                << game->boxMap[row][col]->getBoarderColor();
-            out << game->boxMap[row][col]->getBoxPixmap();
+//保存所有箱子
+    for(int row = 0;row < game->getBoxRow();row ++){
+        for(int col = 0;col < game->getBoxCol();col ++){
+            out << game->getBoxMap()[row][col]->getBoxState().boxRemoved
+                << game->getBoxMap()[row][col]->getBoxState().boxSelected
+                << game->getBoxMap()[row][col]->getBoxState().closeBox
+                << game->getBoxMap()[row][col]->getBoxState().boxToBeRemoved
+                << game->getBoxMap()[row][col]->getBoxState().boxHinted;
+            out << game->getBoxMap()[row][col]->getLeftTopX()
+                << game->getBoxMap()[row][col]->getLeftTopY()
+                << game->getBoxMap()[row][col]->getTypeOfBox()
+                << game->getBoxMap()[row][col]->getBoxColor()
+                << game->getBoxMap()[row][col]->getBoarderColor();
+            out << game->getBoxMap()[row][col]->getBoxPixmap();
         }
     }
     std::cout << "Save Game Success" << std::endl;
@@ -103,23 +102,46 @@ LinkGame * SaveSystem::loadGame()
     saveFile.open(QIODevice::ReadOnly);
     QDataStream in(&saveFile);
     //加载游戏数据
-    in >> game->boxRow >> game->boxCol;
-    in >> game->gameFps >> game->remainBoxNumber >> game->boxWidth >> game->boxHeight >>  game->passageWidth >>  game->passageHeight;
-    in >> game->xScaleRatio >> game->yScaleRatio;
-    in >> game->gameEnd >> game->gamePause >> game->noSolution;
+    int tempInt;
+    double tempDouble;
+    bool tempBool;
+    QColor tempColor;
+    QPixmap tempPixmap;
+    QString tempString;
 
-    in >> game->remainTime >> game->gameType;
-    //加载玩家数据
-    loadPlayerData(in,game->player1,game);
-    if(game->gameType != 0){
-        game->player2 = new Player(0,0,0,0,0,0);
-        loadPlayerData(in,game->player2,game);
+    in >> tempInt; game->setBoxRow(tempInt);
+    in >> tempInt; game->setBoxCol(tempInt);
+    in >> tempInt; game->setGameFps(tempInt);
+    in >> tempInt; game->setRemainBoxNumber(tempInt);
+    in >> tempInt; game->setBoxWidth(tempInt);
+    in >> tempInt; game->setBoxHeight(tempInt);
+    in >> tempInt; game->setPassageWidth(tempInt);
+    in >> tempInt; game->setPassageHeight(tempInt);
+    in >> tempDouble; game->setXScaleRatio(tempDouble);
+    in >> tempDouble; game->setYScaleRatio(tempDouble);
+    in >> tempBool; game->setGameEnd(tempBool);
+    in >> tempBool; game->setGamePause(tempBool);
+    in >> tempBool; game->setNoSolution(tempBool);
+
+    in >> tempInt; game->setRemainTime(tempInt);
+    in >> tempInt; game->setGameType(tempInt);
+
+//加载玩家数据
+    loadPlayerData(in,game->getPlayer1(),game);
+    if(game->getGameType() != 0){
+        Player *player2 = new Player(0,0,0,0,0,0);
+        game->setPlayer2(player2);
+        loadPlayerData(in,game->getPlayer2(),game);
     }
-    //加载游戏文本
-    in >> game->removeText >> game->leftTimeText >> game->summaryText;
+
+//加载游戏文本
+    in >> tempString; game->setRemoveText(tempString);
+    in >> tempString; game->setLeftTimeText(tempString);
+    in >> tempString; game->setSummaryText(tempString);
 
     qsizetype gadgetSize;
     in >> gadgetSize;
+    QVector<Gadget *> gadgets;
     for(int i = 0;i < gadgetSize;i ++){
         int gadgetWidth,gadgetHeight,leftTopX,leftTopY,gargetType;
         in >> gadgetWidth >> gadgetHeight >> leftTopX >> leftTopY >> gargetType;
@@ -129,52 +151,56 @@ LinkGame * SaveSystem::loadGame()
         gadget->setGadgetWidth(gadgetWidth);
         gadget->setGadgetHeight(gadgetHeight);
         gadget->gargetType = gargetType;
-        QPixmap gadgetMap;
-        in >> gadgetMap;
-        gadget->setGadgetMap(gadgetMap);
-        game->gadgets.push_back(gadget);
+        in >> tempPixmap;
+        gadget->setGadgetMap(tempPixmap);
+        gadgets.push_back(gadget);
     }
-    in >> game->maxGadgetNumber >> game->gadgetSummonPossibility;
-    in >> game->hintTime >> game->hintTimerOn;
+    game->setGadgets(gadgets);
+    
+    in >> tempInt; game->setMaxGadgetNumber(tempInt);
+    in >> tempDouble; game->setGadgetSummonPossibility(tempDouble);
+    in >> tempInt; game->setHintTime(tempInt);
+    in >> tempBool; game->setHintTimerOn(tempBool);
+
     qsizetype hintedBoxesSize;
     in >> hintedBoxesSize;
+    QVector<QPair<int,int>> hintedBoxes;
     for(int i = 0;i < hintedBoxesSize;i ++){
         int x,y;
         in >> x >> y;
-        game->hintedBoxes.push_back(QPair<int,int>(x,y));
+        hintedBoxes.push_back(QPair<int,int>(x,y));
     }
-    in >> game->flashTime >> game->flashTimerOn;
-    in >> game->dizzyTimerOn >> game->freezeTimerOn;
-    //所有箱子初始化
-    game->initGlobalBox(game->boxRow,game->boxCol);
-    for(int row = 0;row < game->boxRow;row ++){
-        for(int col = 0;col < game->boxCol;col ++){
+    game->setHintedBoxes(hintedBoxes);
+    
+    in >> tempInt; game->setFlashTime(tempInt);
+    in >> tempBool; game->setFlashTimerOn(tempBool);
+    in >> tempBool; game->setDizzyTimerOn(tempBool);
+    in >> tempBool; game->setFreezeTimerOn(tempBool);
+
+//所有箱子初始化
+    game->initGlobalBox(game->getBoxRow(),game->getBoxCol());
+    for(int row = 0;row < game->getBoxRow();row ++){
+        for(int col = 0;col < game->getBoxCol();col ++){
             BoxState tempBoxState;
             in >> tempBoxState.boxRemoved >> tempBoxState.boxSelected >> tempBoxState.closeBox
                >> tempBoxState.boxToBeRemoved >> tempBoxState.boxHinted;
-            game->boxMap[row][col]->setBoxRemoved(tempBoxState.boxRemoved);
-            game->boxMap[row][col]->setBoxSelected(tempBoxState.boxSelected);
-            game->boxMap[row][col]->setBoxClose(tempBoxState.closeBox);
-            game->boxMap[row][col]->setBoxToBeRemoved(tempBoxState.boxToBeRemoved);
-            game->boxMap[row][col]->setBoxHinted(tempBoxState.boxHinted);
+            game->getBoxMap()[row][col]->setBoxRemoved(tempBoxState.boxRemoved);
+            game->getBoxMap()[row][col]->setBoxSelected(tempBoxState.boxSelected);
+            game->getBoxMap()[row][col]->setBoxClose(tempBoxState.closeBox);
+            game->getBoxMap()[row][col]->setBoxToBeRemoved(tempBoxState.boxToBeRemoved);
+            game->getBoxMap()[row][col]->setBoxHinted(tempBoxState.boxHinted);
 
-            int tempLeftTopX, tempLeftTopY, tempTypeOfBox;
-            QColor tempBoxColor, tempBoarderColor;
-            in >> tempLeftTopX >> tempLeftTopY >> tempTypeOfBox >> tempBoxColor >> tempBoarderColor;
-            game->boxMap[row][col]->setLeftTopX(tempLeftTopX);
-            game->boxMap[row][col]->setLeftTopY(tempLeftTopY);
-            game->boxMap[row][col]->setTypeOfBox(tempTypeOfBox);
-            game->boxMap[row][col]->setBoxColor(tempBoxColor);
-            game->boxMap[row][col]->setBoarderColor(tempBoarderColor);
+            in >> tempInt; game->getBoxMap()[row][col]->setLeftTopX(tempInt);
+            in >> tempInt; game->getBoxMap()[row][col]->setLeftTopY(tempInt);
+            in >> tempInt; game->getBoxMap()[row][col]->setTypeOfBox(tempInt);
+            in >> tempColor; game->getBoxMap()[row][col]->setBoxColor(tempColor);
+            in >> tempColor; game->getBoxMap()[row][col]->setBoarderColor(tempColor);
 
-            QPixmap tempBoxPixmap;
-            in >> tempBoxPixmap;
-            game->boxMap[row][col]->setBoxPixmap(tempBoxPixmap);
+            in >> tempPixmap; game->getBoxMap()[row][col]->setBoxPixmap(tempPixmap);
         }
     }
-    if(game->gamePause){
-        game->setGamePause();
-    }
+
+    in >> tempBool; game->setGamePause(tempBool);
     return game;
 }
 

@@ -306,7 +306,7 @@ void LinkGame::drawPausePage(QPainter &painter)
                          "padding: 3px;");
     }
     //连接按钮的槽函数
-    connect(resumeButton,&QPushButton::clicked,this,&LinkGame::setGamePause);
+    connect(resumeButton,&QPushButton::clicked,this,&LinkGame::setGamePauseNoValue);
     connect(saveButton,&QPushButton::clicked,[this](){
         SaveSystem::saveGame(this);
     });
@@ -451,10 +451,10 @@ void LinkGame::keyPressEvent(QKeyEvent *event)
             break;
         //暂停游戏
         case Qt::Key_Space:
-            setGamePause();
+            setGamePause(!gamePause);
             break;
         case Qt::Key_Escape:
-            setGamePause();
+            setGamePause(!gamePause);
             break;
         default:
             break;
@@ -691,10 +691,8 @@ void LinkGame::mousePressEvent(QMouseEvent *event)
     player1->playerMove(-5,x,y);
 }
 
-void LinkGame::setGamePause()
-{
+void LinkGame::setGamePauseNoValue() {
     //设置游戏暂停
-    gamePause = !gamePause;
     if(!gamePause){
         //如果游戏被重新开启，就清除暂停页面
         QLayout *layout = this->layout();
@@ -708,6 +706,10 @@ void LinkGame::setGamePause()
             }
             delete layout;
         }
+        gamePause = true;
+    }
+    else{
+        gamePause = false;
     }
 }
 

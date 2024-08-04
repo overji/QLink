@@ -13,10 +13,10 @@
 Gadget::Gadget(LinkGame * game, int gameType)
 {
     //随机生成道具的位置,并且随机生成道具的类型
-    this->gadgetWidth = game->boxWidth / 3; //道具的宽度
-    this->gadgetHeight = game->boxHeight / 3; //道具的高度
+    this->gadgetWidth = game->getBoxWidth() / 3; //道具的宽度
+    this->gadgetHeight = game->getBoxHeight() / 3; //道具的高度
     this->leftTopX = QRandomGenerator::global()->bounded(1, 800 - gadgetWidth - 1); //道具的左上角x坐标
-    int colLoc = specialDiv(leftTopX-game->passageWidth,game->boxWidth); //道具所在的列
+    int colLoc = specialDiv(leftTopX-game->getPassageWidth(),game->getBoxWidth()); //道具所在的列
     randomRowLoc(game,colLoc); //随机生成道具的行数
     if(gameType == 0){
         this->gargetType = QRandomGenerator::global()->bounded(1,5); //单人游戏下的道具类型，从1到4
@@ -54,20 +54,20 @@ void Gadget::randomRowLoc(LinkGame *game, int colLoc)
     //随机生成道具的行数
     QVector<QPair<int,int>>spaceRemain; //记录每一行的空白区域
     int start = 0, end = 0,totalSpace = 0; //记录空白区域的起始和终止位置以及一列中空白区域的大小
-    if(colLoc < game->boxCol && colLoc >= 0){
+    if(colLoc < game->getBoxCol() && colLoc >= 0){
         //如果道具在可能生成箱子的列中
-        spaceRemain.push_back(QPair<int,int>(0, game->passageHeight - gadgetHeight)); //上部过道中的空白区域
-        totalSpace += (game->passageHeight - gadgetHeight); //上部过道中的空白区域大小
-        start = game->passageHeight; //初始化start
-        for(int row = 0;row < game->boxRow;row ++){
+        spaceRemain.push_back(QPair<int,int>(0, game->getPassageHeight() - gadgetHeight)); //上部过道中的空白区域
+        totalSpace += (game->getPassageHeight() - gadgetHeight); //上部过道中的空白区域大小
+        start = game->getPassageHeight(); //初始化start
+        for(int row = 0;row < game->getBoxRow();row ++){
             //遍历箱子的行
-            if(!game->boxMap[row][colLoc]->getBoxState().boxRemoved){
+            if(!game->getBoxMap()[row][colLoc]->getBoxState().boxRemoved){
                 //如果箱子没有被消除，更新start
-                start = game->boxMap[row][colLoc]->getLeftTopY() + game->boxHeight;
+                start = game->getBoxMap()[row][colLoc]->getLeftTopY() + game->getBoxHeight();
                 continue;
             } else {
                 //如果有箱子被消除，则将空白区域的起始点和终止点加入spaceRemain，并且更新start、end和空白区域大小
-                end = game->boxMap[row][colLoc]->getLeftTopY() + game->boxHeight;
+                end = game->getBoxMap()[row][colLoc]->getLeftTopY() + game->getBoxHeight();
                 spaceRemain.push_back(QPair<int,int>(start, end - gadgetHeight));
                 totalSpace += (end - start - gadgetHeight);
                 start = end;
@@ -138,7 +138,7 @@ void Gadget::doubleGameGadgetEffect(LinkGame *game, Player *anotherPlayer) {
 
 void Gadget::plus30sEffect(LinkGame *game) {
     //加30秒效果
-    game->remainTime += 30;
+    game->setRemainTime(game->getRemainTime() + 30);
 }
 
 void Gadget::shuffleEffect(LinkGame *game) {
@@ -148,26 +148,26 @@ void Gadget::shuffleEffect(LinkGame *game) {
 
 void Gadget::hintEffect(LinkGame *game) {
     //hint效果，并且hintTimer倒计时开始
-    game->hintTime = 10;
-    game->hintTimerOn = true;
+    game->setHintTime(10);
+    game->setHintTimerOn(true);
 }
 
 void Gadget::flashEffect(LinkGame *game,Player *player) {
     //flash效果,并且flashTimer倒计时开始
-    game->flashTime = 5;
-    game->flashTimerOn = true;
+    game->setFlashTime(5);
+    game->setFlashTimerOn(true);
     return;
 }
 
 void Gadget::freezeEffect(LinkGame *game,Player *player) {
     //freeze效果,并且freezeTimer倒计时开始
     player->freezeTime = 3;
-    game->freezeTimerOn = true;
+    game->setFreezeTimerOn(true);
 }
 
 void Gadget::dizzyEffect(LinkGame *game,Player *player) {
     //dizzy效果,并且dizzyTimer倒计时开始
     player->dizzyTime = 10;
-    game->dizzyTimerOn = true;
+    game->setDizzyTimerOn(true);
 }
 
