@@ -63,17 +63,17 @@ void Player::leftMove()
         for(int i = 0;i < game->boxCol; i ++)
         {
             //找到最右边没有被删除的箱子
-            if(currentTopY < game->boxRow && currentTopY >= 0 && !game->boxMap[currentTopY][i]->boxState.boxRemoved)
+            if(currentTopY < game->boxRow && currentTopY >= 0 && !game->boxMap[currentTopY][i]->getBoxState().boxRemoved)
             {
-                if(game->boxMap[currentTopY][i]->LeftTopX > playerLeftTopX + game->boxWidth){
+                if(game->boxMap[currentTopY][i]->getLeftTopX() > playerLeftTopX + game->boxWidth){
                     break;
                 }
                 topBox = game->boxMap[currentTopY][i];
                 topIndex = i;
             }
-            if(currentBottomY < game->boxRow && currentBottomY >= 0 && !game->boxMap[currentBottomY][i]->boxState.boxRemoved)
+            if(currentBottomY < game->boxRow && currentBottomY >= 0 && !game->boxMap[currentBottomY][i]->getBoxState().boxRemoved)
             {
-                if(game->boxMap[currentBottomY][i]->LeftTopX > playerLeftTopX + game->boxWidth){
+                if(game->boxMap[currentBottomY][i]->getLeftTopX() > playerLeftTopX + game->boxWidth){
                     break;
                 }
                 bottomBox = game->boxMap[currentBottomY][i];
@@ -81,12 +81,12 @@ void Player::leftMove()
             }
         }
         //获取箱子的右边界
-        int topBoxRight = (topBox == nullptr) ? -1000 : topBox->LeftTopX + game->boxWidth;
-        int bottomBoxRight = (bottomBox == nullptr) ? -1000 : bottomBox->LeftTopX + game->boxWidth;
+        int topBoxRight = (topBox == nullptr) ? -1000 : topBox->getLeftTopX() + game->boxWidth;
+        int bottomBoxRight = (bottomBox == nullptr) ? -1000 : bottomBox->getLeftTopX() + game->boxWidth;
         if(playerLeftTopX <= topBoxRight && playerLeftTopX >= (topBoxRight - this->playerSpeed))
         {
             //左边遇到箱子，限制移动，并且选中箱子
-            topBox->boxState.boxSelected = true;
+            topBox->setBoxSelected(true);
             playerLeftTopX = topBoxRight + 1;
             currentSelected.push_back(QPair<int,int>(currentTopY,topIndex));
             SelectChecker::checkSelected(game,this);
@@ -95,7 +95,7 @@ void Player::leftMove()
         if(playerLeftTopX <= bottomBoxRight && playerLeftTopX >= (bottomBoxRight - this->playerSpeed))
         {
             //左边遇到箱子，限制移动，并且选中箱子
-            bottomBox->boxState.boxSelected = true;
+            bottomBox->setBoxSelected(true);
             playerLeftTopX = bottomBoxRight + 1;
             currentSelected.push_back(QPair<int,int>(currentBottomY,bottomIndex));
             SelectChecker::checkSelected(game,this);
@@ -128,26 +128,26 @@ void Player::rightMove()
         int bottomIndex = 0;
         for(int i = game->boxCol - 1; i >= 0; i --){
             //找到最左边没有被删除的箱子
-            if(currentTopY < game->boxRow && currentTopY >= 0 && !game->boxMap[currentTopY][i]->boxState.boxRemoved){
-                if(game->boxMap[currentTopY][i]->LeftTopX + game->boxWidth < playerLeftTopX){
+            if(currentTopY < game->boxRow && currentTopY >= 0 && !game->boxMap[currentTopY][i]->getBoxState().boxRemoved){
+                if(game->boxMap[currentTopY][i]->getLeftTopX() + game->boxWidth < playerLeftTopX){
                     break;
                 }
                 topBox = game->boxMap[currentTopY][i];
                 topIndex = i;
             }
-            if(currentBottomY < game->boxRow && currentBottomY >= 0 && !game->boxMap[currentBottomY][i]->boxState.boxRemoved){
-                if(game->boxMap[currentBottomY][i]->LeftTopX + game->boxWidth < playerLeftTopX){
+            if(currentBottomY < game->boxRow && currentBottomY >= 0 && !game->boxMap[currentBottomY][i]->getBoxState().boxRemoved){
+                if(game->boxMap[currentBottomY][i]->getLeftTopX() + game->boxWidth < playerLeftTopX){
                     break;
                 }
                 bottomBox = game->boxMap[currentBottomY][i];
                 bottomIndex = i;
             }
         }
-        int topBoxLeft = (topBox == nullptr)? 1000 : topBox->LeftTopX;
-        int bottomBoxLeft = (bottomBox == nullptr)? 1000 : bottomBox->LeftTopX;
+        int topBoxLeft = (topBox == nullptr)? 1000 : topBox->getLeftTopX();
+        int bottomBoxLeft = (bottomBox == nullptr)? 1000 : bottomBox->getLeftTopX();
         if(playerLeftTopX + playerWidth > topBoxLeft && playerLeftTopX + playerWidth <= topBoxLeft + playerSpeed && topBox){
             //右边遇到箱子，限制移动，并且选中箱子
-            topBox->boxState.boxSelected = true;
+            topBox->setBoxSelected(true);
             playerLeftTopX = topBoxLeft - playerWidth - 1;
             currentSelected.push_back(QPair<int,int>(currentTopY,topIndex));
             SelectChecker::checkSelected(game,this);
@@ -155,7 +155,7 @@ void Player::rightMove()
         }
         if(playerLeftTopX + playerWidth > bottomBoxLeft && playerLeftTopX + playerWidth <= bottomBoxLeft + playerSpeed && bottomBox){
             //右边遇到箱子，限制移动，并且选中箱子
-            bottomBox->boxState.boxSelected = true;
+            bottomBox->setBoxSelected(true);
             playerLeftTopX = bottomBoxLeft - playerWidth - 1;
             currentSelected.push_back(QPair<int,int>(currentBottomY,bottomIndex));
             SelectChecker::checkSelected(game,this);
@@ -188,15 +188,15 @@ void Player::upMove()
         int rightIndex = 0;
         for (int i = 0; i < game->boxRow; i++) {
             //找到最下边没有被删除的箱子
-            if (currentLeftCol < game->boxCol && currentLeftCol >= 0 && !game->boxMap[i][currentLeftCol]->boxState.boxRemoved) {
-                if(game->boxMap[i][currentLeftCol]->LeftTopY > playerLeftTopY){
+            if (currentLeftCol < game->boxCol && currentLeftCol >= 0 && !game->boxMap[i][currentLeftCol]->getBoxState().boxRemoved) {
+                if(game->boxMap[i][currentLeftCol]->getLeftTopY() > playerLeftTopY){
                     break;
                 }
                 leftBox = game->boxMap[i][currentLeftCol];
                 leftIndex = i;
             }
-            if (currentRightCol < game->boxCol && currentRightCol >= 0 && !game->boxMap[i][currentRightCol]->boxState.boxRemoved) {
-                if(game->boxMap[i][currentRightCol]->LeftTopY > playerLeftTopY){
+            if (currentRightCol < game->boxCol && currentRightCol >= 0 && !game->boxMap[i][currentRightCol]->getBoxState().boxRemoved) {
+                if(game->boxMap[i][currentRightCol]->getLeftTopY() > playerLeftTopY){
                     break;
                 }
                 rightBox = game->boxMap[i][currentRightCol];
@@ -204,18 +204,18 @@ void Player::upMove()
             }
         }
         //获取箱子的下边界
-        int leftBoxBottom = (leftBox == nullptr) ? -1000 : leftBox->LeftTopY + game->boxHeight;
-        int rightBoxBottom = (rightBox == nullptr) ? -1000 : rightBox->LeftTopY + game->boxHeight;
+        int leftBoxBottom = (leftBox == nullptr) ? -1000 : leftBox->getLeftTopY() + game->boxHeight;
+        int rightBoxBottom = (rightBox == nullptr) ? -1000 : rightBox->getLeftTopY() + game->boxHeight;
         //检测是否碰到箱子，如果碰到箱子还需限制移动
         if (playerLeftTopY <= leftBoxBottom && playerLeftTopY >= leftBoxBottom - playerSpeed - 1) {
-            leftBox->boxState.boxSelected = true;
+            leftBox->setBoxSelected(true);
             playerLeftTopY = leftBoxBottom + 1;
             currentSelected.push_back(QPair<int,int>(leftIndex, currentLeftCol));
             SelectChecker::checkSelected(game,this);
             return;
         }
         if (playerLeftTopY <= rightBoxBottom && playerLeftTopY >= leftBoxBottom - playerSpeed - 1) {
-            rightBox->boxState.boxSelected = true;
+            rightBox->setBoxSelected(true);
             playerLeftTopY = rightBoxBottom + 1;
             currentSelected.push_back(QPair<int,int>(rightIndex, currentRightCol));
             SelectChecker::checkSelected(game,this);
@@ -250,18 +250,18 @@ void Player::downMove()
         for(int i = game->boxRow - 1; i >= 0; i --)
         {
             //找到最上边没有被删除的箱子
-            if(currentLeftX < game->boxCol && currentLeftX >= 0 && !game->boxMap[i][currentLeftX]->boxState.boxRemoved)
+            if(currentLeftX < game->boxCol && currentLeftX >= 0 && !game->boxMap[i][currentLeftX]->getBoxState().boxRemoved)
             {
-                if(game->boxMap[i][currentLeftX]->LeftTopY + game->boxHeight < playerLeftTopY)
+                if(game->boxMap[i][currentLeftX]->getLeftTopY() + game->boxHeight < playerLeftTopY)
                 {
                     break;
                 }
                 leftBox = game->boxMap[i][currentLeftX];
                 leftIndex = i;
             }
-            if(currentRightX < game->boxCol && currentRightX >= 0 && !game->boxMap[i][currentRightX]->boxState.boxRemoved)
+            if(currentRightX < game->boxCol && currentRightX >= 0 && !game->boxMap[i][currentRightX]->getBoxState().boxRemoved)
             {
-                if(game->boxMap[i][currentRightX]->LeftTopY + game->boxHeight < playerLeftTopY)
+                if(game->boxMap[i][currentRightX]->getLeftTopY() + game->boxHeight < playerLeftTopY)
                 {
                     break;
                 }
@@ -270,12 +270,12 @@ void Player::downMove()
             }
         }
         //获取箱子的上边界
-        int leftBoxTop = (leftBox == nullptr) ? 1000 : leftBox->LeftTopY;
-        int rightBoxTop = (rightBox == nullptr) ? 1000 : rightBox->LeftTopY;
+        int leftBoxTop = (leftBox == nullptr) ? 1000 : leftBox->getLeftTopY();
+        int rightBoxTop = (rightBox == nullptr) ? 1000 : rightBox->getLeftTopY();
         //检测是否碰到箱子，如果碰到箱子还需限制移动
         if(playerLeftTopY + playerHeight > leftBoxTop && playerLeftTopY + playerHeight <= leftBoxTop + playerSpeed)
         {
-            leftBox->boxState.boxSelected = true;
+            leftBox->setBoxSelected(true);
             playerLeftTopY = leftBoxTop - playerHeight - 1;
             currentSelected.push_back(QPair<int,int>(leftIndex,currentLeftX));
             SelectChecker::checkSelected(game,this);
@@ -283,7 +283,7 @@ void Player::downMove()
         }
         if(playerLeftTopY + playerHeight > rightBoxTop && playerLeftTopY + playerHeight <= rightBoxTop + playerSpeed)
         {
-            rightBox->boxState.boxSelected = true;
+            rightBox->setBoxSelected(true);
             playerLeftTopY = rightBoxTop - playerHeight - 1;
             currentSelected.push_back(QPair<int,int>(rightIndex,currentRightX));
             SelectChecker::checkSelected(game,this);
@@ -406,22 +406,22 @@ void Player::checkClose()
     if(checkColIndexValid( currentLeftX) && checkRowIndexValid( currentTopY))
     {
         //左上方块
-        game->boxMap[currentTopY][currentLeftX]->boxState.closeBox = true;
+        game->boxMap[currentTopY][currentLeftX]->setBoxClose(true);
     }
     if(checkColIndexValid( currentLeftX) && checkRowIndexValid( currentBottomY))
     {
         //左下方块
-        game->boxMap[currentBottomY][currentLeftX]->boxState.closeBox = true;
+        game->boxMap[currentBottomY][currentLeftX]->setBoxClose(true);
     }
     if(checkColIndexValid( currentRightX) && checkRowIndexValid( currentTopY))
     {
         //右上方块
-        game->boxMap[currentTopY][currentRightX]->boxState.closeBox = true;
+        game->boxMap[currentTopY][currentRightX]->setBoxClose(true);
     }
     if(checkColIndexValid( currentRightX) && checkRowIndexValid( currentBottomY))
     {
         //右下方块
-        game->boxMap[currentBottomY][currentRightX]->boxState.closeBox = true;
+        game->boxMap[currentBottomY][currentRightX]->setBoxClose(true);
     }
 }
 
@@ -432,7 +432,7 @@ void Player::clearSelected()
     {
         for(int j = 0;j < game->boxCol; j ++)
         {
-            game->boxMap[i][j]->boxState.boxSelected = false;
+            game->boxMap[i][j]->setBoxSelected(false);;
         }
     }
 }
@@ -478,22 +478,22 @@ void Player::flashMove(int xLoc, int yLoc)
     int bottomRowLoc = specialDiv(yLoc - game->passageHeight + playerHeight / 2,game->boxWidth);
     int leftColLoc = specialDiv(xLoc - game->passageWidth - playerWidth / 2,game->boxWidth);
     int rightColLoc = specialDiv(xLoc - game->passageWidth + playerWidth / 2,game->boxWidth);
-    if(checkColIndexValid(leftColLoc) && checkRowIndexValid(topRowLoc) && ! game->boxMap[topRowLoc][leftColLoc]->boxState.boxRemoved){
+    if(checkColIndexValid(leftColLoc) && checkRowIndexValid(topRowLoc) && ! game->boxMap[topRowLoc][leftColLoc]->getBoxState().boxRemoved){
         //左上角有箱子
         xLoc += playerWidth / 2;
         yLoc += playerWidth / 2;
     }
-    if(checkColIndexValid(rightColLoc) && checkRowIndexValid(topRowLoc) && ! game->boxMap[topRowLoc][rightColLoc]->boxState.boxRemoved){
+    if(checkColIndexValid(rightColLoc) && checkRowIndexValid(topRowLoc) && ! game->boxMap[topRowLoc][rightColLoc]->getBoxState().boxRemoved){
         //右上角有箱子
         xLoc -= playerWidth / 2;
         yLoc += playerWidth / 2;
     }
-    if(checkColIndexValid(leftColLoc) && checkRowIndexValid(bottomRowLoc) && ! game->boxMap[bottomRowLoc][leftColLoc]->boxState.boxRemoved){
+    if(checkColIndexValid(leftColLoc) && checkRowIndexValid(bottomRowLoc) && ! game->boxMap[bottomRowLoc][leftColLoc]->getBoxState().boxRemoved){
         //左下角有箱子
         xLoc += playerWidth / 2;
         yLoc -= playerWidth / 2;
     }
-    if(checkColIndexValid(rightColLoc) && checkRowIndexValid(bottomRowLoc) && ! game->boxMap[bottomRowLoc][rightColLoc]->boxState.boxRemoved){
+    if(checkColIndexValid(rightColLoc) && checkRowIndexValid(bottomRowLoc) && ! game->boxMap[bottomRowLoc][rightColLoc]->getBoxState().boxRemoved){
         //右下角有箱子
         xLoc -= playerWidth / 2;
         yLoc -= playerWidth / 2;
@@ -502,7 +502,7 @@ void Player::flashMove(int xLoc, int yLoc)
     int colLoc = specialDiv(xLoc - game->passageWidth,game->boxWidth);
     //判断是否点击到了箱子上
     if(checkColIndexValid(colLoc) && checkRowIndexValid(rowLoc)){
-        if(game->boxMap[rowLoc][colLoc]->boxState.boxRemoved){
+        if(game->boxMap[rowLoc][colLoc]->getBoxState().boxRemoved){
             //箱子已被清除
             this->playerLeftTopY = yLoc - (this->playerWidth / 2);
             this->playerLeftTopX = xLoc - (this->playerHeight / 2);
@@ -528,36 +528,36 @@ bool  Player::flashMoveCheckEdge(int rowLoc, int colLoc)
     //检查flash移动是否处于箱子边缘处，如果是就把玩家放到箱子边缘，并且选中箱子
     if(rowLoc == 0){
         //放到上面
-        this->playerLeftTopY = game->boxMap[rowLoc][colLoc]->LeftTopY  - this->playerHeight - 2;
-        this ->playerLeftTopX = game->boxMap[rowLoc][colLoc]->LeftTopX + (game->boxWidth / 2) - (this->playerWidth / 2);
-        game->boxMap[rowLoc][colLoc]->boxState.boxSelected = true;
+        this->playerLeftTopY = game->boxMap[rowLoc][colLoc]->getLeftTopY()  - this->playerHeight - 2;
+        this ->playerLeftTopX = game->boxMap[rowLoc][colLoc]->getLeftTopX() + (game->boxWidth / 2) - (this->playerWidth / 2);
+        game->boxMap[rowLoc][colLoc]->setBoxSelected(true);
         currentSelected.push_back(QPair<int,int>(rowLoc,colLoc));
         SelectChecker::checkSelected(game,this);
         return true;
     }
     if(rowLoc == (game->boxRow - 1)){
         //放到下面
-        this->playerLeftTopY = game->boxMap[rowLoc][colLoc]->LeftTopY + game->boxHeight + 2;
-        this->playerLeftTopX = game->boxMap[rowLoc][colLoc]->LeftTopX + (game->boxWidth / 2) - (this->playerWidth / 2);
-        game->boxMap[rowLoc][colLoc]->boxState.boxSelected = true;
+        this->playerLeftTopY = game->boxMap[rowLoc][colLoc]->getLeftTopY() + game->boxHeight + 2;
+        this->playerLeftTopX = game->boxMap[rowLoc][colLoc]->getLeftTopX() + (game->boxWidth / 2) - (this->playerWidth / 2);
+        game->boxMap[rowLoc][colLoc]->setBoxSelected(true);
         currentSelected.push_back(QPair<int,int>(rowLoc,colLoc));
         SelectChecker::checkSelected(game,this);
         return true;
     }
     if(colLoc == 0){
         //放到左边
-        this->playerLeftTopY = game->boxMap[rowLoc][colLoc]->LeftTopY + (game->boxHeight / 2) - (this->playerHeight / 2);
-        this->playerLeftTopX = game->boxMap[rowLoc][colLoc]->LeftTopX - this->playerWidth - 2;
-        game->boxMap[rowLoc][colLoc]->boxState.boxSelected = true;
+        this->playerLeftTopY = game->boxMap[rowLoc][colLoc]->getLeftTopY() + (game->boxHeight / 2) - (this->playerHeight / 2);
+        this->playerLeftTopX = game->boxMap[rowLoc][colLoc]->getLeftTopX() - this->playerWidth - 2;
+        game->boxMap[rowLoc][colLoc]->setBoxSelected(true);
         currentSelected.push_back(QPair<int,int>(rowLoc,colLoc));
         SelectChecker::checkSelected(game,this);
         return true;
     }
     if(colLoc == (game->boxCol - 1)){
         //放到右边
-        this->playerLeftTopY = game->boxMap[rowLoc][colLoc]->LeftTopY + (game->boxHeight / 2) - (this->playerHeight / 2);
-        this->playerLeftTopX = game->boxMap[rowLoc][colLoc]->LeftTopX + game->boxWidth + 2;
-        game->boxMap[rowLoc][colLoc]->boxState.boxSelected = true;
+        this->playerLeftTopY = game->boxMap[rowLoc][colLoc]->getLeftTopY() + (game->boxHeight / 2) - (this->playerHeight / 2);
+        this->playerLeftTopX = game->boxMap[rowLoc][colLoc]->getLeftTopX() + game->boxWidth + 2;
+        game->boxMap[rowLoc][colLoc]->setBoxSelected(true);
         currentSelected.push_back(QPair<int,int>(rowLoc,colLoc));
         SelectChecker::checkSelected(game,this);
         return true;
@@ -570,10 +570,10 @@ bool Player::flashMoveCheckCenter(int rowLoc,int colLoc)
     //检查flash移动是否处于箱子中间，并且点击的箱子周边是否还有空位，如果是就把玩家放到箱子边缘，并且选中箱子
     if(checkColIndexValid(colLoc-1) && checkRowIndexValid(rowLoc)) {
         //左边有空位
-        if(game->boxMap[rowLoc][colLoc - 1]->boxState.boxRemoved){
-            this->playerLeftTopY = game->boxMap[rowLoc][colLoc - 1]->LeftTopY + (game->boxHeight / 2) - (this->playerWidth / 2);
-            this->playerLeftTopX = game->boxMap[rowLoc][colLoc - 1]->LeftTopX + game->boxWidth - this->playerWidth - 2;
-            game->boxMap[rowLoc][colLoc]->boxState.boxSelected = true;
+        if(game->boxMap[rowLoc][colLoc - 1]->getBoxState().boxRemoved){
+            this->playerLeftTopY = game->boxMap[rowLoc][colLoc - 1]->getLeftTopY() + (game->boxHeight / 2) - (this->playerWidth / 2);
+            this->playerLeftTopX = game->boxMap[rowLoc][colLoc - 1]->getLeftTopX() + game->boxWidth - this->playerWidth - 2;
+            game->boxMap[rowLoc][colLoc]->setBoxSelected(true);
             currentSelected.push_back(QPair<int,int>(rowLoc,colLoc));
             SelectChecker::checkSelected(game,this);
             return true;
@@ -581,10 +581,10 @@ bool Player::flashMoveCheckCenter(int rowLoc,int colLoc)
     }
     if(checkColIndexValid(colLoc+1) && checkRowIndexValid(rowLoc)) {
         //右边有空位
-        if(game->boxMap[rowLoc][colLoc + 1]->boxState.boxRemoved){
-            this->playerLeftTopY = game->boxMap[rowLoc][colLoc + 1]->LeftTopY + (game->boxHeight / 2) - (this->playerWidth / 2);
-            this->playerLeftTopX = game->boxMap[rowLoc][colLoc + 1]->LeftTopX +  2;
-            game->boxMap[rowLoc][colLoc]->boxState.boxSelected = true;
+        if(game->boxMap[rowLoc][colLoc + 1]->getBoxState().boxRemoved){
+            this->playerLeftTopY = game->boxMap[rowLoc][colLoc + 1]->getLeftTopY() + (game->boxHeight / 2) - (this->playerWidth / 2);
+            this->playerLeftTopX = game->boxMap[rowLoc][colLoc + 1]->getLeftTopX() +  2;
+            game->boxMap[rowLoc][colLoc]->setBoxSelected(true);
             currentSelected.push_back(QPair<int,int>(rowLoc,colLoc));
             SelectChecker::checkSelected(game,this);
             return true;
@@ -592,10 +592,10 @@ bool Player::flashMoveCheckCenter(int rowLoc,int colLoc)
     }
     if(checkColIndexValid(colLoc) && checkRowIndexValid(rowLoc - 1)) {
         //上面有空位
-        if(game->boxMap[rowLoc - 1][colLoc]->boxState.boxRemoved){
-            this->playerLeftTopY = game->boxMap[rowLoc - 1][colLoc]->LeftTopY + game->boxHeight - this->playerHeight - 2;
-            this->playerLeftTopX = game->boxMap[rowLoc - 1][colLoc]->LeftTopX + (game->boxWidth / 2) - (this->playerWidth / 2);
-            game->boxMap[rowLoc][colLoc]->boxState.boxSelected = true;
+        if(game->boxMap[rowLoc - 1][colLoc]->getBoxState().boxRemoved){
+            this->playerLeftTopY = game->boxMap[rowLoc - 1][colLoc]->getLeftTopY() + game->boxHeight - this->playerHeight - 2;
+            this->playerLeftTopX = game->boxMap[rowLoc - 1][colLoc]->getLeftTopX() + (game->boxWidth / 2) - (this->playerWidth / 2);
+            game->boxMap[rowLoc][colLoc]->setBoxSelected(true);
             currentSelected.push_back(QPair<int,int>(rowLoc,colLoc));
             SelectChecker::checkSelected(game,this);
             return true;
@@ -603,10 +603,10 @@ bool Player::flashMoveCheckCenter(int rowLoc,int colLoc)
     }
     if(checkColIndexValid(colLoc) && checkRowIndexValid(rowLoc + 1)) {
         //下面有空位
-        if(game->boxMap[rowLoc + 1][colLoc]->boxState.boxRemoved){
-            this->playerLeftTopY = game->boxMap[rowLoc + 1][colLoc]->LeftTopY + 2;
-            this->playerLeftTopX = game->boxMap[rowLoc + 1][colLoc]->LeftTopX + (game->boxWidth / 2) - (this->playerWidth / 2);
-            game->boxMap[rowLoc][colLoc]->boxState.boxSelected = true;
+        if(game->boxMap[rowLoc + 1][colLoc]->getBoxState().boxRemoved){
+            this->playerLeftTopY = game->boxMap[rowLoc + 1][colLoc]->getLeftTopY() + 2;
+            this->playerLeftTopX = game->boxMap[rowLoc + 1][colLoc]->getLeftTopX() + (game->boxWidth / 2) - (this->playerWidth / 2);
+            game->boxMap[rowLoc][colLoc]->setBoxSelected(true);
             currentSelected.push_back(QPair<int,int>(rowLoc,colLoc));
             SelectChecker::checkSelected(game,this);
             return true;
@@ -624,7 +624,7 @@ void Player::drawLine(QPainter &painter)
         painter.drawLine(linePath[i],linePath[i+1]);
     }
     for(auto i : toBeRemovedBox){
-        game->boxMap[i.first][i.second]->boxState.boxToBeRemoved = true;
+        game->boxMap[i.first][i.second]->setBoxToBeRemoved(true);
     }
     if(!removeTimerOn)
     {
@@ -642,7 +642,7 @@ void Player::removeBox()
     }
     //消除箱子
     for(auto i:toBeRemovedBox){
-        game->boxMap[i.first][i.second]->boxState.boxRemoved = true;
+        game->boxMap[i.first][i.second]->setBoxRemoved(true);
         game->remainBoxNumber--;
     }
     toBeRemovedBox.clear();

@@ -61,13 +61,13 @@ void Gadget::randomRowLoc(LinkGame *game, int colLoc)
         start = game->passageHeight; //初始化start
         for(int row = 0;row < game->boxRow;row ++){
             //遍历箱子的行
-            if(!game->boxMap[row][colLoc]->boxState.boxRemoved){
+            if(!game->boxMap[row][colLoc]->getBoxState().boxRemoved){
                 //如果箱子没有被消除，更新start
-                start = game->boxMap[row][colLoc]->LeftTopY + game->boxHeight;
+                start = game->boxMap[row][colLoc]->getLeftTopY() + game->boxHeight;
                 continue;
             } else {
                 //如果有箱子被消除，则将空白区域的起始点和终止点加入spaceRemain，并且更新start、end和空白区域大小
-                end = game->boxMap[row][colLoc]->LeftTopY + game->boxHeight;
+                end = game->boxMap[row][colLoc]->getLeftTopY() + game->boxHeight;
                 spaceRemain.push_back(QPair<int,int>(start, end - gadgetHeight));
                 totalSpace += (end - start - gadgetHeight);
                 start = end;

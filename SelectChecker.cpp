@@ -24,7 +24,7 @@ void SelectChecker::checkNumber(LinkGame *game, Player *player)
         }
         //清除箱子的被选择情况
         for (auto i: player->currentSelected) {
-            game->boxMap[i.first][i.second]->boxState.boxSelected = false;
+            game->boxMap[i.first][i.second]->setBoxSelected(false);
         }
         //检查是否可以消除，返回的是一个路径的vector，可以消除的话直接给玩家加分，过0.2s后再让箱子和路径消失不见
         path = checkValid(game, player);
@@ -67,11 +67,11 @@ QVector<QPair<int,int>> SelectChecker::checkValid(LinkGame *game, Player *player
     QVector<QPair<int,int>>path;
     BoxOfGame* box1 = game->boxMap[player->currentSelected[0].first][player->currentSelected[0].second];
     BoxOfGame* box2 = game->boxMap[player->currentSelected[1].first][player->currentSelected[1].second];
-    if(box1->typeOfBox != box2->typeOfBox)return path;
-    int x1 = box1->LeftTopX + game->boxWidth/2;
-    int y1 = box1->LeftTopY + game->boxHeight/2;
-    int x2 = box2->LeftTopX + game->boxWidth/2;
-    int y2 = box2->LeftTopY + game->boxHeight/2;
+    if(box1->getTypeOfBox() != box2->getTypeOfBox())return path;
+    int x1 = box1->getLeftTopX() + game->boxWidth/2;
+    int y1 = box1->getLeftTopY() + game->boxHeight/2;
+    int x2 = box2->getLeftTopX() + game->boxWidth/2;
+    int y2 = box2->getLeftTopY() + game->boxHeight/2;
 
     //零折线
     if(x1 == x2){
@@ -139,7 +139,7 @@ bool SelectChecker::checkLine(LinkGame *game, Player *player, int direction, int
             int colLoc = specialDiv(p - game->passageWidth, game->boxWidth);
             int rowLoc = specialDiv(anotherLocation - game->passageHeight, game->boxHeight);
             if(player->checkColIndexValid(colLoc) && player->checkRowIndexValid( rowLoc)){
-                if(!game->boxMap[rowLoc][colLoc]->boxState.boxRemoved && abs(p - end) >= (game->boxWidth / 2)){
+                if(!game->boxMap[rowLoc][colLoc]->getBoxState().boxRemoved && abs(p - end) >= (game->boxWidth / 2)){
                     return false;
                 }
             }
@@ -151,7 +151,7 @@ bool SelectChecker::checkLine(LinkGame *game, Player *player, int direction, int
             int colLoc = specialDiv(anotherLocation - game->passageWidth, game->boxWidth);
             int rowLoc = specialDiv(p - game->passageHeight, game->boxHeight);
             if (player->checkColIndexValid( colLoc) && player->checkRowIndexValid( rowLoc)) {
-                if (!game->boxMap[rowLoc][colLoc]->boxState.boxRemoved && abs(p - end) >= (game->boxHeight / 2)){
+                if (!game->boxMap[rowLoc][colLoc]->getBoxState().boxRemoved && abs(p - end) >= (game->boxHeight / 2)){
                     return false;
                 }
             }
@@ -166,7 +166,7 @@ bool SelectChecker::checkExist(LinkGame *game, Player *player, int x, int y)
     int colLoc = specialDiv(x - game->passageWidth, game->boxWidth);
     int rowLoc = specialDiv(y - game->passageHeight, game->boxHeight);
     if (player->checkColIndexValid( colLoc) && player->checkRowIndexValid( rowLoc)) {
-        if (!game->boxMap[rowLoc][colLoc]->boxState.boxRemoved) {
+        if (!game->boxMap[rowLoc][colLoc]->getBoxState().boxRemoved) {
             return true;
         }
     }
@@ -243,7 +243,7 @@ QVector<QPair<int,int>> SelectChecker::getEdgeBox(LinkGame *game, Player *player
 bool SelectChecker::isEdge(LinkGame *game, Player *player, int colLoc, int rowLoc)
 {
     //判断是否是边缘箱子
-    if(player->checkColIndexValid( colLoc) && player->checkRowIndexValid( rowLoc) && game->boxMap[rowLoc][colLoc]->boxState.boxRemoved){
+    if(player->checkColIndexValid( colLoc) && player->checkRowIndexValid( rowLoc) && game->boxMap[rowLoc][colLoc]->getBoxState().boxRemoved){
         return false;
     }
     //在地图边缘必然是边缘箱子
@@ -251,13 +251,13 @@ bool SelectChecker::isEdge(LinkGame *game, Player *player, int colLoc, int rowLo
         return true;
     }
     //判断是否有一个方向有箱子被消除了
-    if(player->checkColIndexValid( colLoc - 1) && player->checkRowIndexValid( rowLoc) && game->boxMap[rowLoc][colLoc - 1]->boxState.boxRemoved){
+    if(player->checkColIndexValid( colLoc - 1) && player->checkRowIndexValid( rowLoc) && game->boxMap[rowLoc][colLoc - 1]->getBoxState().boxRemoved){
         return true;
-    } else if(player->checkColIndexValid( colLoc + 1) && player->checkRowIndexValid( rowLoc) && game->boxMap[rowLoc][colLoc + 1]->boxState.boxRemoved){
+    } else if(player->checkColIndexValid( colLoc + 1) && player->checkRowIndexValid( rowLoc) && game->boxMap[rowLoc][colLoc + 1]->getBoxState().boxRemoved){
         return true;
-    } else if(player->checkColIndexValid( colLoc) && player->checkRowIndexValid( rowLoc - 1) && game->boxMap[rowLoc - 1][colLoc]->boxState.boxRemoved){
+    } else if(player->checkColIndexValid( colLoc) && player->checkRowIndexValid( rowLoc - 1) && game->boxMap[rowLoc - 1][colLoc]->getBoxState().boxRemoved){
         return true;
-    } else if(player->checkColIndexValid( colLoc) && player->checkRowIndexValid( rowLoc + 1) && game->boxMap[rowLoc + 1][colLoc]->boxState.boxRemoved){
+    } else if(player->checkColIndexValid( colLoc) && player->checkRowIndexValid( rowLoc + 1) && game->boxMap[rowLoc + 1][colLoc]->getBoxState().boxRemoved){
         return true;
     }
     return false;
@@ -293,11 +293,11 @@ bool SelectChecker::checkValidReturnBool(LinkGame *game, Player *player)
     //检查是否有解，返回bool值
     BoxOfGame* box1 = game->boxMap[player->currentSelected[0].first][player->currentSelected[0].second];
     BoxOfGame* box2 = game->boxMap[player->currentSelected[1].first][player->currentSelected[1].second];
-    if(box1->typeOfBox != box2->typeOfBox)return false;
-    int x1 = box1->LeftTopX + game->boxWidth/2;
-    int y1 = box1->LeftTopY + game->boxHeight/2;
-    int x2 = box2->LeftTopX + game->boxWidth/2;
-    int y2 = box2->LeftTopY + game->boxHeight/2;
+    if(box1->getTypeOfBox() != box2->getTypeOfBox())return false;
+    int x1 = box1->getLeftTopX() + game->boxWidth/2;
+    int y1 = box1->getLeftTopY() + game->boxHeight/2;
+    int x2 = box2->getLeftTopX() + game->boxWidth/2;
+    int y2 = box2->getLeftTopY() + game->boxHeight/2;
 
     //零折线
     if(x1 == x2){

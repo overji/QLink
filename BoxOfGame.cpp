@@ -122,6 +122,7 @@ void BoxOfGame::swapBox(BoxOfGame * box1, BoxOfGame * box2)
     std::swap(box1->boarderColor,box2->boarderColor);
     std::swap(box1->typeOfBox,box2->typeOfBox);
     std::swap(box1->boxState,box2->boxState);
+    std::swap(box1->boxPixmap,box2->boxPixmap);
     //取消箱子的选中状态和靠近状态
     box1->boxState.closeBox = false;
     box2->boxState.closeBox = false;

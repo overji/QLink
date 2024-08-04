@@ -25,13 +25,54 @@ struct BoxState
 class BoxOfGame : public QWidget
 {
     Q_OBJECT
-    //设置友元
-    friend class Player;
-    friend class SelectChecker;
-    friend class SimpleTest;
-    friend class LinkGame;
-    friend class Gadget;
-    friend class SaveSystem;
+public:
+    [[nodiscard]] int getBoxWidth() const { return boxWidth; }
+    void setBoxWidth(int value) { boxWidth = value; }
+
+    // Getter and setter for boxHeight
+    [[nodiscard]] int getBoxHeight() const { return boxHeight; }
+    void setBoxHeight(int value) { boxHeight = value; }
+
+    // Getter and setter for boarderWidth
+    [[nodiscard]] int getBoarderWidth() const { return boarderWidth; }
+    void setBoarderWidth(int value) { boarderWidth = value; }
+
+    // Getter and setter for boarderHeight
+    [[nodiscard]] int getBoarderHeight() const { return boarderHeight; }
+    void setBoarderHeight(int value) { boarderHeight = value; }
+
+    // Getter and setter for LeftTopX
+    [[nodiscard]] int getLeftTopX() const { return LeftTopX; }
+    void setLeftTopX(int value) { LeftTopX = value; }
+
+    // Getter and setter for LeftTopY
+    [[nodiscard]] int getLeftTopY() const { return LeftTopY; }
+    void setLeftTopY(int value) { LeftTopY = value; }
+
+    // Getter and setter for typeOfBox
+    [[nodiscard]] int getTypeOfBox() const { return typeOfBox; }
+    void setTypeOfBox(int value) { typeOfBox = value; }
+
+    // Getter and setter for boxColor
+    [[nodiscard]] QColor getBoxColor() const { return boxColor; }
+    void setBoxColor(QColor value) { boxColor = value; }
+
+    // Getter and setter for boarderColor
+    [[nodiscard]] QColor getBoarderColor() const { return boarderColor; }
+    void setBoarderColor(QColor value) { boarderColor = value; }
+
+    // Getter and setter for boxState
+    [[nodiscard]] BoxState getBoxState() const { return boxState; }
+    void setBoxClose(bool value) { boxState.closeBox = value; }
+    void setBoxHinted(bool value) {boxState.boxHinted = value;}
+    void setBoxRemoved(bool value) {boxState.boxRemoved = value;}
+    void setBoxSelected(bool value) {boxState.boxSelected = value;}
+    void setBoxToBeRemoved(bool value) {boxState.boxToBeRemoved = value;}
+
+    // Getter and setter for boxPixmap
+    [[nodiscard]] QPixmap getBoxPixmap() const { return boxPixmap; }
+    void setBoxPixmap(QPixmap value) { boxPixmap = value; }
+
 public:
     explicit BoxOfGame(const int & boxWid , const int & boxHeit,const int & LeftTopX ,const int & LeftTopY  ,const QColor boxColorInput
                        , const QColor boarderColorInput, const int TypeOfBoxInput , QWidget * parent = nullptr ); //构造函数

@@ -518,7 +518,7 @@ void LinkGame::shuffleMap()
     //找出所有没有被删除的箱子
     for(int row = 0;row < boxRow;row ++){
         for(int col = 0;col < boxCol;col ++){
-            if(!boxMap[row][col]->boxState.boxRemoved){
+            if(!boxMap[row][col]->getBoxState().boxRemoved){
                 boxesOfMap.push_back(QPair<int,int>(row,col));
             }
         }
@@ -552,8 +552,8 @@ void LinkGame::hintBox()
     }
     if(!hintedBoxes.empty()){
         //如果hintedBox不为空
-        if(boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->boxState.boxRemoved ||
-           boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->boxState.boxRemoved){
+        if(boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->getBoxState().boxRemoved ||
+           boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->getBoxState().boxRemoved){
             //如果有提示的箱子被清除了，就清除提示
             hintedBoxes.clear();
         }
@@ -563,8 +563,8 @@ void LinkGame::hintBox()
     }
     //搜索可以消除的箱子
     auto pairs = SelectChecker::searchPair(this);
-    this->boxMap[pairs.first.first][pairs.first.second]->boxState.boxHinted = true; //标记箱子
-    this->boxMap[pairs.second.first][pairs.second.second]->boxState.boxHinted = true;
+    this->boxMap[pairs.first.first][pairs.first.second]->setBoxHinted(true);//标记箱子
+    this->boxMap[pairs.second.first][pairs.second.second]->setBoxHinted(true);
     hintedBoxes.push_back(pairs.first);
     hintedBoxes.push_back(pairs.second);
 }
@@ -574,12 +574,12 @@ void LinkGame::clearHintBox()
     //清除提示
     if(!hintedBoxes.empty()){
         //如果hintedBox不为空,清除箱子现在被提示的状态
-        boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->boxState.boxHinted = false;
-        boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->boxState.boxHinted = false;
-        if(!boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->boxState.boxRemoved &&
-           !boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->boxState.boxRemoved){
-            boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->boxState.boxHinted = false;
-            boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->boxState.boxHinted = false;
+        boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->setBoxHinted(false);
+        boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->setBoxHinted(false);
+        if(!boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->getBoxState().boxRemoved &&
+           !boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->getBoxState().boxRemoved){
+            boxMap[hintedBoxes[0].first][hintedBoxes[0].second]->setBoxHinted(false);
+            boxMap[hintedBoxes[1].first][hintedBoxes[1].second]->setBoxHinted(false);
         }
         hintedBoxes.clear();
     }
@@ -748,7 +748,7 @@ void LinkGame::clearClose()
     {
         for(int j = 0;j < boxCol; j ++)
         {
-            boxMap[i][j]->boxState.closeBox = false;
+            boxMap[i][j]->setBoxClose(false);
         }
     }
 }
