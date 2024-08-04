@@ -74,24 +74,24 @@ void SaveSystem::saveGame(LinkGame * game)
 void SaveSystem::savePlayerData(QDataStream &out, Player *player)
 {
     //保存玩家数据
-    out << player->playerLeftTopX << player->playerLeftTopY << player->playerWidth << player->playerHeight
-        << player->playerSpeed << player->score << player->scoreString;
-    out << player->freezeTime << player->dizzyTime;
-    out << player->playerImage;
-    out << player->currentSelected.size();
-    for(auto i : player->currentSelected){
+    out << player->getPlayerLeftTopX() << player->getPlayerLeftTopY() << player->getPlayerWidth() << player->getPlayerHeight()
+        << player->getPlayerSpeed() << player->getScore() << player->getScoreString();
+    out << player->getFreezeTime() << player->getDizzyTime();
+    out << player->getPlayerImage();
+    out << player->getCurrentSelected().size();
+    for(auto i : player->getCurrentSelected()){
         out << i.first << i.second;
     }
 
-    out << player->toBeRemovedBox.size();
-    for(auto i :player->toBeRemovedBox){
+    out << player->getToBeRemovedBox().size();
+    for(auto i : player->getToBeRemovedBox()){
         out << i.first << i.second;
     }
-    out << player->linePath.size();
-    for(auto i :player->linePath){
-        out << i.x() <<i.y();
+    out << player->getLinePath().size();
+    for(auto i : player->getLinePath()){
+        out << i.x() << i.y();
     }
-    out << player->removeTimerOn;
+    out << player->isRemoveTimerOn();
 }
 
 LinkGame * SaveSystem::loadGame()
@@ -206,38 +206,54 @@ LinkGame * SaveSystem::loadGame()
 
 void SaveSystem::loadPlayerData(QDataStream &in, Player *player,LinkGame * game) {
     //加载玩家数据
-    in >> player->playerLeftTopX
-    >> player->playerLeftTopY
-    >> player->playerWidth
-    >> player->playerHeight
-       >> player->playerSpeed
-       >> player->score >> player->scoreString;
-    in >> player->freezeTime >> player->dizzyTime;
-    in >> player->playerImage;
+    int tempInt;
+    QString tempString;
+    QPixmap tempPixmap;
+
+    in >> tempInt; player->setPlayerLeftTopX(tempInt);
+    in >> tempInt; player->setPlayerLeftTopY(tempInt);
+    in >> tempInt; player->setPlayerWidth(tempInt);
+    in >> tempInt; player->setPlayerHeight(tempInt);
+    in >> tempInt; player->setPlayerSpeed(tempInt);
+    in >> tempInt; player->setScore(tempInt);
+    in >> tempString; player->setScoreString(tempString);
+    in >> tempInt; player->setFreezeTime(tempInt);
+    in >> tempInt; player->setDizzyTime(tempInt);
+    in >> tempPixmap; player->setPlayerImage(tempPixmap);
+
     qsizetype currentSelectedSize;
     in >> currentSelectedSize;
+    QVector<QPair<int,int>> currentSelected;
     for (int i = 0; i < currentSelectedSize; i++) {
         int x, y;
         in >> x >> y;
-        player->currentSelected.push_back(QPair<int, int>(x, y));
+        currentSelected.push_back(QPair<int, int>(x, y));
     }
-    //加载待消除箱子
+    player->setCurrentSelected(currentSelected);
+
+//加载待消除箱子
     qsizetype toBeRemovedBoxSize;
     in >> toBeRemovedBoxSize;
+    QVector<QPair<int,int>> toBeRemovedBox;
     for(int i = 0;i < toBeRemovedBoxSize;i ++){
         int x,y;
         in >> x >> y;
-        player->toBeRemovedBox.push_back(QPair<int,int>(x,y));
+        toBeRemovedBox.push_back(QPair<int,int>(x,y));
     }
+    player->setToBeRemovedBox(toBeRemovedBox);
 
     qsizetype linePathSize;
     in >> linePathSize;
+    QVector<QPoint> linePath;
     for(int i = 0;i < linePathSize;i ++){
         int x,y;
         in >> x >> y;
-        player->linePath.push_back(QPoint(x,y));
+        linePath.push_back(QPoint(x,y));
     }
-    //加载道具
-    in >> player->removeTimerOn;
-    player->game = game;
+    player->setLinePath(linePath);
+
+//加载道具
+    bool tempBool;
+    in >> tempBool; player->setRemoveTimerOn(tempBool);
+    player->setGame(game);
 }

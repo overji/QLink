@@ -127,7 +127,7 @@ void LinkGame::initTimers(const int &remainTimeInput)
     connect(dizzyTimeTimer,SIGNAL(timeout()),this,SLOT(updateDizzyTime())); //连接计时器的timeout信号和槽函数
     dizzyTimeTimer->start(1000); //开始计时
 
-    this->freezeTimerOn = false; //初始化freeze时间
+    this->freezeTimerOn= false; //初始化freeze时间
     freezeTimeTimer = new QTimer(); //初始化计时器
     connect(freezeTimeTimer,SIGNAL(timeout()),this,SLOT(updateFreezeTime())); //连接计时器的timeout信号和槽函数
     freezeTimeTimer->start(1000); //开始计时
@@ -166,9 +166,9 @@ void LinkGame::paintEvent(QPaintEvent *event)
     painter.drawText(QRect(400,0,200,this->passageHeight),Qt::AlignCenter,this->leftTimeText);
     //提示玩家分数
     painter.setFont(QFont("Arial", 12));
-    painter.drawText(QRect(0,550,100,50),Qt::AlignCenter,player1->scoreString);
+    painter.drawText(QRect(0,550,100,50),Qt::AlignCenter,player1->getScoreString());
     if(player2 != nullptr){
-        painter.drawText(QRect(700,550,100,50),Qt::AlignCenter,player2->scoreString);
+        painter.drawText(QRect(700,550,100,50),Qt::AlignCenter,player2->getScoreString());
     }
     //绘制游戏结束页面和游戏暂停页面
     if(gamePause){
@@ -238,11 +238,11 @@ void LinkGame::drawEndPage(QPainter &painter)
         pauseLabel->setText("无解，游戏结束");
     }
     //玩家分数的提示语
-    QLabel * player1Score = new QLabel(player1->scoreString);
+    QLabel * player1Score = new QLabel(player1->getScoreString());
     QLabel * player2Score;
     if(player2 != nullptr){
-        player2Score = new QLabel(QString("玩家2") + player2->scoreString);
-        player1Score = new QLabel(QString("玩家1") + player1->scoreString);
+        player2Score = new QLabel(QString("玩家2") + player2->getScoreString());
+        player1Score = new QLabel(QString("玩家1") + player1->getScoreString());
     } else {
         player2Score = new QLabel("");
     }
@@ -630,15 +630,15 @@ void LinkGame::updateDizzyTime() {
         //如果没有开启dizzyTimer，就不更新时间
         return;
     }
-    if(player1->dizzyTime > 0){
+    if(player1->getDizzyTime()> 0){
         //如果玩家1的dizzy时间大于0，就减少时间
-        player1->dizzyTime--;
+        player1->setDizzyTime(player1->getDizzyTime() - 1);
     }
-    if(player2->dizzyTime > 0){
+    if(player2->getDizzyTime()> 0){
         //如果玩家2的dizzy时间大于0，就减少时间
-        player2->dizzyTime--;
+        player2->setDizzyTime(player2->getDizzyTime() - 1);
     }
-    if(player1->dizzyTime == 0 && player2->dizzyTime == 0){
+    if(player1->getDizzyTime()== 0 && player2->getDizzyTime()== 0){
         //如果玩家1和玩家2的dizzy时间都为0，就关闭dizzyTimer
         dizzyTimerOn = false;
     }
@@ -654,15 +654,15 @@ void LinkGame::updateFreezeTime() {
         //如果没有开启freezeTimer，就不更新时间
         return;
     }
-    if(player1->freezeTime > 0){
+    if(player1->getFreezeTime() > 0){
         //如果玩家1的freeze时间大于0，就减少时间
-        player1->freezeTime--;
+        player1->setFreezeTime(player1->getFreezeTime() - 1);
     }
-    if(player2->freezeTime > 0){
+    if(player2->getFreezeTime() > 0){
         //如果玩家2的freeze时间大于0，就减少时间
-        player2->freezeTime--;
+        player2->setFreezeTime(player2->getFreezeTime() - 1);
     }
-    if(player1->freezeTime == 0 && player2->freezeTime == 0){
+    if(player1->getFreezeTime() == 0 && player2->getFreezeTime() == 0){
         //如果玩家1和玩家2的freeze时间都为0，就关闭freezeTimer
         freezeTimerOn = false;
     }

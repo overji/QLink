@@ -17,13 +17,13 @@ void SelectChecker::checkNumber(LinkGame *game, Player *player)
 {
     QVector<QPair<int,int>>path;
     //如果选中的箱子数为2，那么我们就可以进行消除操作了
-    if(player->currentSelected.size() == 2) {
-        if (player->currentSelected[0] == player->currentSelected[1]) {
-            player->currentSelected.pop_back();
+    if(player->getCurrentSelected().size() == 2) {
+        if (player->getCurrentSelected()[0] == player->getCurrentSelected()[1]) {
+            player->popCurrentSelected();
             return;
         }
         //清除箱子的被选择情况
-        for (auto i: player->currentSelected) {
+        for (auto i: player->getCurrentSelected()) {
             game->getBoxMap()[i.first][i.second]->setBoxSelected(false);
         }
         //检查是否可以消除，返回的是一个路径的vector，可以消除的话直接给玩家加分，过0.2s后再让箱子和路径消失不见
@@ -34,30 +34,30 @@ void SelectChecker::checkNumber(LinkGame *game, Player *player)
                 game->setRemoveText("错误!");
             } else if (path[0].first == -2 && path[0].second == -2) {
                 //零折线情况
-                for (auto i: player->currentSelected) {
-                    player->toBeRemovedBox.push_back(i);
-                    player->score += game->getBoxMap()[i.first][i.second]->addBoxScore();
+                for (auto i: player->getCurrentSelected()) {
+                    player->appendToBeRemovedBox(i);
+                    player->setScore(player->getScore() + game->getBoxMap()[i.first][i.second]->addBoxScore());
                 }
                 game->setRemoveText("消除成功!");
             } else {
                 //一折线情况
-                for (auto i: player->currentSelected) {
-                    player->toBeRemovedBox.push_back(i);
-                    player->score += game->getBoxMap()[i.first][i.second]->addBoxScore();
+                for (auto i: player->getCurrentSelected()) {
+                    player->appendToBeRemovedBox(i);
+                    player->setScore(player->getScore() + game->getBoxMap()[i.first][i.second]->addBoxScore());
                 }
                 game->setRemoveText("消除成功!");
             }
         } else if (path.size() == 2){
             //二折线情况
-            for (auto i: player->currentSelected) {
-                player->toBeRemovedBox.push_back(i);
-                player->score += game->getBoxMap()[i.first][i.second]->addBoxScore();
+            for (auto i: player->getCurrentSelected()) {
+                player->appendToBeRemovedBox(i);
+                player->setScore(player->getScore() + game->getBoxMap()[i.first][i.second]->addBoxScore());
             }
             game->setRemoveText("消除成功!");
         } else {
             game->setRemoveText("错误!");
         }
-        player->currentSelected.clear();
+        player->clearCurrentSelected();
     }
 }
 
@@ -65,8 +65,8 @@ QVector<QPair<int,int>> SelectChecker::checkValid(LinkGame *game, Player *player
 {
     //寻找可行的路径
     QVector<QPair<int,int>>path;
-    BoxOfGame* box1 = game->getBoxMap()[player->currentSelected[0].first][player->currentSelected[0].second];
-    BoxOfGame* box2 = game->getBoxMap()[player->currentSelected[1].first][player->currentSelected[1].second];
+    BoxOfGame* box1 = game->getBoxMap()[player->getCurrentSelected()[0].first][player->getCurrentSelected()[0].second];
+    BoxOfGame* box2 = game->getBoxMap()[player->getCurrentSelected()[1].first][player->getCurrentSelected()[1].second];
     if(box1->getTypeOfBox() != box2->getTypeOfBox())return path;
     int x1 = box1->getLeftTopX() + game->getBoxWidth()/2;
     int y1 = box1->getLeftTopY() + game->getBoxHeight()/2;
@@ -77,15 +77,15 @@ QVector<QPair<int,int>> SelectChecker::checkValid(LinkGame *game, Player *player
     if(x1 == x2){
         if(checkLine(game,player,2,y1,y2,x1)){
             path.push_back(QPair<int,int>(-2,-2));
-            player->linePath.push_back(QPoint(x1,y1));
-            player->linePath.push_back(QPoint(x2,y2));
+            player->appendToLinePath(QPoint(x1,y1));
+            player->appendToLinePath(QPoint(x2,y2));
             return path;
         }
     } else if(y1 == y2){
         if(checkLine(game,player,1,x1,x2,y1)){
             path.push_back(QPair<int,int>(-2,-2));
-            player->linePath.push_back(QPoint(x1,y1));
-            player->linePath.push_back(QPoint(x2,y2));
+            player->appendToLinePath(QPoint(x1,y1));
+            player->appendToLinePath(QPoint(x2,y2));
             return path;
         }
     }
@@ -96,9 +96,9 @@ QVector<QPair<int,int>> SelectChecker::checkValid(LinkGame *game, Player *player
     checkLine(game,player,1,x1,x2,y2) &&
             !checkExist(game,player,x1,y2)){
         //(x1,y1)->(x1,y2)->(x2,y2)
-        player->linePath.push_back(QPoint(x1,y1));
-        player->linePath.push_back(QPoint(x1,y2));
-        player->linePath.push_back(QPoint(x2,y2));
+        player->appendToLinePath(QPoint(x1,y1));
+        player->appendToLinePath(QPoint(x1,y2));
+        player->appendToLinePath(QPoint(x2,y2));
         path.push_back(QPair<int,int>(x1,y2));
         return path;
     }
@@ -107,9 +107,9 @@ QVector<QPair<int,int>> SelectChecker::checkValid(LinkGame *game, Player *player
             !checkExist(game,player,x2,y1)){
         //(x1,y1)->(x2,y1)->(x2,y2)
         path.push_back(QPair<int,int>(x2,y1));
-        player->linePath.push_back(QPoint(x1,y1));
-        player->linePath.push_back(QPoint(x2,y1));
-        player->linePath.push_back(QPoint(x2,y2));
+        player->appendToLinePath(QPoint(x1,y1));
+        player->appendToLinePath(QPoint(x2,y1));
+        player->appendToLinePath(QPoint(x2,y2));
         return path;
     }
     //二折线，假定两个箱子各自发出的平行线都沿着x方向，那么遍历y，这里的y确定为箱子坐标，看看是否有一条线可以连接
@@ -190,10 +190,10 @@ QVector<QPair<int,int>> SelectChecker::twoTwistCheck(LinkGame * game,Player * pl
             && !checkExist(game, player, lineX, y1) && !checkExist(game, player, lineX, y2)){
                 path.push_back(QPair<int,int>(lineX, y1));
                 path.push_back(QPair<int,int>(lineX, y2));
-                player->linePath.push_back(QPoint(x1,y1));
-                player->linePath.push_back(QPoint(lineX,y1));
-                player->linePath.push_back(QPoint(lineX,y2));
-                player->linePath.push_back(QPoint(x2,y2));
+                player->appendToLinePath(QPoint(x1,y1));
+                player->appendToLinePath(QPoint(lineX,y1));
+                player->appendToLinePath(QPoint(lineX,y2));
+                player->appendToLinePath(QPoint(x2,y2));
                 return path;
             }
         }
@@ -210,10 +210,10 @@ QVector<QPair<int,int>> SelectChecker::twoTwistCheck(LinkGame * game,Player * pl
             if(checkLine(game, player, 1, x1, x2, lineY) && !checkExist(game, player, x1, lineY) && !checkExist(game, player, x2, lineY)){
                 path.push_back(QPair<int,int>(x1, lineY));
                 path.push_back(QPair<int,int>(x2, lineY));
-                player->linePath.push_back(QPoint(x1,y1));
-                player->linePath.push_back(QPoint(x1,lineY));
-                player->linePath.push_back(QPoint(x2,lineY));
-                player->linePath.push_back(QPoint(x2,y2));
+                player->appendToLinePath(QPoint(x1,y1));
+                player->appendToLinePath(QPoint(x1,lineY));
+                player->appendToLinePath(QPoint(x2,lineY));
+                player->appendToLinePath(QPoint(x2,y2));
                 return path;
             }
         }
@@ -271,16 +271,16 @@ bool SelectChecker::solutionExist(LinkGame *game, Player *player)
     for(int i = 0;i < edgeBox.size();i ++){
         for(int j = i+1;j < edgeBox.size();j ++){
             //遍历所有的箱子，看看是否有两个箱子可以消除
-            tmpPlayer->currentSelected.push_back(QPair<int,int>(edgeBox[i].first,edgeBox[i].second));
-            tmpPlayer->currentSelected.push_back(QPair<int,int>(edgeBox[j].first,edgeBox[j].second));
-            if(tmpPlayer->currentSelected.size() != 2){
-                tmpPlayer->currentSelected.clear();
+            tmpPlayer->appendToCurrentSelected(QPair<int,int>(edgeBox[i].first,edgeBox[i].second));
+            tmpPlayer->appendToCurrentSelected(QPair<int,int>(edgeBox[j].first,edgeBox[j].second));
+            if(tmpPlayer->getCurrentSelected().size() != 2){
+                tmpPlayer->clearCurrentSelected();
                 continue;
             }
             if(checkValidReturnBool(game,tmpPlayer)){
                 return true;
             } else {
-                tmpPlayer->currentSelected.clear();
+                tmpPlayer->clearCurrentSelected();
             }
         }
     }
@@ -291,8 +291,8 @@ bool SelectChecker::solutionExist(LinkGame *game, Player *player)
 bool SelectChecker::checkValidReturnBool(LinkGame *game, Player *player)
 {
     //检查是否有解，返回bool值
-    BoxOfGame* box1 = game->getBoxMap()[player->currentSelected[0].first][player->currentSelected[0].second];
-    BoxOfGame* box2 = game->getBoxMap()[player->currentSelected[1].first][player->currentSelected[1].second];
+    BoxOfGame* box1 = game->getBoxMap()[player->getCurrentSelected()[0].first][player->getCurrentSelected()[0].second];
+    BoxOfGame* box2 = game->getBoxMap()[player->getCurrentSelected()[1].first][player->getCurrentSelected()[1].second];
     if(box1->getTypeOfBox() != box2->getTypeOfBox())return false;
     int x1 = box1->getLeftTopX() + game->getBoxWidth()/2;
     int y1 = box1->getLeftTopY() + game->getBoxHeight()/2;
@@ -370,16 +370,16 @@ QPair<QPair<int,int>,QPair<int,int>> SelectChecker::searchPair(LinkGame *game)
     QVector<QPair<int,int>>edgeBox = getEdgeBox(game,tmpPlayer);
     for(int i = 0;i < edgeBox.size();i ++){
         for(int j = i+1;j < edgeBox.size();j ++){
-            tmpPlayer->currentSelected.push_back(QPair<int,int>(edgeBox[i].first,edgeBox[i].second));
-            tmpPlayer->currentSelected.push_back(QPair<int,int>(edgeBox[j].first,edgeBox[j].second));
-            if(tmpPlayer->currentSelected.size() != 2){
-                tmpPlayer->currentSelected.clear();
+            tmpPlayer->appendToCurrentSelected(QPair<int,int>(edgeBox[i].first,edgeBox[i].second));
+            tmpPlayer->appendToCurrentSelected(QPair<int,int>(edgeBox[j].first,edgeBox[j].second));
+            if(tmpPlayer->getCurrentSelected().size() != 2){
+                tmpPlayer->clearCurrentSelected();
                 continue;
             }
             if(checkValidReturnBool(game,tmpPlayer)){
-                return QPair<QPair<int,int>,QPair<int,int>>(tmpPlayer->currentSelected[0],tmpPlayer->currentSelected[1]);
+                return QPair<QPair<int,int>,QPair<int,int>>(tmpPlayer->getCurrentSelected()[0],tmpPlayer->getCurrentSelected()[1]);
             } else {
-                tmpPlayer->currentSelected.clear();
+                tmpPlayer->clearCurrentSelected();
             }
         }
     }

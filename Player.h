@@ -17,12 +17,76 @@ class Gadget;
 class Player:public QWidget
 {
     Q_OBJECT
-    //设置为友元类，以便访问私有成员
-    friend class LinkGame;
-    friend class SelectChecker;
-    friend class Gadget;
-    friend class SimpleTest;
-    friend class SaveSystem;
+public:
+    // Getter and setter for playerLeftTopX
+    [[nodiscard]] int getPlayerLeftTopX() const { return playerLeftTopX; }
+    void setPlayerLeftTopX(int value) { playerLeftTopX = value; }
+
+    // Getter and setter for playerLeftTopY
+    [[nodiscard]] int getPlayerLeftTopY() const { return playerLeftTopY; }
+    void setPlayerLeftTopY(int value) { playerLeftTopY = value; }
+
+    // Getter and setter for playerWidth
+    [[nodiscard]] int getPlayerWidth() const { return playerWidth; }
+    void setPlayerWidth(int value) { playerWidth = value; }
+
+    // Getter and setter for playerHeight
+    [[nodiscard]] int getPlayerHeight() const { return playerHeight; }
+    void setPlayerHeight(int value) { playerHeight = value; }
+
+    // Getter and setter for playerSpeed
+    [[nodiscard]] int getPlayerSpeed() const { return playerSpeed; }
+    void setPlayerSpeed(int value) { playerSpeed = value; }
+
+    // Getter and setter for score
+    [[nodiscard]] int getScore() const { return score; }
+    void setScore(int value) { score = value; }
+
+    // Getter and setter for freezeTime
+    [[nodiscard]] int getFreezeTime() const { return freezeTime; }
+    void setFreezeTime(int value) { freezeTime = value; }
+
+    // Getter and setter for dizzyTime
+    [[nodiscard]] int getDizzyTime() const { return dizzyTime; }
+    void setDizzyTime(int value) { dizzyTime = value; }
+
+    // Getter and setter for scoreString
+    [[nodiscard]] QString getScoreString() const { return scoreString; }
+    void setScoreString(QString value) { scoreString = value; }
+
+    // Getter and setter for playerImage
+    [[nodiscard]] QPixmap getPlayerImage() const { return playerImage; }
+    void setPlayerImage(QPixmap value) { playerImage = value; }
+
+    // Getter and setter for currentSelected
+    [[nodiscard]] QVector<QPair<int,int>> getCurrentSelected() const { return currentSelected; }
+    void setCurrentSelected(QVector<QPair<int,int>> value) { currentSelected = value; }
+    void appendToCurrentSelected(QPair<int,int> value) { currentSelected.append(value); }
+    void popCurrentSelected() { currentSelected.pop_back(); }
+    void clearCurrentSelected() { currentSelected.clear(); }
+
+    // Getter and setter for linePath
+    [[nodiscard]] QVector<QPoint> getLinePath() const { return linePath; }
+    void setLinePath(QVector<QPoint> value) { linePath = value; }
+    void appendToLinePath(QPoint value) { linePath.append(value); }
+
+    // Getter and setter for toBeRemovedBox
+    [[nodiscard]] QVector<QPair<int,int>> getToBeRemovedBox() const { return toBeRemovedBox; }
+    void setToBeRemovedBox(QVector<QPair<int,int>> value) { toBeRemovedBox = value; }
+    void appendToBeRemovedBox(QPair<int,int> value) { toBeRemovedBox.append(value); }
+
+    // Getter and setter for removeBoxTimer
+    [[nodiscard]] QTimer* getRemoveBoxTimer() const { return removeBoxTimer; }
+    void setRemoveBoxTimer(QTimer* value) { removeBoxTimer = value; }
+
+    // Getter and setter for removeTimerOn
+    [[nodiscard]] bool isRemoveTimerOn() const { return removeTimerOn; }
+    void setRemoveTimerOn(bool value) { removeTimerOn = value; }
+
+    // Getter and setter for game
+    [[nodiscard]] LinkGame* getGame() const { return game; }
+    void setGame(LinkGame* value) { game = value; }
+
 public slots:
     void removeBox(); //消除方块
 public:
@@ -39,13 +103,13 @@ public:
     void flashMove(int xLoc,int yLoc); //玩家闪移
     void checkGadgetHit(); //检查玩家是否碰到道具
     void drawLine(QPainter & painter); //绘制线
-private:
     void checkClose(); //检查是否有相邻的方块
-    void clearSelected(); //消除选中的方块
     bool checkColIndexValid(const int & xIndex);     //检查列索引是否合法
     bool checkRowIndexValid(const int & yIndex);    //检查行索引是否合法
     bool flashMoveCheckEdge(int rowLoc,int colLoc); //检查flash移动是否处于箱子边缘处
     bool flashMoveCheckCenter(int rowLoc,int colLoc); //检查flash移动是否处于箱子中间
+private:
+    void clearSelected(); //消除选中的方块
     int playerLeftTopX; //玩家左上角x坐标
     int playerLeftTopY; //玩家左上角y坐标
     int playerWidth; //玩家宽度

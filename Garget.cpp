@@ -161,13 +161,13 @@ void Gadget::flashEffect(LinkGame *game,Player *player) {
 
 void Gadget::freezeEffect(LinkGame *game,Player *player) {
     //freeze效果,并且freezeTimer倒计时开始
-    player->freezeTime = 3;
+    player->setFreezeTime(3);
     game->setFreezeTimerOn(true);
 }
 
 void Gadget::dizzyEffect(LinkGame *game,Player *player) {
     //dizzy效果,并且dizzyTimer倒计时开始
-    player->dizzyTime = 10;
+    player->setDizzyTime(10);
     game->setDizzyTimerOn(true);
 }
 
