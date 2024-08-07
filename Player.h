@@ -87,6 +87,9 @@ public:
     [[nodiscard]] LinkGame* getGame() const { return game; }
     void setGame(LinkGame* value) { game = value; }
 
+    [[nodiscard]] int getDirection() const { return direction; }
+    void setDirection(int value) { direction = value; }
+
 public slots:
     void removeBox(); //消除方块
 public:
@@ -95,7 +98,7 @@ public:
     ~Player(); //析构函数
     void resizePlayer(double xScaleRatio, double yScaleRatio); //调整玩家大小
     void drawPlayer(QPainter & painter); //绘制玩家
-    void playerMove(const int &direction,const int &xLoc = 0,const int &yLoc = 0); //玩家移动
+    void playerMove(const int &playerDirection, const int &xLoc = 0, const int &yLoc = 0); //玩家移动
     void leftMove(); //玩家向左移动
     void rightMove(); //玩家向右移动
     void upMove(); //玩家向上移动
@@ -127,5 +130,7 @@ private:
     QTimer * removeBoxTimer; //消除计时器
     bool removeTimerOn; //消除计时器是否开启
     LinkGame * game;
+
+    int direction;//玩家移动方向 ，0上 1下 2左 3右 4不动
 };
 

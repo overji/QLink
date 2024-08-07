@@ -408,7 +408,7 @@ void LinkGame::initPlayer(int gameTypeInput)
     //初始化玩家
     int playerWidth = 20; //玩家宽度
     int playerHeight = (1*playerWidth*this->xScaleRatio)/this->yScaleRatio; //玩家高度
-    int initialSpeed = 15; //玩家初始速度
+    int initialSpeed = 4; //玩家初始速度
     //初始化玩家1
     player1 = new Player(playerWidth,300-playerHeight/2,playerWidth,playerHeight,initialSpeed,this,1);
     if(gameTypeInput){
@@ -425,29 +425,33 @@ void LinkGame::keyPressEvent(QKeyEvent *event)
     switch (event->key()) {
         //玩家1的移动
         case Qt::Key_W:
-            player1->playerMove(0);
+            player1->setDirection(0);
             break;
         case Qt::Key_S:
-            player1->playerMove(1);
+            player1->setDirection(1);
             break;
         case Qt::Key_A:
-            player1->playerMove(2);
+            player1->setDirection(2);
             break;
         case Qt::Key_D:
-            player1->playerMove(3);
+            player1->setDirection(3);
             break;
         //玩家2的移动
         case Qt::Key_Up:
-            player2->playerMove(0);
+            if(gameType != 1)break;
+            player2->setDirection(0);
             break;
         case Qt::Key_Down:
-            player2->playerMove(1);
+            if(gameType != 1)break;
+            player2->setDirection(1);
             break;
         case Qt::Key_Left:
-            player2->playerMove(2);
+            if(gameType != 1)break;
+            player2->setDirection(2);
             break;
         case Qt::Key_Right:
-            player2->playerMove(3);
+            if(gameType != 1)break;
+            player2->setDirection(3);
             break;
         //暂停游戏
         case Qt::Key_Space:
@@ -461,7 +465,45 @@ void LinkGame::keyPressEvent(QKeyEvent *event)
     }
 }
 
+void LinkGame::keyReleaseEvent(QKeyEvent * event)
+{
+    //键盘释放事件
+    switch (event->key()) {
+        //玩家1的移动
+        case Qt::Key_W:
+            player1->setDirection(4);
+            break;
+        case Qt::Key_S:
+            player1->setDirection(4);
+            break;
+        case Qt::Key_A:
+            player1->setDirection(4);
+            break;
+        case Qt::Key_D:
+            player1->setDirection(4);
+            break;
+        //玩家2的移动
+        case Qt::Key_Up:
+            if(gameType != 1)break;
+            player2->setDirection(4);
+            break;
+        case Qt::Key_Down:
+            if(gameType != 1)break;
+            player2->setDirection(4);
+            break;
+        case Qt::Key_Left:
+            if(gameType != 1)break;
+            player2->setDirection(4);
+            break;
+        case Qt::Key_Right:
+            if(gameType != 1)break;
+            player2->setDirection(4);
+            break;
+        default:
+            break;
+    }
 
+}
 
 void LinkGame::checkGameEnd()
 {
@@ -739,6 +781,13 @@ void LinkGame::gameUpdate()
         player2->checkClose();
     }
     if(gameEnd || gamePause)return;
+
+    if(!flashTimerOn || gameType == 1){
+        player1->playerMove(player1->getDirection());
+        if(player2 != nullptr){
+            player2->playerMove(player2->getDirection());
+        }
+    }
     generateGadget(); //生成道具
     hintBox(); //提示箱子
 }

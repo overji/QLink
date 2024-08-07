@@ -182,6 +182,7 @@ private:
     void paintEvent(QPaintEvent *event) override; //绘制事件
     void resizeEvent(QResizeEvent *event) override; //重绘事件
     void keyPressEvent(QKeyEvent * event) override; //键盘事件
+    void keyReleaseEvent(QKeyEvent * event) override; //键盘释放事件
     void mousePressEvent(QMouseEvent * event) override; //鼠标点击事件
     void drawMap(QPainter & painter); //绘制地图
     void drawEndPage(QPainter & painter); //绘制结束页面

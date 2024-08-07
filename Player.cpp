@@ -21,6 +21,7 @@ Player::Player(const int &playerLeftTopXInput, const int &playerLeftTopYInput, c
     this->freezeTime = 0;
     this->dizzyTime = 0;
     this->score = 0;
+    this->direction = 4;
     this->scoreString = "分数: 0";
     //设置玩家贴图
     if(playerSkin == 1){
@@ -321,9 +322,9 @@ void Player::drawPlayer(QPainter &painter)
     painter.restore();
 }
 
-void Player::playerMove(const int &direction,const int &xLoc,const int &yLoc)
+void Player::playerMove(const int &playerDirection, const int &xLoc, const int &yLoc)
 {
-    //玩家移动
+    //玩家移动，注意这里的playerDirection应当由外界传入，以方便判断是否是flashMove
     if(game->isGamePause()){
         //游戏暂停时，玩家无法移动
         return;
@@ -351,7 +352,7 @@ void Player::playerMove(const int &direction,const int &xLoc,const int &yLoc)
     }
     if(!startDizzy){
         //正常移动
-        switch (direction) {
+        switch (playerDirection) {
             case 0:
                 upMove();
                 break;
@@ -369,7 +370,7 @@ void Player::playerMove(const int &direction,const int &xLoc,const int &yLoc)
         }
     } else {
         //眩晕时，方向相反
-        switch (direction) {
+        switch (playerDirection) {
             case 0:
                 downMove();
                 break;
@@ -387,7 +388,7 @@ void Player::playerMove(const int &direction,const int &xLoc,const int &yLoc)
         }
     }
 
-    if(direction == -5){
+    if(playerDirection == -5){
         //flash移动
         flashMove(xLoc,yLoc);
     }
