@@ -90,7 +90,7 @@ void MainPage::initStartGamePage()
     //设置Label和按钮，并且把按钮连接到槽函数上
     QLabel * MHint = new QLabel("几行方块(请输入2~16之间的整数)?");
     QLabel * NHint = new QLabel("几列方块(请输入2~16之间的整数)?");
-    QLabel * oddHint = new QLabel("请确保行数和列数至少有一个为整数!");
+    QLabel * oddHint = new QLabel("请确保行数和列数至少有一个为偶数!");
     QLabel * gameTypeHint = new QLabel("游戏模式: ");
     QLabel * title = new QLabel("游戏启动设置");
     QLabel * gameHint = new QLabel("W向上移动,S向下移动,A向左移动,D向右移动,Esc暂停游戏");
@@ -107,10 +107,10 @@ void MainPage::initStartGamePage()
     //设置数字输入框，并且设置范围和默认值
     QSpinBox * MInput = new QSpinBox();
     MInput->setRange(2,16);
-    MInput->setValue(6);
+    MInput->setValue(9);
     QSpinBox * NInput = new QSpinBox();
     NInput->setRange(2,16);
-    NInput->setValue(6);
+    NInput->setValue(12);
 
     //设置样式
     QVector<QLabel *> hints = {MHint,NHint,oddHint,gameTypeHint,title,gameHint};

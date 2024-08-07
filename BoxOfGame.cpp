@@ -99,19 +99,19 @@ int BoxOfGame::addBoxScore()
     //返回箱子分数
     switch(typeOfBox){
         case 0:
-            return 10;
+            return 105;
         case 1:
-            return 20;
+            return 105;
         case 2:
-            return 30;
+            return 120;
         case 3:
-            return 50;
+            return 105;
         case 4:
-            return 75;
+            return 115;
         case 5:
             return 100;
         default:
-            return 200;
+            return 100;
     }
 }
 

@@ -348,18 +348,18 @@ void LinkGame::initBoxType()
         int randomNum = QRandomGenerator::global()->bounded(1,1001);
         int randomType = 0;
         //箱子种类对应的概率
-        if(randomNum <= 250){
-            randomType = 0;
-        } else if(randomNum <= 475){
-            randomType = 1;
-        } else if(randomNum <= 625){
-            randomType = 2;
-        } else if(randomNum <= 750){
-            randomType = 3;
+        if(randomNum <= 145){
+            randomType = 0; // 0.145
+        } else if(randomNum <= 290){
+            randomType = 1; // 0.145
+        } else if(randomNum <= 420){
+            randomType = 2; // 0.130
+        } else if(randomNum <= 565){
+            randomType = 3; // 0.145
+        } else if(randomNum <= 700){
+            randomType = 4; // 0.135
         } else if(randomNum <= 850){
-            randomType = 4;
-        } else if(randomNum <= 950){
-            randomType = 5;
+            randomType = 5; // 0.150
         } else {
             randomType = 6;
         }
