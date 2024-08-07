@@ -347,6 +347,7 @@ void Player::playerMove(const int &playerDirection, const int &xLoc, const int &
         game->setRemoveText("无解!");
         game->setGameEnd(true);
         game->setGamePause(false);
+        game->setNoSolution(true);
         game->setSummaryText("游戏结束!");
         return;
     }

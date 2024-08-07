@@ -232,11 +232,18 @@ void LinkGame::drawEndPage(QPainter &painter)
     QPushButton *newGameButton = new QPushButton("新游戏");
     QPushButton *loadButton = new QPushButton("加载游戏");
     QPushButton *exitButton = new QPushButton("退出游戏");
-    QLabel * pauseLabel = new QLabel("游戏结束");
     //判断是否无解
+    this->summaryText = "游戏结束!";
     if(noSolution){
-        pauseLabel->setText("无解，游戏结束");
+        this->summaryText = "无解，游戏结束!";
     }
+    if(remainTime == 0){
+        this->summaryText = "时间到，游戏结束!";
+    }
+    if(remainBoxNumber == 0){
+        this->summaryText = "胜利，游戏结束!";
+    }
+    QLabel * endLabel = new QLabel(this->summaryText);
     //玩家分数的提示语
     QLabel * player1Score = new QLabel(player1->getScoreString());
     QLabel * player2Score;
@@ -247,7 +254,7 @@ void LinkGame::drawEndPage(QPainter &painter)
         player2Score = new QLabel("");
     }
     //设置标签和按钮的样式
-    QVector<QLabel*>labels = {pauseLabel,player1Score,player2Score};
+    QVector<QLabel*>labels = {endLabel,player1Score,player2Score};
     for(auto label:labels){
         label->setStyleSheet("font-size: 30px;");
         label->setAlignment(Qt::AlignCenter);
@@ -267,7 +274,7 @@ void LinkGame::drawEndPage(QPainter &painter)
         this->close();
     });
     //添加标签和按钮到layout中
-    layout->addWidget(pauseLabel,0,0,1,8);
+    layout->addWidget(endLabel,0,0,1,8);
     layout->addWidget(player1Score,1,0,1,4);
     layout->addWidget(player2Score,1,4,1,4);
     layout->addWidget(newGameButton,2,2,1,4);
