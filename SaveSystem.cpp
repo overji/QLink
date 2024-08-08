@@ -11,7 +11,7 @@ class Player;
 class Gadget;
 class BoxOfGame;
 
-void SaveSystem::saveGame(LinkGame * game)
+void SaveSystem::saveGame(LinkGame * game,const QString &name)
 {
     // 如果save文件夹不存在，创建save文件夹
     QDir dir;
@@ -19,7 +19,7 @@ void SaveSystem::saveGame(LinkGame * game)
         dir.mkdir("save");
     }
     // 保存游戏数据，如果gameData.sav文件不存在，创建gameData.sav文件
-    QFile saveFile("save/gameData.sav");
+    QFile saveFile(QString("save/") + name + ".sav");
     saveFile.open(QIODevice::WriteOnly);
     QDataStream out(&saveFile);
     // 保存游戏数据
@@ -94,11 +94,11 @@ void SaveSystem::savePlayerData(QDataStream &out, Player *player)
     out << player->isRemoveTimerOn();
 }
 
-LinkGame * SaveSystem::loadGame()
+LinkGame * SaveSystem::loadGame(const QString &name)
 {
     //加载游戏数据
     LinkGame * game = new LinkGame();
-    QFile saveFile("save/gameData.sav");
+    QFile saveFile(QString("save/")+name+QString(".sav"));
     saveFile.open(QIODevice::ReadOnly);
     QDataStream in(&saveFile);
     //加载游戏数据
@@ -256,4 +256,16 @@ void SaveSystem::loadPlayerData(QDataStream &in, Player *player,LinkGame * game)
     bool tempBool;
     in >> tempBool; player->setRemoveTimerOn(tempBool);
     player->setGame(game);
+}
+
+void SaveSystem::saveGame(LinkGame * game)
+{
+    //保存游戏数据
+    saveGame(game,QString("gameData"));
+}
+
+LinkGame * SaveSystem::loadGame()
+{
+    //加载游戏数据
+    return loadGame(QString("gameData"));
 }

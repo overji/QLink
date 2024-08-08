@@ -649,6 +649,8 @@ C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink_autogen/EWIEGA46W
   D:/qt/6.6.2/mingw_64/include/QtGui/qkeysequence.h \
   D:/qt/6.6.2/mingw_64/include/QtGui/qpaintdevice.h \
   D:/qt/6.6.2/mingw_64/include/QtGui/qpalette.h \
+  D:/qt/6.6.2/mingw_64/include/QtGui/qpen.h \
+  D:/qt/6.6.2/mingw_64/include/QtGui/qpicture.h \
   D:/qt/6.6.2/mingw_64/include/QtGui/qpixelformat.h \
   D:/qt/6.6.2/mingw_64/include/QtGui/qpixmap.h \
   D:/qt/6.6.2/mingw_64/include/QtGui/qpointingdevice.h \
@@ -660,6 +662,10 @@ C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink_autogen/EWIEGA46W
   D:/qt/6.6.2/mingw_64/include/QtGui/qsurface.h \
   D:/qt/6.6.2/mingw_64/include/QtGui/qsurfaceformat.h \
   D:/qt/6.6.2/mingw_64/include/QtGui/qtestsupport_gui.h \
+  D:/qt/6.6.2/mingw_64/include/QtGui/qtextcursor.h \
+  D:/qt/6.6.2/mingw_64/include/QtGui/qtextdocument.h \
+  D:/qt/6.6.2/mingw_64/include/QtGui/qtextformat.h \
+  D:/qt/6.6.2/mingw_64/include/QtGui/qtextoption.h \
   D:/qt/6.6.2/mingw_64/include/QtGui/qtgui-config.h \
   D:/qt/6.6.2/mingw_64/include/QtGui/qtguiexports.h \
   D:/qt/6.6.2/mingw_64/include/QtGui/qtguiglobal.h \
@@ -694,17 +700,28 @@ C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink_autogen/EWIEGA46W
   D:/qt/6.6.2/mingw_64/include/QtTest/qttestglobal.h \
   D:/qt/6.6.2/mingw_64/include/QtTest/qttestlib-config.h \
   D:/qt/6.6.2/mingw_64/include/QtTest/qttestversion.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/QLabel \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/QPushButton \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/QScrollArea \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/QSizePolicy \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/QStackedLayout \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/QTextEdit \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/QWidget \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qapplication.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qboxlayout.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/qframe.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qgridlayout.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/qlabel.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qlayout.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/qpushbutton.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/qscrollarea.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qstackedlayout.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qtestsupport_widgets.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/qtextedit.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

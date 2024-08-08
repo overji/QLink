@@ -5,6 +5,7 @@
 #include "LinkGame.h"
 #include "Gadget.h"
 #include "Player.h"
+#include "SavePage.h"
 
 #include <iostream>
 #include <QPainter>
@@ -47,6 +48,8 @@ LinkGame::LinkGame(const int& M , const int& N, int gameTypeInput ,const int &re
     this->hintedBoxes.resize(2);
     initMap();
     initPlayer(gameTypeInput);
+
+    this->stackedLayout = nullptr;
 };
 
 LinkGame:: ~LinkGame()
@@ -282,7 +285,9 @@ void LinkGame::drawEndPage(QPainter &painter)
     layout->addWidget(exitButton,4,2,1,4);
     layout->addWidget(new QLabel,5,0,1,8);
     //设置layout
-    this->setLayout(layout);
+    if (this->layout() == nullptr) {
+        this->setLayout(layout);
+    }
 }
 
 void LinkGame::drawPausePage(QPainter &painter)
@@ -296,6 +301,8 @@ void LinkGame::drawPausePage(QPainter &painter)
         return;
     }
     //按钮和标签
+    stackedLayout = new QStackedLayout;
+    QWidget * pausePage = new QWidget;
     QGridLayout *layout = new QGridLayout;
     QPushButton *resumeButton = new QPushButton("继续游戏");
     QPushButton *saveButton = new QPushButton("保存游戏");
@@ -315,7 +322,7 @@ void LinkGame::drawPausePage(QPainter &painter)
     //连接按钮的槽函数
     connect(resumeButton,&QPushButton::clicked,this,&LinkGame::setGamePauseNoValue);
     connect(saveButton,&QPushButton::clicked,[this](){
-        SaveSystem::saveGame(this);
+        showSavePage();
     });
     connect(exitButton,&QPushButton::clicked,[this](){
         this->close();
@@ -326,7 +333,12 @@ void LinkGame::drawPausePage(QPainter &painter)
     layout->addWidget(saveButton,3,2,1,4);
     layout->addWidget(exitButton,4,2,1,4);
     layout->addWidget(new QLabel,5,0,1,8);
-    this->setLayout(layout);
+    pausePage->setLayout(layout);
+    stackedLayout->addWidget(pausePage);
+    SavePage *savePage = new SavePage(this);
+    stackedLayout->addWidget(savePage);
+    this->setLayout(stackedLayout);
+    stackedLayout->setCurrentIndex(0);
 }
 
 void LinkGame::initBoxType()
@@ -744,7 +756,7 @@ void LinkGame::setGamePauseNoValue() {
     //设置游戏暂停
     if(gamePause){
         //如果游戏被重新开启，就清除暂停页面
-        QLayout *layout = this->layout();
+        QLayout *layout = this->stackedLayout;
         if (layout != nullptr)
         {
             QLayoutItem *item;
@@ -809,4 +821,14 @@ void LinkGame::clearClose()
             boxMap[i][j]->setBoxClose(false);
         }
     }
+}
+
+void LinkGame::showPausePage()
+{
+    this->stackedLayout->setCurrentIndex(0);
+}
+
+void LinkGame::showSavePage()
+{
+    this->stackedLayout->setCurrentIndex(1);
 }

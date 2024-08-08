@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../../LinkGame.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #if __has_include(<QtCore/qtmochelpers.h>)
@@ -46,11 +47,13 @@ constexpr auto qt_meta_stringdata_CLASSLinkGameENDCLASS = QtMocHelpers::stringDa
     "updateFreezeTime",
     "updateDizzyTime",
     "startNewGame",
-    "loadGame"
+    "loadGame",
+    "showSavePage",
+    "showPausePage"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSLinkGameENDCLASS_t {
-    uint offsetsAndSizes[18];
+    uint offsetsAndSizes[22];
     char stringdata0[9];
     char stringdata1[17];
     char stringdata2[1];
@@ -60,6 +63,8 @@ struct qt_meta_stringdata_CLASSLinkGameENDCLASS_t {
     char stringdata6[16];
     char stringdata7[13];
     char stringdata8[9];
+    char stringdata9[13];
+    char stringdata10[14];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSLinkGameENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -73,7 +78,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSLinkGameENDCLASS_t qt_meta_stri
         QT_MOC_LITERAL(58, 16),  // "updateFreezeTime"
         QT_MOC_LITERAL(75, 15),  // "updateDizzyTime"
         QT_MOC_LITERAL(91, 12),  // "startNewGame"
-        QT_MOC_LITERAL(104, 8)   // "loadGame"
+        QT_MOC_LITERAL(104, 8),  // "loadGame"
+        QT_MOC_LITERAL(113, 12),  // "showSavePage"
+        QT_MOC_LITERAL(126, 13)   // "showPausePage"
     },
     "LinkGame",
     "updateRemainTime",
@@ -83,7 +90,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSLinkGameENDCLASS_t qt_meta_stri
     "updateFreezeTime",
     "updateDizzyTime",
     "startNewGame",
-    "loadGame"
+    "loadGame",
+    "showSavePage",
+    "showPausePage"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -95,7 +104,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSLinkGameENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -103,15 +112,19 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSLinkGameENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   56,    2, 0x0a,    1 /* Public */,
-       3,    0,   57,    2, 0x0a,    2 /* Public */,
-       4,    0,   58,    2, 0x0a,    3 /* Public */,
-       5,    0,   59,    2, 0x0a,    4 /* Public */,
-       6,    0,   60,    2, 0x0a,    5 /* Public */,
-       7,    0,   61,    2, 0x0a,    6 /* Public */,
-       8,    0,   62,    2, 0x0a,    7 /* Public */,
+       1,    0,   68,    2, 0x0a,    1 /* Public */,
+       3,    0,   69,    2, 0x0a,    2 /* Public */,
+       4,    0,   70,    2, 0x0a,    3 /* Public */,
+       5,    0,   71,    2, 0x0a,    4 /* Public */,
+       6,    0,   72,    2, 0x0a,    5 /* Public */,
+       7,    0,   73,    2, 0x0a,    6 /* Public */,
+       8,    0,   74,    2, 0x0a,    7 /* Public */,
+       9,    0,   75,    2, 0x0a,    8 /* Public */,
+      10,    0,   76,    2, 0x0a,    9 /* Public */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -145,6 +158,10 @@ Q_CONSTINIT const QMetaObject LinkGame::staticMetaObject = { {
         // method 'startNewGame'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'loadGame'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'showSavePage'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'showPausePage'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -163,6 +180,8 @@ void LinkGame::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 4: _t->updateDizzyTime(); break;
         case 5: _t->startNewGame(); break;
         case 6: _t->loadGame(); break;
+        case 7: _t->showSavePage(); break;
+        case 8: _t->showPausePage(); break;
         default: ;
         }
     }
@@ -188,13 +207,13 @@ int LinkGame::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 9)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 7;
+        _id -= 9;
     }
     return _id;
 }

@@ -178,6 +178,8 @@ public slots:
     void updateDizzyTime(); //更新dizzy时间
     void startNewGame(); //开始新游戏
     void loadGame(); //加载游戏
+    void showSavePage();
+    void showPausePage(); //显示暂停页面
 private:
     void paintEvent(QPaintEvent *event) override; //绘制事件
     void resizeEvent(QResizeEvent *event) override; //重绘事件
@@ -242,6 +244,8 @@ private:
 
     bool dizzyTimerOn; //dizzy计时器是否开启
     bool freezeTimerOn; //freeze计时器是否开启
+
+    QStackedLayout * stackedLayout; //堆叠布局
 
     Player * player1; //玩家1
     Player * player2; //玩家2
