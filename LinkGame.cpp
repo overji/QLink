@@ -302,7 +302,7 @@ void LinkGame::drawPausePage(QPainter &painter)
     }
     //按钮和标签
     stackedLayout = new QStackedLayout;
-    QWidget * pausePage = new QWidget;
+    QWidget * pausePage = new QWidget(this);
     QGridLayout *layout = new QGridLayout;
     QPushButton *resumeButton = new QPushButton("继续游戏");
     QPushButton *saveButton = new QPushButton("保存游戏");

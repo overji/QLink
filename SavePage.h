@@ -14,11 +14,11 @@ class SaveDataWidget:public QPushButton
 {
     Q_OBJECT
 public:
-    explicit SaveDataWidget(QString path,QString name);
+    explicit SaveDataWidget(QString pathInput, QString nameInput);
     QString path;
     QString name;
     QGridLayout * gridLayout;
-    QTextEdit * textEdit;
+    QLabel * nameLabel;
     QPushButton * deleteButton;
 };
 
@@ -37,6 +37,8 @@ public:
     SavePage(LinkGame * game);
     void initSavePage();
     void initSaveScrollArea() const;
+private:
+    void setCSS();
 public slots:
     void saveGame(); //存档
     void returnOriginPage();

@@ -88,7 +88,7 @@ void BoxOfGame::checkBoxBoarderColor() {
     } else if(boxState.closeBox){
         boarderColor = QColor(255,255,0);
     } else if(boxState.boxHinted) {
-        boarderColor = QColor(255, 13, 167);
+        boarderColor = QColor(0, 207, 197);
     }else {
         boarderColor = QColor(255, 255, 255);
     }

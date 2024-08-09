@@ -180,6 +180,7 @@ public slots:
     void loadGame(); //加载游戏
     void showSavePage();
     void showPausePage(); //显示暂停页面
+    void initMap(); //初始化地图
 private:
     void paintEvent(QPaintEvent *event) override; //绘制事件
     void resizeEvent(QResizeEvent *event) override; //重绘事件
@@ -190,7 +191,6 @@ private:
     void drawEndPage(QPainter & painter); //绘制结束页面
     void drawPausePage(QPainter & painter); //绘制暂停页面
     //初始化箱子
-    void initMap(); //初始化地图
     void initTimers(const int &remainTimeInput); //初始化计时器
     void initBoxType(); //初始化箱子类型
     void initPlayer(int gameTypeInput); //初始化玩家

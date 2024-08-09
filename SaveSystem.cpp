@@ -179,11 +179,14 @@ LinkGame * SaveSystem::loadGame(const QString &name)
 
 //所有箱子初始化
     game->initGlobalBox(game->getBoxRow(),game->getBoxCol());
+    game->initMap();
     for(int row = 0;row < game->getBoxRow();row ++){
         for(int col = 0;col < game->getBoxCol();col ++){
             BoxState tempBoxState;
             in >> tempBoxState.boxRemoved >> tempBoxState.boxSelected >> tempBoxState.closeBox
                >> tempBoxState.boxToBeRemoved >> tempBoxState.boxHinted;
+           std::cout << game->getBoxMap()[row].size() << std::endl;
+            std::cout << (game->getBoxMap()[row])[col]->getBoxState().closeBox<< std::endl;
             game->getBoxMap()[row][col]->setBoxRemoved(tempBoxState.boxRemoved);
             game->getBoxMap()[row][col]->setBoxSelected(tempBoxState.boxSelected);
             game->getBoxMap()[row][col]->setBoxClose(tempBoxState.closeBox);

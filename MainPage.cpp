@@ -209,3 +209,4 @@ void MainPage::loadGame()
     SaveSystem::loadGame()->show();
     this->close();
 }
+

@@ -1457,7 +1457,6 @@ C:/Users/overji/Desktop/homework/QLink/MainPage.h
  mdp:D:/qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:D:/qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:D:/qt/6.6.2/mingw_64/include/QtWidgets/qwidget.h
-C:/Users/overji/Desktop/homework/QLink/SaveSystem.h
 C:/Users/overji/Desktop/homework/QLink/Gadget.h
  mmc:Q_OBJECT
  mdp:C:/Users/overji/Desktop/homework/QLink/BoxOfGame.h
@@ -2187,6 +2186,7 @@ C:/Users/overji/Desktop/homework/QLink/Gadget.h
  mdp:D:/qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:D:/qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:D:/qt/6.6.2/mingw_64/include/QtWidgets/qwidget.h
+C:/Users/overji/Desktop/homework/QLink/SaveSystem.h
 C:/Users/overji/Desktop/homework/QLink/LinkGame.h
  mmc:Q_OBJECT
  mdp:C:/Users/overji/Desktop/homework/QLink/BoxOfGame.h
@@ -3646,10 +3646,10 @@ C:/Users/overji/Desktop/homework/QLink/Player.h
  mdp:D:/qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:D:/qt/6.6.2/mingw_64/include/QtWidgets/qwidget.h
 C:/Users/overji/Desktop/homework/QLink/SelectChecker.h
-C:/Users/overji/Desktop/homework/QLink/Player.cpp
 C:/Users/overji/Desktop/homework/QLink/SpecialAlgorithm.h
-C:/Users/overji/Desktop/homework/QLink/MainPage.cpp
+C:/Users/overji/Desktop/homework/QLink/Player.cpp
 C:/Users/overji/Desktop/homework/QLink/BoxOfGame.cpp
+C:/Users/overji/Desktop/homework/QLink/MainPage.cpp
 C:/Users/overji/Desktop/homework/QLink/Garget.cpp
 C:/Users/overji/Desktop/homework/QLink/LinkGame.cpp
 C:/Users/overji/Desktop/homework/QLink/SaveSystem.cpp
