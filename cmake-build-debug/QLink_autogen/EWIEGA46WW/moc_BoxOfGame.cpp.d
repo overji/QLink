@@ -5,6 +5,7 @@ C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink_autogen/EWIEGA46W
   C:/Users/overji/Desktop/homework/QLink/LinkGame.h \
   C:/Users/overji/Desktop/homework/QLink/MainPage.h \
   C:/Users/overji/Desktop/homework/QLink/Player.h \
+  C:/Users/overji/Desktop/homework/QLink/SavePage.h \
   C:/Users/overji/Desktop/homework/QLink/SaveSystem.h \
   C:/Users/overji/Desktop/homework/QLink/SelectChecker.h \
   C:/Users/overji/Desktop/homework/QLink/SimpleTest.h \
@@ -700,6 +701,7 @@ C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink_autogen/EWIEGA46W
   D:/qt/6.6.2/mingw_64/include/QtTest/qttestglobal.h \
   D:/qt/6.6.2/mingw_64/include/QtTest/qttestlib-config.h \
   D:/qt/6.6.2/mingw_64/include/QtTest/qttestversion.h \
+  D:/qt/6.6.2/mingw_64/include/QtWidgets/QGridLayout \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/QLabel \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/QPushButton \
   D:/qt/6.6.2/mingw_64/include/QtWidgets/QScrollArea \

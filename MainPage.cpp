@@ -20,10 +20,12 @@ MainPage::MainPage()
     //初始化主界面和开始游戏界面
     initMainPage();
     initStartGamePage();
+    this->loadWidget = new LoadPage(this);
     //初始化stackedLayout，并且把主界面和开始游戏界面加入其中
     stackMainLayout = new QStackedLayout;
     stackMainLayout->addWidget(this->mainWidget);
     stackMainLayout->addWidget(this->startWidget);
+    stackMainLayout->addWidget(this->loadWidget);
     stackMainLayout->setCurrentIndex(0); //默认显示主界面
     this->setLayout(stackMainLayout); //设置布局
     //设置窗口大小和图标
@@ -40,11 +42,11 @@ void MainPage::initMainPage()
 
     //设置按钮，并且把按钮和槽函数连接起来
     QPushButton *startGame = new QPushButton("开始游戏");
-    connect(startGame,&QPushButton::clicked,this,&MainPage::startGameClicked);
+    connect(startGame,&QPushButton::clicked,this, &MainPage::toStartPage);
     QPushButton *exitGame = new QPushButton("退出游戏");
     connect(exitGame,&QPushButton::clicked,this,&MainPage::endGame);
     QPushButton * loadGame = new QPushButton("加载游戏");
-    connect(loadGame,&QPushButton::clicked,this,&MainPage::loadGame);
+    connect(loadGame,&QPushButton::clicked,this,&MainPage::toLoadPage);
     QVector<QPushButton *> buttons = {startGame,exitGame,loadGame};
     //设置按钮样式
     for(auto button:buttons){
@@ -98,7 +100,7 @@ void MainPage::initStartGamePage()
     QPushButton * startGameButton = new QPushButton("开始游戏");
     connect(startGameButton,&QPushButton::clicked,this,&MainPage::startGame);
     QPushButton * cancelButton = new QPushButton("取消");
-    connect(cancelButton,&QPushButton::clicked,this,&MainPage::returnMainPage);
+    connect(cancelButton,&QPushButton::clicked,this, &MainPage::toMainPage);
     QRadioButton * singleGame = new QRadioButton("单人游戏");
     singleGame->setChecked(true); //默认选择单人游戏
     QRadioButton * multiGame = new QRadioButton("多人游戏");
@@ -168,7 +170,7 @@ void MainPage::gameTypeClicked()
     }
 }
 
-void MainPage::startGameClicked()
+void MainPage::toStartPage()
 {
     //切换到开始游戏界面
     this->stackMainLayout->setCurrentIndex(1);
@@ -183,6 +185,10 @@ void MainPage::startGame()
     QRadioButton * singleGame = qobject_cast<QRadioButton *>(qobject_cast<QGridLayout*>(startWidget->layout())->itemAtPosition(4, 4)->widget());
     int M = MInput->value();
     int N = NInput->value();
+    if((M * N) % 2){
+        std::cout << "Between M and N there must be an odd number! " << std::endl;
+        return;
+    }
     //根据游戏模式，选择不同的游戏
     int gameType = singleGame->isChecked()?0:1;
     LinkGame * game = new LinkGame(M,N,gameType);
@@ -191,11 +197,18 @@ void MainPage::startGame()
     this->close();
 }
 
-void MainPage::returnMainPage()
+void MainPage::toMainPage()
 {
     //返回主界面
     this->stackMainLayout->setCurrentIndex(0);
 }
+
+void MainPage::toLoadPage()
+{
+    //进入加载界面
+    this->stackMainLayout->setCurrentIndex(2);
+}
+
 
 void MainPage::endGame()
 {
@@ -209,4 +222,5 @@ void MainPage::loadGame()
     SaveSystem::loadGame()->show();
     this->close();
 }
+
 

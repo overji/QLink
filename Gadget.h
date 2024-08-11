@@ -36,7 +36,8 @@ public:
     void setGadgetMap(QPixmap value) { gadgetMap = value; }
 public:
     void drawGarget(QPainter & painter); //绘制道具
-    explicit Gadget(LinkGame * game, int gameType = 1); //构造函数
+    Gadget(LinkGame * game, int gameType = 1); //构造函数
+    Gadget(bool isLoad,LinkGame * game);
     int gargetType;// 1:plus1s 2:shuffle 3:hint 4:flash 5:freeze 6:dizzy
     void singleGameGadgetEffect(LinkGame * game, Player * player); //单人游戏的道具，效果从Player方面传入
     void doubleGameGadgetEffect(LinkGame * game, Player * anotherPlayer); //双人游戏的道具，效果从Player方面传入

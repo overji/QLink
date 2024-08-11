@@ -801,12 +801,11 @@ void LinkGame::gameUpdate()
     }
     if(gameEnd || gamePause)return;
 
-    if(!flashTimerOn || gameType == 1){
-        player1->playerMove(player1->getDirection());
-        if(player2 != nullptr){
-            player2->playerMove(player2->getDirection());
-        }
+    player1->playerMove(player1->getDirection());
+    if(player2 != nullptr){
+        player2->playerMove(player2->getDirection());
     }
+
     generateGadget(); //生成道具
     hintBox(); //提示箱子
 }

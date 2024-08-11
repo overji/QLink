@@ -31,8 +31,8 @@ add_executable(QLink main.cpp
         SaveSystem.h
         MainPage.cpp
         MainPage.h
-        SavePage.cpp
         SavePage.h
+        SavePage.cpp
 )
 add_executable(QLinkTest
         SimpleTest.cpp

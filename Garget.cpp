@@ -10,6 +10,12 @@
 #include <QPainter>
 #include <iostream>
 
+Gadget::Gadget(bool isLoad,LinkGame *game)
+{
+    this->gadgetHeight = this->gargetType = this->gadgetWidth = this->leftTopX = this->leftTopY = 0;
+    this->gadgetMap = QPixmap();
+}
+
 Gadget::Gadget(LinkGame * game, int gameType)
 {
     //随机生成道具的位置,并且随机生成道具的类型

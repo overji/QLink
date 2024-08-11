@@ -40,6 +40,18 @@ void SavePage::initSavePage()
     initSaveScrollArea();
     connect(this->returnButton,&QPushButton::clicked,this,&SavePage::returnOriginPage);
     connect(this->newSave,&QPushButton::clicked,this,&SavePage::saveGame);
+    connect(this->quickSave,&QPushButton::clicked,[=](){
+        SaveSystem::saveGame(game);
+    });
+    connect(this->quickLoad,&QPushButton::clicked,[=](){
+        std::filesystem::path savePath = std::filesystem::current_path() / "save/quickSave.sav";
+        if(!std::filesystem::exists(savePath)){
+            std::cout << "quickSave does not exist!" << std::endl;
+            return;
+        }
+        SaveSystem::loadGame()->show();
+        this->game->close();
+    });
     this->setCSS();
     this->setLayout(this->layout);
 }
@@ -52,7 +64,7 @@ void SavePage::initSaveScrollArea() const
         std::filesystem::create_directory(savePath);
     }
     for(auto &p:std::filesystem::directory_iterator(savePath)){
-        if(p.path().extension() == ".sav"){
+        if(p.path().extension() == ".sav" && p.path().stem() != "quickSave"){
             SaveDataWidget * saveDataWidget = new SaveDataWidget(QString::fromStdString(p.path().string()),QString::fromStdString(p.path().stem().string()));
             connect(saveDataWidget->deleteButton,&QPushButton::clicked,[=](){
                 std::filesystem::remove(p.path());
@@ -123,4 +135,89 @@ void SavePage::setCSS()
     for(auto i:buttons){
         i->setStyleSheet("font-size:25px;background-color:#73ff95;color:black;border-radius:5px;border:1px solid black;padding:1px 2px 1px 2px;height:75%");
     }
+}
+
+// LoadPage
+
+void LoadPage::initLoadPage()
+{
+    // 创建一个QPalette对象
+    QPalette palette;
+
+    // 设置QPalette的背景颜色为白色
+    palette.setColor(QPalette::Window, Qt::white);
+
+    // 使用QPalette设置SavePage的背景颜色
+    this->setAutoFillBackground(true);
+    this->setPalette(palette);
+    this->layout = new QGridLayout;
+    this->Title = new QLabel("存档");
+    this->Title->setStyleSheet("font-size:50px;");
+    this->Title->setAlignment(Qt::AlignCenter);
+    this->scrollArea = new QScrollArea;
+    this->returnButton = new QPushButton("返回");
+    this->quickLoad = new QPushButton("快速读档");
+    this->verticalLayout = new QVBoxLayout;
+    this->scrollArea->setLayout(this->verticalLayout);
+    this->layout->addWidget(this->Title,0,0,1,16);
+    this->layout->addWidget(this->scrollArea,1,0,8,12);
+    this->layout->addWidget(this->returnButton,1,12,2,4);
+    this->layout->addWidget(this->quickLoad,3,12,2,4);
+    initSaveScrollArea();
+    connect(this->returnButton,&QPushButton::clicked,this,&LoadPage::returnOriginPage);
+    connect(this->quickLoad,&QPushButton::clicked,[=](){
+        std::filesystem::path savePath = std::filesystem::current_path() / "save/quickSave.sav";
+        if(!std::filesystem::exists(savePath)){
+            std::cout << "quickSave doex not exist!" << std::endl;
+            return;
+        }
+        SaveSystem::loadGame()->show();
+        this->mainPage->close();
+    });
+    this->setCSS();
+    this->setLayout(this->layout);
+}
+
+void LoadPage::initSaveScrollArea() const
+{
+    int saveNum = 0;
+    std::filesystem::path savePath = std::filesystem::current_path() / "save";
+    if(!std::filesystem::exists(savePath)){
+        std::filesystem::create_directory(savePath);
+    }
+    for(auto &p:std::filesystem::directory_iterator(savePath)){
+        if(p.path().extension() == ".sav"  && p.path().stem() != "quickSave"){
+            SaveDataWidget * saveDataWidget = new SaveDataWidget(QString::fromStdString(p.path().string()),QString::fromStdString(p.path().stem().string()));
+            connect(saveDataWidget,&SaveDataWidget::clicked,[=](){
+                SaveSystem::loadGame(saveDataWidget->name)->show();
+                mainPage->close();
+            });
+            connect(saveDataWidget->deleteButton,&QPushButton::clicked,[=](){
+                std::filesystem::remove(p.path());
+                saveDataWidget->deleteLater();
+            });
+            this->verticalLayout->addWidget(saveDataWidget);
+            saveNum ++;
+        }
+    }
+}
+
+void LoadPage::setCSS()
+{
+    this->setStyleSheet("font-size:15px;");
+    QVector<QPushButton*>buttons = {this->returnButton,this->quickLoad};
+    for(auto i:buttons){
+        i->setStyleSheet("font-size:25px;background-color:#73ff95;color:black;border-radius:5px;border:1px solid black;padding:1px 2px 1px 2px;height:75%");
+    }
+}
+
+LoadPage::LoadPage(MainPage * mainPage):QWidget(mainPage)
+{
+    this->mainPage = mainPage;
+    initLoadPage();
+}
+
+void LoadPage::returnOriginPage()
+{
+    mainPage->toMainPage();
 }

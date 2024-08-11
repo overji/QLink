@@ -9,6 +9,9 @@
 #include <QPushButton>
 #include <QScrollArea>
 #include <QTextEdit>
+#include "MainPage.h"
+
+class MainPage;
 
 class SaveDataWidget:public QPushButton
 {
@@ -41,6 +44,25 @@ private:
     void setCSS();
 public slots:
     void saveGame(); //存档
+    void returnOriginPage();
+};
+
+class LoadPage :public QWidget{
+Q_OBJECT
+    QGridLayout * layout;
+    QLabel * Title;
+    QScrollArea * scrollArea;
+    QPushButton * returnButton;
+    QPushButton * quickLoad;
+    QVBoxLayout * verticalLayout;
+    MainPage * mainPage;
+public:
+    LoadPage(MainPage * mainPage);
+    void initLoadPage();
+    void initSaveScrollArea() const;
+private:
+    void setCSS();
+public slots:
     void returnOriginPage();
 };
 

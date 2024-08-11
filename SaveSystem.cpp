@@ -143,14 +143,14 @@ LinkGame * SaveSystem::loadGame(const QString &name)
     in >> gadgetSize;
     QVector<Gadget *> gadgets;
     for(int i = 0;i < gadgetSize;i ++){
-        int gadgetWidth,gadgetHeight,leftTopX,leftTopY,gargetType;
-        in >> gadgetWidth >> gadgetHeight >> leftTopX >> leftTopY >> gargetType;
-        Gadget * gadget = new Gadget(game);
+        int gadgetWidth,gadgetHeight,leftTopX,leftTopY,tmpGargetType;
+        in >> gadgetWidth >> gadgetHeight >> leftTopX >> leftTopY >> tmpGargetType;
+        Gadget * gadget = new Gadget(true,game);
         gadget->setLeftTopX(leftTopX);
         gadget->setLeftTopY(leftTopY);
         gadget->setGadgetWidth(gadgetWidth);
         gadget->setGadgetHeight(gadgetHeight);
-        gadget->gargetType = gargetType;
+        gadget->gargetType = tmpGargetType;
         in >> tempPixmap;
         gadget->setGadgetMap(tempPixmap);
         gadgets.push_back(gadget);
@@ -264,11 +264,11 @@ void SaveSystem::loadPlayerData(QDataStream &in, Player *player,LinkGame * game)
 void SaveSystem::saveGame(LinkGame * game)
 {
     //保存游戏数据
-    saveGame(game,QString("gameData"));
+    saveGame(game,QString("quickSave"));
 }
 
 LinkGame * SaveSystem::loadGame()
 {
     //加载游戏数据
-    return loadGame(QString("gameData"));
+    return loadGame(QString("quickSave"));
 }
