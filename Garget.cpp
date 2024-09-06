@@ -32,25 +32,27 @@ Gadget::Gadget(LinkGame * game, int gameType)
             this->gargetType = 6;
         }
     }
+    std::filesystem::path curFilePath(__FILE__);
+    std::filesystem::path curPath = curFilePath.parent_path();
     switch(gargetType){
         //确定道具的贴图
         case 1:
-            this->gadgetMap = QPixmap("images/GargetImages/plus1s.png");
+            this->gadgetMap = QPixmap(QString::fromStdString(curPath.string() + "\\images\\GargetImages\\plus1s.png"));
             break;
         case 2:
-            this->gadgetMap = QPixmap("images/GargetImages/shuffle.png");
+            this->gadgetMap = QPixmap(QString::fromStdString(curPath.string() + "\\images\\GargetImages\\shuffle.png"));
             break;
         case 3:
-            this->gadgetMap = QPixmap("images/GargetImages/hint.png");
+            this->gadgetMap = QPixmap(QString::fromStdString(curPath.string() + "\\images\\GargetImages\\hint.png"));
             break;
         case 4:
-            this->gadgetMap = QPixmap("images/GargetImages/flash.png");
+            this->gadgetMap = QPixmap(QString::fromStdString(curPath.string() + "\\images\\GargetImages\\lash.png"));
             break;
         case 5:
-            this->gadgetMap = QPixmap("images/GargetImages/freeze.png");
+            this->gadgetMap = QPixmap(QString::fromStdString(curPath.string() + "\\images\\GargetImages\\reeze.png"));
             break;
         case 6:
-            this->gadgetMap = QPixmap("images/GargetImages/dizzy.png");
+            this->gadgetMap = QPixmap(QString::fromStdString(curPath.string() + "\\images\\GargetImages\\dizzy.png"));
             break;
     }
 }

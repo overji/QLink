@@ -30,8 +30,10 @@ MainPage::MainPage()
     this->setLayout(stackMainLayout); //设置布局
     //设置窗口大小和图标
     resize(800,600);
-    setWindowIcon(QIcon("images/icon.png"));
-    this->setBackGround("images/__sys_tm_bg01a.png");
+    std::filesystem::path curFilePath(__FILE__);
+    std::filesystem::path curPath = curFilePath.parent_path();
+    setWindowIcon(QIcon(QString::fromStdString(curPath.string() +"\\images\\icon.png")));
+    this->setBackGround(QString::fromStdString(curPath.string() + "\\images\\__sys_tm_bg01a.png"));
 }
 
 void MainPage::initMainPage()

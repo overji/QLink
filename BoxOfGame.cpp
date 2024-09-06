@@ -132,27 +132,29 @@ void BoxOfGame::swapBox(BoxOfGame * box1, BoxOfGame * box2)
 
 void BoxOfGame::initBoxPixMap()
 {
+    std::filesystem::path curFilePath(__FILE__);
+    std::filesystem::path curPath = curFilePath.parent_path();
     switch (typeOfBox) {
         case 0:
-            boxPixmap = QPixmap("images/BoxImages/morfonica.png");
+            boxPixmap = QPixmap(QString::fromStdString(curPath.string() +"\\images\\BoxImages\\morfonica.png"));
             break;
         case 1:
-            boxPixmap = QPixmap("images/BoxImages/pp.png");
+            boxPixmap = QPixmap(QString::fromStdString(curPath.string() +"\\images\\BoxImages\\pp.png"));
             break;
         case 2:
-            boxPixmap = QPixmap("images/BoxImages/ppp.png");
+            boxPixmap = QPixmap(QString::fromStdString(curPath.string() +"\\images\\BoxImages\\ppp.png"));
             break;
         case 3:
-            boxPixmap = QPixmap("images/BoxImages/r.png");
+            boxPixmap = QPixmap(QString::fromStdString(curPath.string() +"\\images\\BoxImages\\r.png"));
             break;
         case 4:
-            boxPixmap = QPixmap("images/BoxImages/ras.png");
+            boxPixmap = QPixmap(QString::fromStdString(curPath.string() +"\\images\\BoxImages\\ras.png"));
             break;
         case 5:
-            boxPixmap = QPixmap("images/BoxImages/ag.png");
+            boxPixmap = QPixmap(QString::fromStdString(curPath.string() +"\\images\\BoxImages\\ag.png"));
             break;
         default:
-            boxPixmap = QPixmap("images/BoxImages/hhw.png");
+            boxPixmap = QPixmap(QString::fromStdString(curPath.string() +"\\images\\BoxImages\\hhw.png"));
             break;
     }
 }

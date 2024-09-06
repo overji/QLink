@@ -28,7 +28,9 @@ LinkGame::LinkGame(const int& M , const int& N, int gameTypeInput ,const int &re
     //LinkGame的构造函数
 
     //设置窗口标题和大小
-    setWindowIcon(QIcon("images/icon.png"));
+    std::filesystem::path curFilePath(__FILE__);
+    std::filesystem::path curPath = curFilePath.parent_path();
+    setWindowIcon(QIcon(QString::fromStdString(curPath.string() + "\\images\\icon.png")));
     setWindowTitle(tr("连连看")); //设置窗口标题
     resize(800,600); //设置窗口大小
 

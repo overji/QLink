@@ -24,10 +24,12 @@ Player::Player(const int &playerLeftTopXInput, const int &playerLeftTopYInput, c
     this->direction = 4;
     this->scoreString = "分数: 0";
     //设置玩家贴图
+    std::filesystem::path curFilePath(__FILE__);
+    std::filesystem::path curPath = curFilePath.parent_path();
     if(playerSkin == 1){
-        this->playerImage = QPixmap("images/PlayerImages/20f432ebdfe483eee238d36d99e42a13.png");
+        this->playerImage = QPixmap(QString::fromStdString(curPath.string() + "\\images\\PlayerImages\\20f432ebdfe483eee238d36d99e42a13.png"));
     } else {
-        this->playerImage = QPixmap("images/PlayerImages/1b49f5bd6f8f4d03052778304564cc38.png");
+        this->playerImage = QPixmap(QString::fromStdString(curPath.string() + "\\images\\PlayerImages\\1b49f5bd6f8f4d03052778304564cc38.png"));
     }
 
     removeBoxTimer = new QTimer(this);  // 初始化QTimer对象
