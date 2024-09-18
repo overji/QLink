@@ -1,22 +1,25 @@
 {
-	"BUILD_DIR" : "C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLinkTest_autogen",
-	"CMAKE_BINARY_DIR" : "C:/Users/overji/Desktop/homework/QLink/cmake-build-debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/overji/Desktop/homework/QLink/cmake-build-debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/overji/Desktop/homework/QLink",
+	"BUILD_DIR" : "C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLinkTest_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/overji/Desktop/code2/QLink_Ji/QLink",
 	"CMAKE_EXECUTABLE" : "D:/CLion 2023.3.4/bin/cmake/win/x64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"C:/Users/overji/Desktop/homework/QLink/CMakeLists.txt",
-		"C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/3.27.8/CMakeSystem.cmake",
+		"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/CMakeLists.txt",
+		"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/3.27.8/CMakeSystem.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake",
-		"C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/3.27.8/CMakeCCompiler.cmake",
-		"C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/3.27.8/CMakeCXXCompiler.cmake",
+		"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/3.27.8/CMakeCCompiler.cmake",
+		"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/3.27.8/CMakeCXXCompiler.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake",
+		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeFindCodeBlocks.cmake",
+		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake",
+		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/ProcessorCount.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake",
@@ -24,7 +27,7 @@
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake",
-		"C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/3.27.8/CMakeRCCompiler.cmake",
+		"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/3.27.8/CMakeRCCompiler.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake",
@@ -266,76 +269,76 @@
 		"D:/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestAdditionalTargetInfo.cmake",
 		"D:/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestVersionlessTargets.cmake"
 	],
-	"CMAKE_SOURCE_DIR" : "C:/Users/overji/Desktop/homework/QLink",
-	"DEP_FILE" : "C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLinkTest_autogen/deps",
-	"DEP_FILE_RULE_NAME" : "QLinkTest_autogen/timestamp",
+	"CMAKE_SOURCE_DIR" : "C:/Users/overji/Desktop/code2/QLink_Ji/QLink",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/overji/Desktop/homework/QLink/BoxOfGame.h",
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/BoxOfGame.h",
 			"MU",
 			"EWIEGA46WW/moc_BoxOfGame.cpp",
 			null
 		],
 		[
-			"C:/Users/overji/Desktop/homework/QLink/Gadget.h",
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/Gadget.h",
 			"MU",
 			"EWIEGA46WW/moc_Gadget.cpp",
 			null
 		],
 		[
-			"C:/Users/overji/Desktop/homework/QLink/LinkGame.h",
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/LinkGame.h",
 			"MU",
 			"EWIEGA46WW/moc_LinkGame.cpp",
 			null
 		],
 		[
-			"C:/Users/overji/Desktop/homework/QLink/MainPage.h",
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/MainPage.h",
 			"MU",
 			"EWIEGA46WW/moc_MainPage.cpp",
 			null
 		],
 		[
-			"C:/Users/overji/Desktop/homework/QLink/Player.h",
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/Player.h",
 			"MU",
 			"EWIEGA46WW/moc_Player.cpp",
 			null
 		],
 		[
-			"C:/Users/overji/Desktop/homework/QLink/SaveSystem.h",
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SaveSystem.h",
 			"MU",
 			"EWIEGA46WW/moc_SaveSystem.cpp",
 			null
 		],
 		[
-			"C:/Users/overji/Desktop/homework/QLink/SelectChecker.h",
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SelectChecker.h",
 			"MU",
 			"EWIEGA46WW/moc_SelectChecker.cpp",
 			null
 		],
 		[
-			"C:/Users/overji/Desktop/homework/QLink/SimpleTest.h",
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SimpleTest.h",
 			"MU",
 			"EWIEGA46WW/moc_SimpleTest.cpp",
 			null
 		],
 		[
-			"C:/Users/overji/Desktop/homework/QLink/SpecialAlgorithm.h",
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SpecialAlgorithm.h",
 			"MU",
 			"EWIEGA46WW/moc_SpecialAlgorithm.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLinkTest_autogen/include",
-	"MOC_COMPILATION_FILE" : "C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLinkTest_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLinkTest_autogen/include",
+	"MOC_COMPILATION_FILE" : "C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLinkTest_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
 		"QT_CORE_LIB",
 		"QT_GUI_LIB",
-		"QT_TESTCASE_BUILDDIR=\"C:/Users/overji/Desktop/homework/QLink/cmake-build-debug\"",
-		"QT_TESTCASE_SOURCEDIR=\"C:/Users/overji/Desktop/homework/QLink\"",
+		"QT_TESTCASE_BUILDDIR=\"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug\"",
+		"QT_TESTCASE_SOURCEDIR=\"C:/Users/overji/Desktop/code2/QLink_Ji/QLink\"",
 		"QT_TESTLIB_LIB",
 		"QT_WIDGETS_LIB",
 		"UNICODE",
@@ -386,40 +389,60 @@
 		"-c",
 		"D:/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLinkTest_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLinkTest_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : 
 	[
-		"C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink_autogen/mocs_compilation.cpp"
+		"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLink_autogen/mocs_compilation.cpp"
 	],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 14,
-	"PARSE_CACHE_FILE" : "C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLinkTest_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/QLinkTest_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "D:/qt/6.6.2/mingw_64/./bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "D:/qt/6.6.2/mingw_64/./bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 6,
-	"SETTINGS_FILE" : "C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLinkTest_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/QLinkTest_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "C:/Users/overji/Desktop/homework/QLink/BoxOfGame.cpp", "MU", null ],
-		[ "C:/Users/overji/Desktop/homework/QLink/Garget.cpp", "MU", null ],
-		[ "C:/Users/overji/Desktop/homework/QLink/LinkGame.cpp", "MU", null ],
-		[ "C:/Users/overji/Desktop/homework/QLink/MainPage.cpp", "MU", null ],
-		[ "C:/Users/overji/Desktop/homework/QLink/Player.cpp", "MU", null ],
-		[ "C:/Users/overji/Desktop/homework/QLink/SaveSystem.cpp", "MU", null ],
 		[
-			"C:/Users/overji/Desktop/homework/QLink/SelectChecker.cpp",
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/BoxOfGame.cpp",
 			"MU",
 			null
 		],
-		[ "C:/Users/overji/Desktop/homework/QLink/SimpleTest.cpp", "MU", null ]
+		[ "C:/Users/overji/Desktop/code2/QLink_Ji/QLink/Garget.cpp", "MU", null ],
+		[
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/LinkGame.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/MainPage.cpp",
+			"MU",
+			null
+		],
+		[ "C:/Users/overji/Desktop/code2/QLink_Ji/QLink/Player.cpp", "MU", null ],
+		[
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SaveSystem.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SelectChecker.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SimpleTest.cpp",
+			"MU",
+			null
+		]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
 	"UIC_SKIP" : 
 	[
-		"C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink_autogen/mocs_compilation.cpp"
+		"C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLink_autogen/mocs_compilation.cpp"
 	],
 	"UIC_UI_FILES" : [],
 	"VERBOSITY" : 0

@@ -6,6 +6,7 @@
 #include "LinkGame.h"
 #include "SelectChecker.h"
 #include <QPainter>
+#include <QRandomGenerator>
 #include <iostream>
 #include "SpecialAlgorithm.h"
 
@@ -37,6 +38,43 @@ Player::Player(const int &playerLeftTopXInput, const int &playerLeftTopYInput, c
     connect(removeBoxTimer, SIGNAL(timeout()), this, SLOT(removeBox()));  // 连接QTimer的timeout信号和槽函数
     removeTimerOn = false;  // 初始化定时器关闭状态
     removeBoxTimer->setSingleShot(true);  // 设置定时器为单次触发模式
+    if(this->playerLeftTopX == -1){
+        //初始化玩家位置，如果不是-1就直接读取位置
+        this->initPlayerLocation();
+        if(game->getGameType() == 1){
+            //双人游戏时，玩家1和玩家2的初始位置不同
+            if(this == game->getPlayer2()){
+                while(abs(this->playerLeftTopX - game->getPlayer1()->playerLeftTopX) <= this->playerWidth ||
+                      abs(this->playerLeftTopY - game->getPlayer1()->playerLeftTopY) <= this->playerHeight){
+                    this->initPlayerLocation();
+                }
+            }
+        }
+    }
+}
+
+void Player::initPlayerLocation()
+{
+    int gamePassageWidth = game->getPassageWidth();
+    int gamePassageHeight = game->getPassageHeight();
+    int randomX = QRandomGenerator::global()->bounded(0,800 - this->playerWidth);
+    if(randomX <= 800 - gamePassageWidth)
+    {
+        int totalSpace = 2 * (gamePassageHeight - playerHeight);
+        int randomY = QRandomGenerator::global()->bounded(0,totalSpace);
+        if(randomY <= gamePassageHeight - playerHeight){
+            this->playerLeftTopX = randomX;
+            this->playerLeftTopY = randomY;
+        } else {
+            this->playerLeftTopX = randomX;
+            this->playerLeftTopY = (randomY + playerHeight - gamePassageHeight) + (600 - gamePassageHeight);
+        }
+    }
+    else
+    {
+        this->playerLeftTopX = randomX;
+        this->playerLeftTopY = QRandomGenerator::global()->bounded(0,600 - playerHeight);
+    }
 }
 
 Player::~Player()

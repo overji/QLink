@@ -169,7 +169,7 @@ public:
     void shuffleMap(); //重排地图
     void setGamePauseNoValue(); //设置游戏暂停或继续
     void checkGameEnd(); //检查游戏是否结束
-    void initGlobalBox(const int& M, const int& N);
+    void initGlobalBox(const int& M, const int& N); //初始化箱子的种类对应颜色，初始化boxMap和boxType大小
 public slots:
     void updateRemainTime(); //更新剩余时间
     void updateHintTime(); //更新hint时间

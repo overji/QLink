@@ -112,6 +112,7 @@ public:
     bool flashMoveCheckEdge(int rowLoc,int colLoc); //检查flash移动是否处于箱子边缘处
     bool flashMoveCheckCenter(int rowLoc,int colLoc); //检查flash移动是否处于箱子中间
 private:
+    void initPlayerLocation();
     void clearSelected(); //消除选中的方块
     int playerLeftTopX; //玩家左上角x坐标
     int playerLeftTopY; //玩家左上角y坐标

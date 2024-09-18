@@ -377,7 +377,7 @@ void LinkGame::initBoxType()
         } else {
             randomType = 6;
         }
-        //另一个箱子的位置随机生成
+        //另一个箱子的位置随机生成，需要确保这个位置上箱子种类没有被确定
         boxTypeList[i] = randomType;
         int randomLoc = QRandomGenerator::global()->bounded(i+1,remainBoxNumber);
         while(boxTypeList[randomLoc] != -1)
@@ -402,6 +402,7 @@ void LinkGame::initMap()
     setMinimumSize(QSize(400,300));
     this->xScaleRatio = size.width()/800.0;
     this->yScaleRatio = size.height()/600.0;
+    //确定展示在页面上箱子(一个正方形)的大小
     double displayWidth = qMin((800*(this->xScaleRatio))/(boxCol + 2), (600 * (this->yScaleRatio)) / (boxRow + 2));
     //确定箱子大小和边框宽度，最后确定全部箱子的位置
     this->boxWidth = displayWidth/xScaleRatio;
@@ -431,10 +432,10 @@ void LinkGame::initPlayer(int gameTypeInput)
     int playerHeight = (1*playerWidth*this->xScaleRatio)/this->yScaleRatio; //玩家高度
     int initialSpeed = 4; //玩家初始速度
     //初始化玩家1
-    player1 = new Player(playerWidth,300-playerHeight/2,playerWidth,playerHeight,initialSpeed,this,1);
+    player1 = new Player(-1,-1,playerWidth,playerHeight,initialSpeed,this,1);
     if(gameTypeInput){
         //如果为双人游戏，初始化玩家2
-        player2 = new Player(800-playerWidth-20,300-playerHeight/2,playerWidth,playerHeight,initialSpeed,this,2);
+        player2 = new Player(-1,-1,playerWidth,playerHeight,initialSpeed,this,2);
     } else {
         player2 = nullptr;
     }

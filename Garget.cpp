@@ -46,10 +46,10 @@ Gadget::Gadget(LinkGame * game, int gameType)
             this->gadgetMap = QPixmap(QString::fromStdString(curPath.string() + "\\images\\GargetImages\\hint.png"));
             break;
         case 4:
-            this->gadgetMap = QPixmap(QString::fromStdString(curPath.string() + "\\images\\GargetImages\\lash.png"));
+            this->gadgetMap = QPixmap(QString::fromStdString(curPath.string() + "\\images\\GargetImages\\Flash.png"));
             break;
         case 5:
-            this->gadgetMap = QPixmap(QString::fromStdString(curPath.string() + "\\images\\GargetImages\\reeze.png"));
+            this->gadgetMap = QPixmap(QString::fromStdString(curPath.string() + "\\images\\GargetImages\\freeze.png"));
             break;
         case 6:
             this->gadgetMap = QPixmap(QString::fromStdString(curPath.string() + "\\images\\GargetImages\\dizzy.png"));
