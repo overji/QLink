@@ -1,1 +1,0 @@
--isystem "C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLinkTest_autogen/include" -isystem D:/qt/6.6.2/mingw_64/include/QtCore -isystem D:/qt/6.6.2/mingw_64/include -isystem "D:/qt/6.6.2/mingw_64/mkspecs/win32-g++" -isystem D:/qt/6.6.2/mingw_64/include/QtGui -isystem D:/qt/6.6.2/mingw_64/include/QtWidgets -isystem D:/qt/6.6.2/mingw_64/include/QtTest
