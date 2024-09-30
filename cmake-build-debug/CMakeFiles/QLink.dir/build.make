@@ -52,10 +52,10 @@ RM = "D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\overji\Desktop\code2\QLink_Ji\QLink
+CMAKE_SOURCE_DIR = C:\Users\overji\Desktop\homework\QLink
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\overji\Desktop\homework\QLink\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/QLink.dir/depend.make
@@ -72,151 +72,151 @@ CMakeFiles/QLink.dir/QLink_autogen/mocs_compilation.cpp.obj: CMakeFiles/QLink.di
 CMakeFiles/QLink.dir/QLink_autogen/mocs_compilation.cpp.obj: CMakeFiles/QLink.dir/includes_CXX.rsp
 CMakeFiles/QLink.dir/QLink_autogen/mocs_compilation.cpp.obj: QLink_autogen/mocs_compilation.cpp
 CMakeFiles/QLink.dir/QLink_autogen/mocs_compilation.cpp.obj: CMakeFiles/QLink.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/QLink.dir/QLink_autogen/mocs_compilation.cpp.obj"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/QLink_autogen/mocs_compilation.cpp.obj -MF CMakeFiles\QLink.dir\QLink_autogen\mocs_compilation.cpp.obj.d -o CMakeFiles\QLink.dir\QLink_autogen\mocs_compilation.cpp.obj -c C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\QLink_autogen\mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/QLink.dir/QLink_autogen/mocs_compilation.cpp.obj"
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/QLink_autogen/mocs_compilation.cpp.obj -MF CMakeFiles\QLink.dir\QLink_autogen\mocs_compilation.cpp.obj.d -o CMakeFiles\QLink.dir\QLink_autogen\mocs_compilation.cpp.obj -c C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\QLink_autogen\mocs_compilation.cpp
 
 CMakeFiles/QLink.dir/QLink_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QLink.dir/QLink_autogen/mocs_compilation.cpp.i"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\QLink_autogen\mocs_compilation.cpp > CMakeFiles\QLink.dir\QLink_autogen\mocs_compilation.cpp.i
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\QLink_autogen\mocs_compilation.cpp > CMakeFiles\QLink.dir\QLink_autogen\mocs_compilation.cpp.i
 
 CMakeFiles/QLink.dir/QLink_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QLink.dir/QLink_autogen/mocs_compilation.cpp.s"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\QLink_autogen\mocs_compilation.cpp -o CMakeFiles\QLink.dir\QLink_autogen\mocs_compilation.cpp.s
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\QLink_autogen\mocs_compilation.cpp -o CMakeFiles\QLink.dir\QLink_autogen\mocs_compilation.cpp.s
 
 CMakeFiles/QLink.dir/main.cpp.obj: CMakeFiles/QLink.dir/flags.make
 CMakeFiles/QLink.dir/main.cpp.obj: CMakeFiles/QLink.dir/includes_CXX.rsp
-CMakeFiles/QLink.dir/main.cpp.obj: C:/Users/overji/Desktop/code2/QLink_Ji/QLink/main.cpp
+CMakeFiles/QLink.dir/main.cpp.obj: C:/Users/overji/Desktop/homework/QLink/main.cpp
 CMakeFiles/QLink.dir/main.cpp.obj: CMakeFiles/QLink.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/QLink.dir/main.cpp.obj"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/main.cpp.obj -MF CMakeFiles\QLink.dir\main.cpp.obj.d -o CMakeFiles\QLink.dir\main.cpp.obj -c C:\Users\overji\Desktop\code2\QLink_Ji\QLink\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/QLink.dir/main.cpp.obj"
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/main.cpp.obj -MF CMakeFiles\QLink.dir\main.cpp.obj.d -o CMakeFiles\QLink.dir\main.cpp.obj -c C:\Users\overji\Desktop\homework\QLink\main.cpp
 
 CMakeFiles/QLink.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QLink.dir/main.cpp.i"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\code2\QLink_Ji\QLink\main.cpp > CMakeFiles\QLink.dir\main.cpp.i
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\homework\QLink\main.cpp > CMakeFiles\QLink.dir\main.cpp.i
 
 CMakeFiles/QLink.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QLink.dir/main.cpp.s"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\code2\QLink_Ji\QLink\main.cpp -o CMakeFiles\QLink.dir\main.cpp.s
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\homework\QLink\main.cpp -o CMakeFiles\QLink.dir\main.cpp.s
 
 CMakeFiles/QLink.dir/LinkGame.cpp.obj: CMakeFiles/QLink.dir/flags.make
 CMakeFiles/QLink.dir/LinkGame.cpp.obj: CMakeFiles/QLink.dir/includes_CXX.rsp
-CMakeFiles/QLink.dir/LinkGame.cpp.obj: C:/Users/overji/Desktop/code2/QLink_Ji/QLink/LinkGame.cpp
+CMakeFiles/QLink.dir/LinkGame.cpp.obj: C:/Users/overji/Desktop/homework/QLink/LinkGame.cpp
 CMakeFiles/QLink.dir/LinkGame.cpp.obj: CMakeFiles/QLink.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/QLink.dir/LinkGame.cpp.obj"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/LinkGame.cpp.obj -MF CMakeFiles\QLink.dir\LinkGame.cpp.obj.d -o CMakeFiles\QLink.dir\LinkGame.cpp.obj -c C:\Users\overji\Desktop\code2\QLink_Ji\QLink\LinkGame.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/QLink.dir/LinkGame.cpp.obj"
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/LinkGame.cpp.obj -MF CMakeFiles\QLink.dir\LinkGame.cpp.obj.d -o CMakeFiles\QLink.dir\LinkGame.cpp.obj -c C:\Users\overji\Desktop\homework\QLink\LinkGame.cpp
 
 CMakeFiles/QLink.dir/LinkGame.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QLink.dir/LinkGame.cpp.i"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\code2\QLink_Ji\QLink\LinkGame.cpp > CMakeFiles\QLink.dir\LinkGame.cpp.i
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\homework\QLink\LinkGame.cpp > CMakeFiles\QLink.dir\LinkGame.cpp.i
 
 CMakeFiles/QLink.dir/LinkGame.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QLink.dir/LinkGame.cpp.s"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\code2\QLink_Ji\QLink\LinkGame.cpp -o CMakeFiles\QLink.dir\LinkGame.cpp.s
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\homework\QLink\LinkGame.cpp -o CMakeFiles\QLink.dir\LinkGame.cpp.s
 
 CMakeFiles/QLink.dir/BoxOfGame.cpp.obj: CMakeFiles/QLink.dir/flags.make
 CMakeFiles/QLink.dir/BoxOfGame.cpp.obj: CMakeFiles/QLink.dir/includes_CXX.rsp
-CMakeFiles/QLink.dir/BoxOfGame.cpp.obj: C:/Users/overji/Desktop/code2/QLink_Ji/QLink/BoxOfGame.cpp
+CMakeFiles/QLink.dir/BoxOfGame.cpp.obj: C:/Users/overji/Desktop/homework/QLink/BoxOfGame.cpp
 CMakeFiles/QLink.dir/BoxOfGame.cpp.obj: CMakeFiles/QLink.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/QLink.dir/BoxOfGame.cpp.obj"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/BoxOfGame.cpp.obj -MF CMakeFiles\QLink.dir\BoxOfGame.cpp.obj.d -o CMakeFiles\QLink.dir\BoxOfGame.cpp.obj -c C:\Users\overji\Desktop\code2\QLink_Ji\QLink\BoxOfGame.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/QLink.dir/BoxOfGame.cpp.obj"
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/BoxOfGame.cpp.obj -MF CMakeFiles\QLink.dir\BoxOfGame.cpp.obj.d -o CMakeFiles\QLink.dir\BoxOfGame.cpp.obj -c C:\Users\overji\Desktop\homework\QLink\BoxOfGame.cpp
 
 CMakeFiles/QLink.dir/BoxOfGame.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QLink.dir/BoxOfGame.cpp.i"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\code2\QLink_Ji\QLink\BoxOfGame.cpp > CMakeFiles\QLink.dir\BoxOfGame.cpp.i
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\homework\QLink\BoxOfGame.cpp > CMakeFiles\QLink.dir\BoxOfGame.cpp.i
 
 CMakeFiles/QLink.dir/BoxOfGame.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QLink.dir/BoxOfGame.cpp.s"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\code2\QLink_Ji\QLink\BoxOfGame.cpp -o CMakeFiles\QLink.dir\BoxOfGame.cpp.s
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\homework\QLink\BoxOfGame.cpp -o CMakeFiles\QLink.dir\BoxOfGame.cpp.s
 
 CMakeFiles/QLink.dir/Player.cpp.obj: CMakeFiles/QLink.dir/flags.make
 CMakeFiles/QLink.dir/Player.cpp.obj: CMakeFiles/QLink.dir/includes_CXX.rsp
-CMakeFiles/QLink.dir/Player.cpp.obj: C:/Users/overji/Desktop/code2/QLink_Ji/QLink/Player.cpp
+CMakeFiles/QLink.dir/Player.cpp.obj: C:/Users/overji/Desktop/homework/QLink/Player.cpp
 CMakeFiles/QLink.dir/Player.cpp.obj: CMakeFiles/QLink.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/QLink.dir/Player.cpp.obj"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/Player.cpp.obj -MF CMakeFiles\QLink.dir\Player.cpp.obj.d -o CMakeFiles\QLink.dir\Player.cpp.obj -c C:\Users\overji\Desktop\code2\QLink_Ji\QLink\Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/QLink.dir/Player.cpp.obj"
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/Player.cpp.obj -MF CMakeFiles\QLink.dir\Player.cpp.obj.d -o CMakeFiles\QLink.dir\Player.cpp.obj -c C:\Users\overji\Desktop\homework\QLink\Player.cpp
 
 CMakeFiles/QLink.dir/Player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QLink.dir/Player.cpp.i"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\code2\QLink_Ji\QLink\Player.cpp > CMakeFiles\QLink.dir\Player.cpp.i
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\homework\QLink\Player.cpp > CMakeFiles\QLink.dir\Player.cpp.i
 
 CMakeFiles/QLink.dir/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QLink.dir/Player.cpp.s"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\code2\QLink_Ji\QLink\Player.cpp -o CMakeFiles\QLink.dir\Player.cpp.s
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\homework\QLink\Player.cpp -o CMakeFiles\QLink.dir\Player.cpp.s
 
 CMakeFiles/QLink.dir/SelectChecker.cpp.obj: CMakeFiles/QLink.dir/flags.make
 CMakeFiles/QLink.dir/SelectChecker.cpp.obj: CMakeFiles/QLink.dir/includes_CXX.rsp
-CMakeFiles/QLink.dir/SelectChecker.cpp.obj: C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SelectChecker.cpp
+CMakeFiles/QLink.dir/SelectChecker.cpp.obj: C:/Users/overji/Desktop/homework/QLink/SelectChecker.cpp
 CMakeFiles/QLink.dir/SelectChecker.cpp.obj: CMakeFiles/QLink.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/QLink.dir/SelectChecker.cpp.obj"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/SelectChecker.cpp.obj -MF CMakeFiles\QLink.dir\SelectChecker.cpp.obj.d -o CMakeFiles\QLink.dir\SelectChecker.cpp.obj -c C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SelectChecker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/QLink.dir/SelectChecker.cpp.obj"
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/SelectChecker.cpp.obj -MF CMakeFiles\QLink.dir\SelectChecker.cpp.obj.d -o CMakeFiles\QLink.dir\SelectChecker.cpp.obj -c C:\Users\overji\Desktop\homework\QLink\SelectChecker.cpp
 
 CMakeFiles/QLink.dir/SelectChecker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QLink.dir/SelectChecker.cpp.i"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SelectChecker.cpp > CMakeFiles\QLink.dir\SelectChecker.cpp.i
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\homework\QLink\SelectChecker.cpp > CMakeFiles\QLink.dir\SelectChecker.cpp.i
 
 CMakeFiles/QLink.dir/SelectChecker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QLink.dir/SelectChecker.cpp.s"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SelectChecker.cpp -o CMakeFiles\QLink.dir\SelectChecker.cpp.s
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\homework\QLink\SelectChecker.cpp -o CMakeFiles\QLink.dir\SelectChecker.cpp.s
 
 CMakeFiles/QLink.dir/Garget.cpp.obj: CMakeFiles/QLink.dir/flags.make
 CMakeFiles/QLink.dir/Garget.cpp.obj: CMakeFiles/QLink.dir/includes_CXX.rsp
-CMakeFiles/QLink.dir/Garget.cpp.obj: C:/Users/overji/Desktop/code2/QLink_Ji/QLink/Garget.cpp
+CMakeFiles/QLink.dir/Garget.cpp.obj: C:/Users/overji/Desktop/homework/QLink/Garget.cpp
 CMakeFiles/QLink.dir/Garget.cpp.obj: CMakeFiles/QLink.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/QLink.dir/Garget.cpp.obj"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/Garget.cpp.obj -MF CMakeFiles\QLink.dir\Garget.cpp.obj.d -o CMakeFiles\QLink.dir\Garget.cpp.obj -c C:\Users\overji\Desktop\code2\QLink_Ji\QLink\Garget.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/QLink.dir/Garget.cpp.obj"
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/Garget.cpp.obj -MF CMakeFiles\QLink.dir\Garget.cpp.obj.d -o CMakeFiles\QLink.dir\Garget.cpp.obj -c C:\Users\overji\Desktop\homework\QLink\Garget.cpp
 
 CMakeFiles/QLink.dir/Garget.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QLink.dir/Garget.cpp.i"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\code2\QLink_Ji\QLink\Garget.cpp > CMakeFiles\QLink.dir\Garget.cpp.i
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\homework\QLink\Garget.cpp > CMakeFiles\QLink.dir\Garget.cpp.i
 
 CMakeFiles/QLink.dir/Garget.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QLink.dir/Garget.cpp.s"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\code2\QLink_Ji\QLink\Garget.cpp -o CMakeFiles\QLink.dir\Garget.cpp.s
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\homework\QLink\Garget.cpp -o CMakeFiles\QLink.dir\Garget.cpp.s
 
 CMakeFiles/QLink.dir/SaveSystem.cpp.obj: CMakeFiles/QLink.dir/flags.make
 CMakeFiles/QLink.dir/SaveSystem.cpp.obj: CMakeFiles/QLink.dir/includes_CXX.rsp
-CMakeFiles/QLink.dir/SaveSystem.cpp.obj: C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SaveSystem.cpp
+CMakeFiles/QLink.dir/SaveSystem.cpp.obj: C:/Users/overji/Desktop/homework/QLink/SaveSystem.cpp
 CMakeFiles/QLink.dir/SaveSystem.cpp.obj: CMakeFiles/QLink.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/QLink.dir/SaveSystem.cpp.obj"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/SaveSystem.cpp.obj -MF CMakeFiles\QLink.dir\SaveSystem.cpp.obj.d -o CMakeFiles\QLink.dir\SaveSystem.cpp.obj -c C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SaveSystem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/QLink.dir/SaveSystem.cpp.obj"
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/SaveSystem.cpp.obj -MF CMakeFiles\QLink.dir\SaveSystem.cpp.obj.d -o CMakeFiles\QLink.dir\SaveSystem.cpp.obj -c C:\Users\overji\Desktop\homework\QLink\SaveSystem.cpp
 
 CMakeFiles/QLink.dir/SaveSystem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QLink.dir/SaveSystem.cpp.i"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SaveSystem.cpp > CMakeFiles\QLink.dir\SaveSystem.cpp.i
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\homework\QLink\SaveSystem.cpp > CMakeFiles\QLink.dir\SaveSystem.cpp.i
 
 CMakeFiles/QLink.dir/SaveSystem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QLink.dir/SaveSystem.cpp.s"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SaveSystem.cpp -o CMakeFiles\QLink.dir\SaveSystem.cpp.s
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\homework\QLink\SaveSystem.cpp -o CMakeFiles\QLink.dir\SaveSystem.cpp.s
 
 CMakeFiles/QLink.dir/MainPage.cpp.obj: CMakeFiles/QLink.dir/flags.make
 CMakeFiles/QLink.dir/MainPage.cpp.obj: CMakeFiles/QLink.dir/includes_CXX.rsp
-CMakeFiles/QLink.dir/MainPage.cpp.obj: C:/Users/overji/Desktop/code2/QLink_Ji/QLink/MainPage.cpp
+CMakeFiles/QLink.dir/MainPage.cpp.obj: C:/Users/overji/Desktop/homework/QLink/MainPage.cpp
 CMakeFiles/QLink.dir/MainPage.cpp.obj: CMakeFiles/QLink.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/QLink.dir/MainPage.cpp.obj"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/MainPage.cpp.obj -MF CMakeFiles\QLink.dir\MainPage.cpp.obj.d -o CMakeFiles\QLink.dir\MainPage.cpp.obj -c C:\Users\overji\Desktop\code2\QLink_Ji\QLink\MainPage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/QLink.dir/MainPage.cpp.obj"
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/MainPage.cpp.obj -MF CMakeFiles\QLink.dir\MainPage.cpp.obj.d -o CMakeFiles\QLink.dir\MainPage.cpp.obj -c C:\Users\overji\Desktop\homework\QLink\MainPage.cpp
 
 CMakeFiles/QLink.dir/MainPage.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QLink.dir/MainPage.cpp.i"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\code2\QLink_Ji\QLink\MainPage.cpp > CMakeFiles\QLink.dir\MainPage.cpp.i
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\homework\QLink\MainPage.cpp > CMakeFiles\QLink.dir\MainPage.cpp.i
 
 CMakeFiles/QLink.dir/MainPage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QLink.dir/MainPage.cpp.s"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\code2\QLink_Ji\QLink\MainPage.cpp -o CMakeFiles\QLink.dir\MainPage.cpp.s
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\homework\QLink\MainPage.cpp -o CMakeFiles\QLink.dir\MainPage.cpp.s
 
 CMakeFiles/QLink.dir/SavePage.cpp.obj: CMakeFiles/QLink.dir/flags.make
 CMakeFiles/QLink.dir/SavePage.cpp.obj: CMakeFiles/QLink.dir/includes_CXX.rsp
-CMakeFiles/QLink.dir/SavePage.cpp.obj: C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SavePage.cpp
+CMakeFiles/QLink.dir/SavePage.cpp.obj: C:/Users/overji/Desktop/homework/QLink/SavePage.cpp
 CMakeFiles/QLink.dir/SavePage.cpp.obj: CMakeFiles/QLink.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/QLink.dir/SavePage.cpp.obj"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/SavePage.cpp.obj -MF CMakeFiles\QLink.dir\SavePage.cpp.obj.d -o CMakeFiles\QLink.dir\SavePage.cpp.obj -c C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SavePage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/QLink.dir/SavePage.cpp.obj"
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/QLink.dir/SavePage.cpp.obj -MF CMakeFiles\QLink.dir\SavePage.cpp.obj.d -o CMakeFiles\QLink.dir\SavePage.cpp.obj -c C:\Users\overji\Desktop\homework\QLink\SavePage.cpp
 
 CMakeFiles/QLink.dir/SavePage.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/QLink.dir/SavePage.cpp.i"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SavePage.cpp > CMakeFiles\QLink.dir\SavePage.cpp.i
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\overji\Desktop\homework\QLink\SavePage.cpp > CMakeFiles\QLink.dir\SavePage.cpp.i
 
 CMakeFiles/QLink.dir/SavePage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/QLink.dir/SavePage.cpp.s"
-	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SavePage.cpp -o CMakeFiles\QLink.dir\SavePage.cpp.s
+	"D:\CLion 2023.3.4\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\overji\Desktop\homework\QLink\SavePage.cpp -o CMakeFiles\QLink.dir\SavePage.cpp.s
 
 # Object files for target QLink
 QLink_OBJECTS = \
@@ -252,13 +252,13 @@ QLink.exe: D:/qt/6.6.2/mingw_64/lib/libQt6Core.a
 QLink.exe: CMakeFiles/QLink.dir/linkLibs.rsp
 QLink.exe: CMakeFiles/QLink.dir/objects1.rsp
 QLink.exe: CMakeFiles/QLink.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable QLink.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable QLink.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\QLink.dir\link.txt --verbose=$(VERBOSE)
-	"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E make_directory C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/plugins/platforms/
-	"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E copy D:/qt/6.6.2/mingw_64/plugins/platforms/qwindows.dll C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/plugins/platforms/
-	"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E copy D:/qt/6.6.2/mingw_64/bin/Qt6Core.dll C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug
-	"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E copy D:/qt/6.6.2/mingw_64/bin/Qt6Gui.dll C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug
-	"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E copy D:/qt/6.6.2/mingw_64/bin/Qt6Widgets.dll C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug
+	"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E make_directory C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/plugins/platforms/
+	"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E copy D:/qt/6.6.2/mingw_64/plugins/platforms/qwindows.dll C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/plugins/platforms/
+	"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E copy D:/qt/6.6.2/mingw_64/bin/Qt6Core.dll C:/Users/overji/Desktop/homework/QLink/cmake-build-debug
+	"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E copy D:/qt/6.6.2/mingw_64/bin/Qt6Gui.dll C:/Users/overji/Desktop/homework/QLink/cmake-build-debug
+	"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E copy D:/qt/6.6.2/mingw_64/bin/Qt6Widgets.dll C:/Users/overji/Desktop/homework/QLink/cmake-build-debug
 
 # Rule to build all files generated by this target.
 CMakeFiles/QLink.dir/build: QLink.exe
@@ -269,6 +269,6 @@ CMakeFiles/QLink.dir/clean:
 .PHONY : CMakeFiles/QLink.dir/clean
 
 CMakeFiles/QLink.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\overji\Desktop\code2\QLink_Ji\QLink C:\Users\overji\Desktop\code2\QLink_Ji\QLink C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles\QLink.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\overji\Desktop\homework\QLink C:\Users\overji\Desktop\homework\QLink C:\Users\overji\Desktop\homework\QLink\cmake-build-debug C:\Users\overji\Desktop\homework\QLink\cmake-build-debug C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles\QLink.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/QLink.dir/depend
 

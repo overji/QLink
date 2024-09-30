@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../../MainPage.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #if __has_include(<QtCore/qtmochelpers.h>)
@@ -39,45 +40,49 @@ namespace {
 struct qt_meta_stringdata_CLASSMainPageENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSMainPageENDCLASS = QtMocHelpers::stringData(
     "MainPage",
-    "startGameClicked",
-    "",
     "gameTypeClicked",
+    "",
     "startGame",
-    "returnMainPage",
+    "toMainPage",
+    "toLoadPage",
+    "toStartPage",
     "endGame",
     "loadGame"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainPageENDCLASS_t {
-    uint offsetsAndSizes[16];
+    uint offsetsAndSizes[18];
     char stringdata0[9];
-    char stringdata1[17];
+    char stringdata1[16];
     char stringdata2[1];
-    char stringdata3[16];
-    char stringdata4[10];
-    char stringdata5[15];
-    char stringdata6[8];
-    char stringdata7[9];
+    char stringdata3[10];
+    char stringdata4[11];
+    char stringdata5[11];
+    char stringdata6[12];
+    char stringdata7[8];
+    char stringdata8[9];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainPageENDCLASS_t::offsetsAndSizes) + ofs), len 
 Q_CONSTINIT static const qt_meta_stringdata_CLASSMainPageENDCLASS_t qt_meta_stringdata_CLASSMainPageENDCLASS = {
     {
         QT_MOC_LITERAL(0, 8),  // "MainPage"
-        QT_MOC_LITERAL(9, 16),  // "startGameClicked"
-        QT_MOC_LITERAL(26, 0),  // ""
-        QT_MOC_LITERAL(27, 15),  // "gameTypeClicked"
-        QT_MOC_LITERAL(43, 9),  // "startGame"
-        QT_MOC_LITERAL(53, 14),  // "returnMainPage"
-        QT_MOC_LITERAL(68, 7),  // "endGame"
-        QT_MOC_LITERAL(76, 8)   // "loadGame"
+        QT_MOC_LITERAL(9, 15),  // "gameTypeClicked"
+        QT_MOC_LITERAL(25, 0),  // ""
+        QT_MOC_LITERAL(26, 9),  // "startGame"
+        QT_MOC_LITERAL(36, 10),  // "toMainPage"
+        QT_MOC_LITERAL(47, 10),  // "toLoadPage"
+        QT_MOC_LITERAL(58, 11),  // "toStartPage"
+        QT_MOC_LITERAL(70, 7),  // "endGame"
+        QT_MOC_LITERAL(78, 8)   // "loadGame"
     },
     "MainPage",
-    "startGameClicked",
-    "",
     "gameTypeClicked",
+    "",
     "startGame",
-    "returnMainPage",
+    "toMainPage",
+    "toLoadPage",
+    "toStartPage",
     "endGame",
     "loadGame"
 };
@@ -91,7 +96,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainPageENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -99,14 +104,16 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainPageENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   50,    2, 0x0a,    1 /* Public */,
-       3,    0,   51,    2, 0x0a,    2 /* Public */,
-       4,    0,   52,    2, 0x0a,    3 /* Public */,
-       5,    0,   53,    2, 0x0a,    4 /* Public */,
-       6,    0,   54,    2, 0x0a,    5 /* Public */,
-       7,    0,   55,    2, 0x0a,    6 /* Public */,
+       1,    0,   56,    2, 0x0a,    1 /* Public */,
+       3,    0,   57,    2, 0x0a,    2 /* Public */,
+       4,    0,   58,    2, 0x0a,    3 /* Public */,
+       5,    0,   59,    2, 0x0a,    4 /* Public */,
+       6,    0,   60,    2, 0x0a,    5 /* Public */,
+       7,    0,   61,    2, 0x0a,    6 /* Public */,
+       8,    0,   62,    2, 0x0a,    7 /* Public */,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -126,13 +133,15 @@ Q_CONSTINIT const QMetaObject MainPage::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSMainPageENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<MainPage, std::true_type>,
-        // method 'startGameClicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'gameTypeClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'startGame'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'returnMainPage'
+        // method 'toMainPage'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'toLoadPage'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'toStartPage'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'endGame'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -148,12 +157,13 @@ void MainPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         auto *_t = static_cast<MainPage *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->startGameClicked(); break;
-        case 1: _t->gameTypeClicked(); break;
-        case 2: _t->startGame(); break;
-        case 3: _t->returnMainPage(); break;
-        case 4: _t->endGame(); break;
-        case 5: _t->loadGame(); break;
+        case 0: _t->gameTypeClicked(); break;
+        case 1: _t->startGame(); break;
+        case 2: _t->toMainPage(); break;
+        case 3: _t->toLoadPage(); break;
+        case 4: _t->toStartPage(); break;
+        case 5: _t->endGame(); break;
+        case 6: _t->loadGame(); break;
         default: ;
         }
     }
@@ -179,13 +189,13 @@ int MainPage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

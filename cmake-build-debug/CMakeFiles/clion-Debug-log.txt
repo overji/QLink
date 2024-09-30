@@ -1,4 +1,4 @@
-"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\overji\Desktop\code2\QLink_Ji\QLink -B C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug
+"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\overji\Desktop\homework\QLink -B C:\Users\overji\Desktop\homework\QLink\cmake-build-debug
 CMake Deprecation Warning:
   Support for "Extra Generators" like
 
@@ -9,6 +9,6 @@ CMake Deprecation Warning:
 
 
 -- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
--- Configuring done (0.2s)
--- Generating done (0.0s)
--- Build files have been written to: C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug
+-- Configuring done (0.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/overji/Desktop/homework/QLink/cmake-build-debug

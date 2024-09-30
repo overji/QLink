@@ -56,10 +56,10 @@ RM = "D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\overji\Desktop\code2\QLink_Ji\QLink
+CMAKE_SOURCE_DIR = C:\Users\overji\Desktop\homework\QLink
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\overji\Desktop\homework\QLink\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -356,6 +356,7 @@ SavePage.obj: SavePage.cpp.obj
 # target to build an object file
 SavePage.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QLink.dir\build.make CMakeFiles/QLink.dir/SavePage.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QLinkTest.dir\build.make CMakeFiles/QLinkTest.dir/SavePage.cpp.obj
 .PHONY : SavePage.cpp.obj
 
 SavePage.i: SavePage.cpp.i
@@ -364,6 +365,7 @@ SavePage.i: SavePage.cpp.i
 # target to preprocess a source file
 SavePage.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QLink.dir\build.make CMakeFiles/QLink.dir/SavePage.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QLinkTest.dir\build.make CMakeFiles/QLinkTest.dir/SavePage.cpp.i
 .PHONY : SavePage.cpp.i
 
 SavePage.s: SavePage.cpp.s
@@ -372,6 +374,7 @@ SavePage.s: SavePage.cpp.s
 # target to generate assembly for a file
 SavePage.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\QLink.dir\build.make CMakeFiles/QLink.dir/SavePage.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\QLinkTest.dir\build.make CMakeFiles/QLinkTest.dir/SavePage.cpp.s
 .PHONY : SavePage.cpp.s
 
 SaveSystem.obj: SaveSystem.cpp.obj

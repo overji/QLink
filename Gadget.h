@@ -13,7 +13,7 @@ class SaveSystem;
 
 class Gadget: public QWidget
 {
-    Q_OBJECT
+Q_OBJECT
 public:
     // Getter and setter for leftTopX
     [[nodiscard]] int getLeftTopX() const { return leftTopX; }

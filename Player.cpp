@@ -58,7 +58,7 @@ void Player::initPlayerLocation()
     int gamePassageWidth = game->getPassageWidth();
     int gamePassageHeight = game->getPassageHeight();
     int randomX = QRandomGenerator::global()->bounded(0,800 - this->playerWidth);
-    if(randomX <= 800 - gamePassageWidth)
+    if(randomX <= 800 - gamePassageWidth && randomX >= gamePassageWidth)
     {
         int totalSpace = 2 * (gamePassageHeight - playerHeight);
         int randomY = QRandomGenerator::global()->bounded(0,totalSpace);

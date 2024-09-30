@@ -14,6 +14,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/QLinkTest.dir/Player.cpp.obj.d"
   "CMakeFiles/QLinkTest.dir/QLinkTest_autogen/mocs_compilation.cpp.obj"
   "CMakeFiles/QLinkTest.dir/QLinkTest_autogen/mocs_compilation.cpp.obj.d"
+  "CMakeFiles/QLinkTest.dir/SavePage.cpp.obj"
+  "CMakeFiles/QLinkTest.dir/SavePage.cpp.obj.d"
   "CMakeFiles/QLinkTest.dir/SaveSystem.cpp.obj"
   "CMakeFiles/QLinkTest.dir/SaveSystem.cpp.obj.d"
   "CMakeFiles/QLinkTest.dir/SelectChecker.cpp.obj"

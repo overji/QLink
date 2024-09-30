@@ -1,6 +1,6 @@
-C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/QLink.dir
-C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/QLinkTest.dir
-C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/QLink_autogen.dir
-C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/QLinkTest_autogen.dir
+C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLink.dir
+C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLinkTest.dir
+C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLink_autogen.dir
+C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLinkTest_autogen.dir

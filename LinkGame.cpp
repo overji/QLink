@@ -266,11 +266,7 @@ void LinkGame::drawEndPage(QPainter &painter)
     }
     QVector<QPushButton*>buttons = {newGameButton,loadButton,exitButton};
     for(auto i:buttons){
-        i->setStyleSheet("font-size: 20px;"
-                         "background-color: rgb(255, 255, 255);"
-                         "border: 2px solid black;"
-                         "border-radius: 6px;"
-                         "padding: 3px;");
+        i->setStyleSheet("font-size: 20px;""background-color: rgb(255, 255, 255);""border: 2px solid black;""border-radius: 6px;""padding: 3px;");
     }
     //连接按钮的槽函数
     connect(newGameButton,&QPushButton::clicked,this,&LinkGame::startNewGame);
@@ -315,11 +311,7 @@ void LinkGame::drawPausePage(QPainter &painter)
     QVector<QPushButton*>buttons = {resumeButton,saveButton,exitButton};
     //设置按钮样式
     for(auto i:buttons){
-        i->setStyleSheet("font-size: 20px;"
-                         "background-color: rgb(255, 255, 255);"
-                         "border: 2px solid black;"
-                         "border-radius: 6px;"
-                         "padding: 3px;");
+        i->setStyleSheet("font-size: 20px;""background-color: rgb(255, 255, 255);""border: 2px solid black;""border-radius: 6px;""padding: 3px;");
     }
     //连接按钮的槽函数
     connect(resumeButton,&QPushButton::clicked,this,&LinkGame::setGamePauseNoValue);

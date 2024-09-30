@@ -52,10 +52,10 @@ RM = "D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\overji\Desktop\code2\QLink_Ji\QLink
+CMAKE_SOURCE_DIR = C:\Users\overji\Desktop\homework\QLink
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\overji\Desktop\homework\QLink\cmake-build-debug
 
 # Utility rule file for QLink_autogen.
 
@@ -66,8 +66,8 @@ include CMakeFiles/QLink_autogen.dir/compiler_depend.make
 include CMakeFiles/QLink_autogen.dir/progress.make
 
 CMakeFiles/QLink_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target QLink"
-	"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autogen C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/CMakeFiles/QLink_autogen.dir/AutogenInfo.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target QLink"
+	"D:\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autogen C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/CMakeFiles/QLink_autogen.dir/AutogenInfo.json Debug
 
 QLink_autogen: CMakeFiles/QLink_autogen
 QLink_autogen: CMakeFiles/QLink_autogen.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/QLink_autogen.dir/clean:
 .PHONY : CMakeFiles/QLink_autogen.dir/clean
 
 CMakeFiles/QLink_autogen.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\overji\Desktop\code2\QLink_Ji\QLink C:\Users\overji\Desktop\code2\QLink_Ji\QLink C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug C:\Users\overji\Desktop\code2\QLink_Ji\QLink\cmake-build-debug\CMakeFiles\QLink_autogen.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\overji\Desktop\homework\QLink C:\Users\overji\Desktop\homework\QLink C:\Users\overji\Desktop\homework\QLink\cmake-build-debug C:\Users\overji\Desktop\homework\QLink\cmake-build-debug C:\Users\overji\Desktop\homework\QLink\cmake-build-debug\CMakeFiles\QLink_autogen.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/QLink_autogen.dir/depend
 

@@ -52,6 +52,8 @@ add_executable(QLinkTest
         SaveSystem.h
         MainPage.cpp
         MainPage.h
+        SavePage.h
+        SavePage.cpp
 )
 
 target_link_libraries(QLink

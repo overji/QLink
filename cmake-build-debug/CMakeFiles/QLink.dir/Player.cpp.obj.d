@@ -1,7 +1,7 @@
 CMakeFiles/QLink.dir/Player.cpp.obj: \
- C:\Users\overji\Desktop\code2\QLink_Ji\QLink\Player.cpp \
- C:\Users\overji\Desktop\code2\QLink_Ji\QLink\Player.h \
- C:\Users\overji\Desktop\code2\QLink_Ji\QLink\LinkGame.h \
+ C:\Users\overji\Desktop\homework\QLink\Player.cpp \
+ C:\Users\overji\Desktop\homework\QLink\Player.h \
+ C:\Users\overji\Desktop\homework\QLink\LinkGame.h \
  D:/qt/6.6.2/mingw_64/include/QtWidgets/QWidget \
  D:/qt/6.6.2/mingw_64/include/QtWidgets/qwidget.h \
  D:/qt/6.6.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -373,12 +373,12 @@ CMakeFiles/QLink.dir/Player.cpp.obj: \
  D:/qt/6.6.2/mingw_64/include/QtCore/qvector.h \
  D:/qt/6.6.2/mingw_64/include/QtCore/QQueue \
  D:/qt/6.6.2/mingw_64/include/QtCore/qqueue.h \
- C:\Users\overji\Desktop\code2\QLink_Ji\QLink\BoxOfGame.h \
- C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SaveSystem.h \
- C:\Users\overji\Desktop\code2\QLink_Ji\QLink\Gadget.h \
- C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SelectChecker.h \
- C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SpecialAlgorithm.h \
- C:\Users\overji\Desktop\code2\QLink_Ji\QLink\MainPage.h \
+ C:\Users\overji\Desktop\homework\QLink\BoxOfGame.h \
+ C:\Users\overji\Desktop\homework\QLink\SaveSystem.h \
+ C:\Users\overji\Desktop\homework\QLink\Gadget.h \
+ C:\Users\overji\Desktop\homework\QLink\SelectChecker.h \
+ C:\Users\overji\Desktop\homework\QLink\SpecialAlgorithm.h \
+ C:\Users\overji\Desktop\homework\QLink\MainPage.h \
  D:/qt/6.6.2/mingw_64/include/QtWidgets/QStackedLayout \
  D:/qt/6.6.2/mingw_64/include/QtWidgets/qstackedlayout.h \
  D:/qt/6.6.2/mingw_64/include/QtWidgets/qlayout.h \
@@ -405,10 +405,10 @@ CMakeFiles/QLink.dir/Player.cpp.obj: \
  D:/qt/6.6.2/mingw_64/include/QtGui/qtextcursor.h \
  D:/qt/6.6.2/mingw_64/include/QtGui/qtextformat.h \
  D:/qt/6.6.2/mingw_64/include/QtGui/qpen.h \
- C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SavePage.h \
+ C:\Users\overji\Desktop\homework\QLink\SavePage.h \
  D:/qt/6.6.2/mingw_64/include/QtWidgets/QGridLayout \
  D:/qt/6.6.2/mingw_64/include/QtWidgets/qgridlayout.h \
- C:\Users\overji\Desktop\code2\QLink_Ji\QLink\SimpleTest.h \
+ C:\Users\overji\Desktop\homework\QLink\SimpleTest.h \
  D:/qt/6.6.2/mingw_64/include/QtTest/QtTest \
  D:/qt/6.6.2/mingw_64/include/QtTest/QtTestDepends \
  D:/qt/6.6.2/mingw_64/include/QtCore/QtCore \

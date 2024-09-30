@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;CMake Files\qt\;CMake Files\qt\6.6.2\;CMake Files\qt\6.6.2\mingw_64\;CMake Files\qt\6.6.2\mingw_64\lib\;CMake Files\qt\6.6.2\mingw_64\lib\cmake\;CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\;CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Core\;CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6CoreTools\;CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6ZlibPrivate\;CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6EntryPointPrivate\;CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\;CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6GuiTools\;CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\;CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6WidgetsTools\;CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Test\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug"/>
+				<Option working_dir="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="QLink">
-				<Option output="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLink.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug"/>
+				<Option output="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -35,9 +35,9 @@
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_TESTLIB_LIB"/>
-					<Add option="-DQT_TESTCASE_BUILDDIR=&quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug&quot;"/>
-					<Add option="-DQT_TESTCASE_SOURCEDIR=&quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink&quot;"/>
-					<Add directory="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLink_autogen/include"/>
+					<Add option="-DQT_TESTCASE_BUILDDIR=&quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug&quot;"/>
+					<Add option="-DQT_TESTCASE_SOURCEDIR=&quot;C:/Users/overji/Desktop/homework/QLink&quot;"/>
+					<Add directory="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink_autogen/include"/>
 					<Add directory="D:/qt/6.6.2/mingw_64/include/QtCore"/>
 					<Add directory="D:/qt/6.6.2/mingw_64/include"/>
 					<Add directory="D:/qt/6.6.2/mingw_64/mkspecs/win32-g++"/>
@@ -53,15 +53,15 @@
 					<Add directory="D:/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 QLink"/>
-					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 QLink"/>
+					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="QLink/fast">
-				<Option output="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLink.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug"/>
+				<Option output="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -77,9 +77,9 @@
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_TESTLIB_LIB"/>
-					<Add option="-DQT_TESTCASE_BUILDDIR=&quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug&quot;"/>
-					<Add option="-DQT_TESTCASE_SOURCEDIR=&quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink&quot;"/>
-					<Add directory="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLink_autogen/include"/>
+					<Add option="-DQT_TESTCASE_BUILDDIR=&quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug&quot;"/>
+					<Add option="-DQT_TESTCASE_SOURCEDIR=&quot;C:/Users/overji/Desktop/homework/QLink&quot;"/>
+					<Add directory="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink_autogen/include"/>
 					<Add directory="D:/qt/6.6.2/mingw_64/include/QtCore"/>
 					<Add directory="D:/qt/6.6.2/mingw_64/include"/>
 					<Add directory="D:/qt/6.6.2/mingw_64/mkspecs/win32-g++"/>
@@ -95,15 +95,15 @@
 					<Add directory="D:/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 QLink/fast"/>
-					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 QLink/fast"/>
+					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="QLinkTest">
-				<Option output="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLinkTest.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug"/>
+				<Option output="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLinkTest.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -119,9 +119,9 @@
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_TESTLIB_LIB"/>
-					<Add option="-DQT_TESTCASE_BUILDDIR=&quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug&quot;"/>
-					<Add option="-DQT_TESTCASE_SOURCEDIR=&quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink&quot;"/>
-					<Add directory="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLinkTest_autogen/include"/>
+					<Add option="-DQT_TESTCASE_BUILDDIR=&quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug&quot;"/>
+					<Add option="-DQT_TESTCASE_SOURCEDIR=&quot;C:/Users/overji/Desktop/homework/QLink&quot;"/>
+					<Add directory="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLinkTest_autogen/include"/>
 					<Add directory="D:/qt/6.6.2/mingw_64/include/QtCore"/>
 					<Add directory="D:/qt/6.6.2/mingw_64/include"/>
 					<Add directory="D:/qt/6.6.2/mingw_64/mkspecs/win32-g++"/>
@@ -137,15 +137,15 @@
 					<Add directory="D:/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 QLinkTest"/>
-					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 QLinkTest"/>
+					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="QLinkTest/fast">
-				<Option output="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLinkTest.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug"/>
+				<Option output="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLinkTest.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -161,9 +161,9 @@
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_TESTLIB_LIB"/>
-					<Add option="-DQT_TESTCASE_BUILDDIR=&quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug&quot;"/>
-					<Add option="-DQT_TESTCASE_SOURCEDIR=&quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink&quot;"/>
-					<Add directory="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLinkTest_autogen/include"/>
+					<Add option="-DQT_TESTCASE_BUILDDIR=&quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug&quot;"/>
+					<Add option="-DQT_TESTCASE_SOURCEDIR=&quot;C:/Users/overji/Desktop/homework/QLink&quot;"/>
+					<Add directory="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLinkTest_autogen/include"/>
 					<Add directory="D:/qt/6.6.2/mingw_64/include/QtCore"/>
 					<Add directory="D:/qt/6.6.2/mingw_64/include"/>
 					<Add directory="D:/qt/6.6.2/mingw_64/mkspecs/win32-g++"/>
@@ -179,660 +179,662 @@
 					<Add directory="D:/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 QLinkTest/fast"/>
-					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 QLinkTest/fast"/>
+					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug"/>
+				<Option working_dir="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug"/>
+				<Option working_dir="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="QLink_autogen">
-				<Option working_dir="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug"/>
+				<Option working_dir="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 QLink_autogen"/>
-					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 QLink_autogen"/>
+					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="QLinkTest_autogen">
-				<Option working_dir="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug"/>
+				<Option working_dir="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 QLinkTest_autogen"/>
-					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 QLinkTest_autogen"/>
+					<CompileFile command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion 2023.3.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/BoxOfGame.cpp">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/BoxOfGame.cpp">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/BoxOfGame.h">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/BoxOfGame.h">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/Gadget.h">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/Gadget.h">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/Garget.cpp">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/Garget.cpp">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/LinkGame.cpp">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/LinkGame.cpp">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/LinkGame.h">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/LinkGame.h">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/MainPage.cpp">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/MainPage.cpp">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/MainPage.h">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/MainPage.h">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/Player.cpp">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/Player.cpp">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/Player.h">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/Player.h">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SavePage.cpp">
-			<Option target="QLink"/>
-		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SavePage.h">
-			<Option target="QLink"/>
-		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SaveSystem.cpp">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/SavePage.cpp">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SaveSystem.h">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/SavePage.h">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SelectChecker.cpp">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/SaveSystem.cpp">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SelectChecker.h">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/SaveSystem.h">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SimpleTest.cpp">
-			<Option target="QLinkTest"/>
-		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SimpleTest.h">
-			<Option target="QLinkTest"/>
-		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/SpecialAlgorithm.h">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/SelectChecker.cpp">
 			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLinkTest_autogen/mocs_compilation.cpp">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/SelectChecker.h">
+			<Option target="QLink"/>
 			<Option target="QLinkTest"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/cmake-build-debug/QLink_autogen/mocs_compilation.cpp">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/SimpleTest.cpp">
+			<Option target="QLinkTest"/>
+		</Unit>
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/SimpleTest.h">
+			<Option target="QLinkTest"/>
+		</Unit>
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/SpecialAlgorithm.h">
+			<Option target="QLink"/>
+			<Option target="QLinkTest"/>
+		</Unit>
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLinkTest_autogen/mocs_compilation.cpp">
+			<Option target="QLinkTest"/>
+		</Unit>
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/cmake-build-debug/QLink_autogen/mocs_compilation.cpp">
 			<Option target="QLink"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/main.cpp">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/main.cpp">
 			<Option target="QLink"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/CMakeLists.txt">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/FindWrapAtomic.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/FindWrapAtomic.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6Config.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6Config.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6ConfigExtras.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6ConfigExtras.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6Targets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6Targets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6VersionlessTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/Qt6VersionlessTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtFeature.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtFeature.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtFeatureCommon.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtFeatureCommon.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicAppleHelpers.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicAppleHelpers.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicCMakeHelpers.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicCMakeHelpers.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicExternalProjectHelpers.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicExternalProjectHelpers.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicFinalizerHelpers.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicFinalizerHelpers.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicPluginHelpers.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicPluginHelpers.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicTargetHelpers.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicTargetHelpers.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicTestHelpers.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicTestHelpers.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicToolHelpers.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicToolHelpers.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Core\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Core\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigExtras.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigExtras.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Core\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Core\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Core\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Core\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Core\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Core\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Core\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreVersionlessTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/Qt6CoreVersionlessTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Core\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/QtInstallPaths.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Core/QtInstallPaths.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Core\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6CoreTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6CoreTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersion.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6CoreTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersionImpl.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersionImpl.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6CoreTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsDependencies.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsDependencies.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6CoreTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6CoreTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6CoreTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsVersionlessTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsVersionlessTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6CoreTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6ZlibPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6ZlibPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersion.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6ZlibPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6ZlibPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6ZlibPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6ZlibPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointMinGW32Target.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointMinGW32Target.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6EntryPointPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6EntryPointPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6EntryPointPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersion.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6EntryPointPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersionImpl.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersionImpl.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6EntryPointPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6EntryPointPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6EntryPointPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateVersionlessTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateVersionlessTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6EntryPointPrivate\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfigVersion.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfigVersionImpl.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfigVersionImpl.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiPlugins.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiPlugins.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiVersionlessTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6GuiVersionlessTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICNSPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICNSPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICNSPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICNSPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICNSPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICNSPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICNSPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICNSPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QInsightTrackerPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QInsightTrackerPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QInsightTrackerPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QInsightTrackerPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QInsightTrackerPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QInsightTrackerPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QInsightTrackerPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QInsightTrackerPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QPdfPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QPdfPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QPdfPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QPdfPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QPdfPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QPdfPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QPdfPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QPdfPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTgaPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTgaPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTgaPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTgaPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTgaPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTgaPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTgaPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTgaPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTiffPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTiffPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTiffPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTiffPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTiffPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTiffPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTiffPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTiffPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QVirtualKeyboardPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QVirtualKeyboardPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QVirtualKeyboardPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QVirtualKeyboardPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QVirtualKeyboardPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QVirtualKeyboardPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QVirtualKeyboardPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QVirtualKeyboardPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWbmpPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWbmpPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWbmpPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWbmpPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWbmpPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWbmpPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWbmpPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWbmpPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWebpPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWebpPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWebpPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWebpPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWebpPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWebpPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWebpPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWebpPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Gui\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6GuiTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6GuiTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersion.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6GuiTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersionImpl.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersionImpl.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6GuiTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsDependencies.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsDependencies.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6GuiTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6GuiTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6GuiTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6GuiTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersionImpl.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersionImpl.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsPlugins.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsPlugins.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Widgets\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6WidgetsTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6WidgetsTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersion.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6WidgetsTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersionImpl.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersionImpl.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6WidgetsTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6WidgetsTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6WidgetsTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6WidgetsTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6WidgetsTools\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestAdditionalTargetInfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestAdditionalTargetInfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Test\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestConfig.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestConfig.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Test\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestConfigVersion.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Test\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestConfigVersionImpl.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestConfigVersionImpl.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Test\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestDependencies.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestDependencies.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Test\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestTargets-relwithdebinfo.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestTargets-relwithdebinfo.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Test\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Test\"/>
 		</Unit>
-		<Unit filename="C:/Users/overji/Desktop/code2/QLink_Ji/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestVersionlessTargets.cmake">
+		<Unit filename="C:/Users/overji/Desktop/homework/QLink/qt/6.6.2/mingw_64/lib/cmake/Qt6Test/Qt6TestVersionlessTargets.cmake">
 			<Option virtualFolder="CMake Files\qt\6.6.2\mingw_64\lib\cmake\Qt6Test\"/>
 		</Unit>
 	</Project>
