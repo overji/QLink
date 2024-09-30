@@ -12,6 +12,7 @@
 
 Gadget::Gadget(bool isLoad,LinkGame *game)
 {
+    //加载时候，不对道具各项参数进行赋值，从而防止了由于箱子尚未完全确定，随机确定箱子y坐标时访问到尚未初始化的区域。
     this->gadgetHeight = this->gargetType = this->gadgetWidth = this->leftTopX = this->leftTopY = 0;
     this->gadgetMap = QPixmap();
 }
@@ -32,7 +33,7 @@ Gadget::Gadget(LinkGame * game, int gameType)
             this->gargetType = 6;
         }
     }
-    std::filesystem::path curFilePath(__FILE__);
+    std::filesystem::path curFilePath(__FILE__);//确定路径
     std::filesystem::path curPath = curFilePath.parent_path();
     switch(gargetType){
         //确定道具的贴图
@@ -59,7 +60,7 @@ Gadget::Gadget(LinkGame * game, int gameType)
 
 void Gadget::randomRowLoc(LinkGame *game, int colLoc)
 {
-    //随机生成道具的行数
+    //随机生成道具的行数，加载游戏时候不允许调用这个函数，防止内存越界
     QVector<QPair<int,int>>spaceRemain; //记录每一行的空白区域
     int start = 0, end = 0,totalSpace = 0; //记录空白区域的起始和终止位置以及一列中空白区域的大小
     if(colLoc < game->getBoxCol() && colLoc >= 0){
@@ -100,12 +101,14 @@ void Gadget::randomRowLoc(LinkGame *game, int colLoc)
     }
 }
 
-void Gadget::drawGarget(QPainter &painter) {
+void Gadget::drawGarget(QPainter &painter)
+{
     //绘制道具
     painter.drawPixmap(leftTopX, leftTopY, gadgetWidth, gadgetHeight, gadgetMap);
 }
 
-void Gadget::singleGameGadgetEffect(LinkGame *game, Player *player) {
+void Gadget::singleGameGadgetEffect(LinkGame *game, Player *player)
+{
     switch(gargetType){
         //根据道具类型，确定道具效果
         case 1:
@@ -123,7 +126,8 @@ void Gadget::singleGameGadgetEffect(LinkGame *game, Player *player) {
     }
 }
 
-void Gadget::doubleGameGadgetEffect(LinkGame *game, Player *anotherPlayer) {
+void Gadget::doubleGameGadgetEffect(LinkGame *game, Player *anotherPlayer)
+{
     switch(gargetType){
         //根据道具类型，确定道具效果
         case 1:
@@ -144,37 +148,43 @@ void Gadget::doubleGameGadgetEffect(LinkGame *game, Player *anotherPlayer) {
     }
 }
 
-void Gadget::plus30sEffect(LinkGame *game) {
+void Gadget::plus30sEffect(LinkGame *game)
+{
     //加30秒效果
     game->setRemainTime(game->getRemainTime() + 30);
 }
 
-void Gadget::shuffleEffect(LinkGame *game) {
+void Gadget::shuffleEffect(LinkGame *game)
+{
     //shuffle效果
     game->shuffleMap();
 }
 
-void Gadget::hintEffect(LinkGame *game) {
-    //hint效果，并且hintTimer倒计时开始
+void Gadget::hintEffect(LinkGame *game)
+{
+    //hint效果，并且hintTimer倒计时开始，注意多次触发时间不会叠加
     game->setHintTime(10);
     game->setHintTimerOn(true);
 }
 
-void Gadget::flashEffect(LinkGame *game,Player *player) {
-    //flash效果,并且flashTimer倒计时开始
+void Gadget::flashEffect(LinkGame *game,Player *player)
+{
+    //flash效果,并且flashTimer倒计时开始，注意多次触发时间不会叠加
     game->setFlashTime(5);
     game->setFlashTimerOn(true);
     return;
 }
 
-void Gadget::freezeEffect(LinkGame *game,Player *player) {
-    //freeze效果,并且freezeTimer倒计时开始
+void Gadget::freezeEffect(LinkGame *game,Player *player)
+{
+    //freeze效果,并且freezeTimer倒计时开始，注意多次触发时间不会叠加
     player->setFreezeTime(3);
     game->setFreezeTimerOn(true);
 }
 
-void Gadget::dizzyEffect(LinkGame *game,Player *player) {
-    //dizzy效果,并且dizzyTimer倒计时开始
+void Gadget::dizzyEffect(LinkGame *game,Player *player)
+{
+    //dizzy效果,并且dizzyTimer倒计时开始，注意多次触发时间不会叠加
     player->setDizzyTime(10);
     game->setDizzyTimerOn(true);
 }
