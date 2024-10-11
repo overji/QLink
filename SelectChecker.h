@@ -16,7 +16,7 @@ public:
     static bool checkValidReturnBool(LinkGame * game,Player * player);
     static QPair<QPair<int,int>,QPair<int,int>> searchPair(LinkGame * game); // 搜索一对可以消除的箱子
 private:
-    static void checkNumber(LinkGame * game, Player * player);
+    static void checkRemoveAvailable(LinkGame * game, Player * player);
     static QVector<QPair<int,int>> checkValid(LinkGame * game,Player * player);
     static bool checkLine(LinkGame * game,Player * player,int direction,int start,int end,int anotherLocation);
     static QVector<QPair<int,int>> twoTwistCheck(LinkGame * game,Player * player,int x1,int y1,int x2,int y2);

@@ -19,13 +19,13 @@ add_executable(QLink main.cpp
         LinkGame.cpp
         LinkGame.h
         BoxOfGame.cpp
-        BoxOfGame.h
+        BoxOfGame.h.
         Player.cpp
         Player.h
         SelectChecker.cpp
         SelectChecker.h
         SpecialAlgorithm.h
-        Garget.cpp
+        Gadget.cpp
         Gadget.h
         SaveSystem.cpp
         SaveSystem.h
@@ -46,7 +46,7 @@ add_executable(QLinkTest
         SelectChecker.cpp
         SelectChecker.h
         SpecialAlgorithm.h
-        Garget.cpp
+        Gadget.cpp
         Gadget.h
         SaveSystem.cpp
         SaveSystem.h

@@ -9,7 +9,7 @@
 BoxOfGame::BoxOfGame(const int & boxWid , const int & boxHeit,const int & LeftTopX ,const int & LeftTopY  ,const QColor boxColorInput
         , const QColor boarderColorInput,const int TypeOfBoxInput, QWidget * parent): QWidget(parent)
 {
-    //BoxOfGame的构造函数
+    //BoxOfGame的构造函数,boxWid为箱子宽度，boxHeit为箱子高度，LeftTopX为箱子左上角X坐标，LeftTopY为箱子左上角Y坐标,boxColorInput为箱子颜色，boarderColorInput为箱子边框颜色，TypeOfBoxInput为箱子类型
     //确定箱子边框大小、箱子大小、箱子含坐标时候左上角位置
     this->boxWidth = boxWid;
     this->boxHeight = boxHeit;
@@ -65,7 +65,7 @@ void BoxOfGame::drawBox(QPainter &painter)
 
 void BoxOfGame::resizeBox(const int &boxWid, const int &boxHeit, const int &leftTopX, const int &leftTopY)
 {
-    //页面大小变换时调整箱子大小
+    //页面大小变换时调整箱子大小,boxWid为箱子宽度，boxHeit为箱子高度，leftTopX为箱子左上角X坐标，leftTopY为箱子左上角Y坐标
     this->boxWidth = boxWid;
     this->boxHeight = boxHeit;
     this->LeftTopX = leftTopX;
@@ -132,8 +132,11 @@ void BoxOfGame::swapBox(BoxOfGame * box1, BoxOfGame * box2)
 
 void BoxOfGame::initBoxPixMap()
 {
+    //初始化箱子的贴图
+    //下面这两行代码可以确定游戏的运行路径，从而确定贴图的位置
     std::filesystem::path curFilePath(__FILE__);
     std::filesystem::path curPath = curFilePath.parent_path();
+    //根据不同的箱子类型，赋予不同的贴图
     switch (typeOfBox) {
         case 0:
             boxPixmap = QPixmap(QString::fromStdString(curPath.string() +"\\images\\BoxImages\\morfonica.png"));

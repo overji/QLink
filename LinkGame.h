@@ -199,6 +199,8 @@ private:
     void generateGadget(); //生成道具
     void hintBox(); //提示箱子
     void clearHintBox(); //清除提示箱子
+    void setEndText(); //设置结束页面文本
+    void addToEndPageLayout(QGridLayout *layout,QPushButton *newGameButton,QPushButton *loadButton,QPushButton *exitButton,QLabel * endLabel,QLabel * player1Score,QLabel * player2Score);//添加到结束页面布局
 
 
     int gameFps; //游戏帧率

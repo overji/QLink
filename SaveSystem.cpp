@@ -94,6 +94,8 @@ void SaveSystem::savePlayerData(QDataStream &out, Player *player)
     out << player->isRemoveTimerOn();
 }
 
+
+
 LinkGame * SaveSystem::loadGame(const QString &name)
 {
     //加载游戏数据
@@ -156,12 +158,12 @@ LinkGame * SaveSystem::loadGame(const QString &name)
         gadgets.push_back(gadget);
     }
     game->setGadgets(gadgets);
-    
+    //加载道具相关数据
     in >> tempInt; game->setMaxGadgetNumber(tempInt);
     in >> tempDouble; game->setGadgetSummonPossibility(tempDouble);
     in >> tempInt; game->setHintTime(tempInt);
     in >> tempBool; game->setHintTimerOn(tempBool);
-
+    //加载提示箱子
     qsizetype hintedBoxesSize;
     in >> hintedBoxesSize;
     QVector<QPair<int,int>> hintedBoxes;
@@ -171,7 +173,7 @@ LinkGame * SaveSystem::loadGame(const QString &name)
         hintedBoxes.push_back(QPair<int,int>(x,y));
     }
     game->setHintedBoxes(hintedBoxes);
-    
+    //加载道具计时器
     in >> tempInt; game->setFlashTime(tempInt);
     in >> tempBool; game->setFlashTimerOn(tempBool);
     in >> tempBool; game->setDizzyTimerOn(tempBool);

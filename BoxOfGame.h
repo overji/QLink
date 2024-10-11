@@ -95,5 +95,5 @@ private:
     QColor boxColor; //箱子颜色
     QColor boarderColor; //箱子边框颜色
     BoxState boxState; //箱子状态
-    QPixmap boxPixmap;
+    QPixmap boxPixmap;//箱子贴图
 };

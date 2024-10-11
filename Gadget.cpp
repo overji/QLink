@@ -19,7 +19,7 @@ Gadget::Gadget(bool isLoad,LinkGame *game)
 
 Gadget::Gadget(LinkGame * game, int gameType)
 {
-    //随机生成道具的位置,并且随机生成道具的类型
+    //随机生成道具的位置,并且随机生成道具的类型,game:游戏指针，gameType:游戏类型
     this->gadgetWidth = game->getBoxWidth() / 3; //道具的宽度
     this->gadgetHeight = game->getBoxHeight() / 3; //道具的高度
     this->leftTopX = QRandomGenerator::global()->bounded(1, 800 - gadgetWidth - 1); //道具的左上角x坐标
@@ -60,7 +60,7 @@ Gadget::Gadget(LinkGame * game, int gameType)
 
 void Gadget::randomRowLoc(LinkGame *game, int colLoc)
 {
-    //随机生成道具的行数，加载游戏时候不允许调用这个函数，防止内存越界
+    //随机生成道具的行数，加载游戏时候不允许调用这个函数，防止内存越界,game:游戏指针，colLoc:道具所在的列
     QVector<QPair<int,int>>spaceRemain; //记录每一行的空白区域
     int start = 0, end = 0,totalSpace = 0; //记录空白区域的起始和终止位置以及一列中空白区域的大小
     if(colLoc < game->getBoxCol() && colLoc >= 0){

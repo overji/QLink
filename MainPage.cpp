@@ -168,7 +168,7 @@ void MainPage::gameTypeClicked()
         gameHint->setText("W向上移动,S向下移动,A向左移动,D向右移动,Esc、空格暂停");
     } else {
         //多人游戏提示
-        gameHint->setText("↑向上移动,↓向下移动,←向左移动,→向右移动,Esc、空格暂停");
+        gameHint->setText("第二个玩家,↑向上移动,↓向下移动,←向左移动,→向右移动,Esc、空格暂停");
     }
 }
 

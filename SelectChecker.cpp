@@ -10,11 +10,21 @@
 
 void SelectChecker::checkSelected(LinkGame *game, Player *player)
 {
-    checkNumber(game,player);
+    //检查目前选中的箱子是否已经不存在，如果不存在，就在选择中去除这个箱子
+    auto curSelected = player->getCurrentSelected();
+    for(size_t i = 0;i < player->getCurrentSelected().size();i ++){
+        auto pr = player->getCurrentSelected()[i];
+        if(game->getBoxMap()[pr.first][pr.second]->getBoxState().boxRemoved){
+            curSelected.removeOne(pr);
+        }
+    }
+    player->setCurrentSelected(curSelected);
+    checkRemoveAvailable(game, player);
 }
 
-void SelectChecker::checkNumber(LinkGame *game, Player *player)
+void SelectChecker::checkRemoveAvailable(LinkGame *game, Player *player)
 {
+    //检查能否消除箱子,game是游戏对象，player是玩家对象
     QVector<QPair<int,int>>path;
     //如果选中的箱子数为2，那么我们就可以进行消除操作了
     if(player->getCurrentSelected().size() == 2) {

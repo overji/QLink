@@ -8,9 +8,9 @@
 #include <QWidget>
 #include <QPalette>
 
-
 void SavePage::initSavePage()
 {
+    //初始化存档界面，并且初始化各项控件
     // 创建一个QPalette对象
     QPalette palette;
 
@@ -58,6 +58,7 @@ void SavePage::initSavePage()
 
 void SavePage::initSaveScrollArea() const
 {
+    //初始化存档滚动区域
     int saveNum = 0;
     std::filesystem::path savePath = std::filesystem::current_path() / "save";
     if(!std::filesystem::exists(savePath)){
@@ -78,6 +79,7 @@ void SavePage::initSaveScrollArea() const
 
 void SavePage::saveGame()
 {
+    //保存游戏
     int saveNum = 0;
     std::filesystem::path savePath = std::filesystem::current_path() / "save";
     if(!std::filesystem::exists(savePath)){
@@ -103,17 +105,20 @@ void SavePage::saveGame()
 
 SavePage::SavePage(LinkGame *game):QWidget(game)
 {
+    //构造函数
     this->game = game;
     initSavePage();
 }
 
 void SavePage::returnOriginPage()
 {
+    //返回主界面
     game->showPausePage();
 }
 
 SaveDataWidget::SaveDataWidget(QString pathInput, QString nameInput)
 {
+    //构造函数，构造saveDataWidget
     this->path = pathInput;
     this->name = nameInput;
     this->nameLabel = new QLabel;
@@ -130,6 +135,7 @@ SaveDataWidget::SaveDataWidget(QString pathInput, QString nameInput)
 
 void SavePage::setCSS()
 {
+    //设置CSS
     this->setStyleSheet("font-size:15px;");
     QVector<QPushButton*>buttons = {this->newSave,this->returnButton,this->quickSave,this->quickLoad};
     for(auto i:buttons){
@@ -141,6 +147,7 @@ void SavePage::setCSS()
 
 void LoadPage::initLoadPage()
 {
+    //初始化读档界面
     // 创建一个QPalette对象
     QPalette palette;
 
@@ -180,6 +187,7 @@ void LoadPage::initLoadPage()
 
 void LoadPage::initSaveScrollArea() const
 {
+    //初始化存档滚动区域
     int saveNum = 0;
     std::filesystem::path savePath = std::filesystem::current_path() / "save";
     if(!std::filesystem::exists(savePath)){
@@ -204,6 +212,7 @@ void LoadPage::initSaveScrollArea() const
 
 void LoadPage::setCSS()
 {
+    //设置CSS
     this->setStyleSheet("font-size:15px;");
     QVector<QPushButton*>buttons = {this->returnButton,this->quickLoad};
     for(auto i:buttons){
@@ -213,11 +222,13 @@ void LoadPage::setCSS()
 
 LoadPage::LoadPage(MainPage * mainPage):QWidget(mainPage)
 {
+    //构造函数
     this->mainPage = mainPage;
     initLoadPage();
 }
 
 void LoadPage::returnOriginPage()
 {
+    //返回主界面
     mainPage->toMainPage();
 }
