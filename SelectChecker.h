@@ -22,6 +22,6 @@ private:
     static QVector<QPair<int,int>> twoTwistCheck(LinkGame * game,Player * player,int x1,int y1,int x2,int y2);
     static QVector<QPair<int,int>> getEdgeBox(LinkGame * game,Player * player);
     static bool isEdge(LinkGame * game, Player * player, int colLoc, int rowLoc);
-
+    static void removeDoubleSelection(LinkGame * game, Player * player);
 };
 

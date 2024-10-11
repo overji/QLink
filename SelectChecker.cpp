@@ -26,6 +26,7 @@ void SelectChecker::checkRemoveAvailable(LinkGame *game, Player *player)
 {
     //检查能否消除箱子,game是游戏对象，player是玩家对象
     QVector<QPair<int,int>>path;
+    removeDoubleSelection(game,player);//防止双人模式下两位玩家同时选择一个箱子
     //如果选中的箱子数为2，那么我们就可以进行消除操作了
     if(player->getCurrentSelected().size() == 2) {
         if (player->getCurrentSelected()[0] == player->getCurrentSelected()[1]) {
@@ -34,7 +35,8 @@ void SelectChecker::checkRemoveAvailable(LinkGame *game, Player *player)
         }
         //清除箱子的被选择情况
         for (auto i: player->getCurrentSelected()) {
-            game->getBoxMap()[i.first][i.second]->setBoxSelected(false);
+            game->getBoxMap()[i.first][i.second]->setBoxSelected(game->getBoxMap()[i.first][i.second]->getBoxState().boxSelected - 1);
+            std::cout << i.first << " " << i.second << " " << game->getBoxMap()[i.first][i.second]->getBoxState().boxSelected << "\n";
         }
         //检查是否可以消除，返回的是一个路径的vector，可以消除的话直接给玩家加分，过0.2s后再让箱子和路径消失不见
         path = checkValid(game, player);
@@ -394,4 +396,36 @@ QPair<QPair<int,int>,QPair<int,int>> SelectChecker::searchPair(LinkGame *game)
         }
     }
     return QPair<QPair<int,int>,QPair<int,int>>(QPair<int,int>(-1,-1),QPair<int,int>(-1,-1));
+}
+
+void SelectChecker::removeDoubleSelection(LinkGame * game, Player * player)
+{
+    if(game->getRemainBoxNumber() == 2){
+        //如果还剩两个箱子，允许选择同一个箱子
+        return;
+    }
+    //如果这个玩家刚刚选中的方块被另一个玩家已经选中了，那么禁止这一选择
+    bool isDouble = false;
+    if(game->getGameType() == 1){
+        auto curSelected = player->getCurrentSelected();
+        if(player == game->getPlayer1()){
+            for(auto pr:game->getPlayer2()->getCurrentSelected()){
+                if(player->getCurrentSelected().contains(pr)){
+                    curSelected.removeOne(pr);
+                    isDouble = true;
+                }
+            }
+        } else {
+            for(auto pr:game->getPlayer1()->getCurrentSelected()){
+                if(player->getCurrentSelected().contains(pr)){
+                    curSelected.removeOne(pr);
+                    isDouble = true;
+                }
+            }
+        }
+        player->setCurrentSelected(curSelected);
+        if(isDouble){
+            game->setRemoveText("错误!");
+        }
+    }
 }
