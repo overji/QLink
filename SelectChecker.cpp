@@ -35,7 +35,7 @@ void SelectChecker::checkRemoveAvailable(LinkGame *game, Player *player)
         }
         //清除箱子的被选择情况
         for (auto i: player->getCurrentSelected()) {
-            game->getBoxMap()[i.first][i.second]->setBoxSelected(game->getBoxMap()[i.first][i.second]->getBoxState().boxSelected - 1);
+            game->getBoxMap()[i.first][i.second]->setBoxSelected(false);
             std::cout << i.first << " " << i.second << " " << game->getBoxMap()[i.first][i.second]->getBoxState().boxSelected << "\n";
         }
         //检查是否可以消除，返回的是一个路径的vector，可以消除的话直接给玩家加分，过0.2s后再让箱子和路径消失不见
