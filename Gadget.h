@@ -43,7 +43,7 @@ public:
     void doubleGameGadgetEffect(LinkGame * game, Player * anotherPlayer); //双人游戏的道具，效果从Player方面传入
 private:
     void randomRowLoc(LinkGame * game,int colLoc); //随机生成道具的位置
-    void plus30sEffect(LinkGame * game); //加30秒效果
+    void plus1sEffect(LinkGame * game); //加30秒效果
     void shuffleEffect(LinkGame * game); //shuffle效果
     void hintEffect(LinkGame * game); //hint效果
     void flashEffect(LinkGame *game,Player *player);    //flash效果

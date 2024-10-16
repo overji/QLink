@@ -47,7 +47,7 @@ LinkGame::LinkGame(const int &M, const int &N, int gameTypeInput, const int &rem
     this->initTimers(remainTimeInput);
     this->leftTimeText = QString::number(remainTime) + "s";
     this->gadgetSummonPossibility = 0.01;
-    this->maxGadgetNumber = 3;
+    this->maxGadgetNumber = 10;
 
     this->hintedBoxes.resize(2);
     initMap();

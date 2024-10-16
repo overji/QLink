@@ -112,7 +112,7 @@ void Gadget::singleGameGadgetEffect(LinkGame *game, Player *player)
     switch(gargetType){
         //根据道具类型，确定道具效果
         case 1:
-            plus30sEffect(game);
+            plus1sEffect(game);
             break;
         case 2:
             shuffleEffect(game);
@@ -131,7 +131,7 @@ void Gadget::doubleGameGadgetEffect(LinkGame *game, Player *anotherPlayer)
     switch(gargetType){
         //根据道具类型，确定道具效果
         case 1:
-            plus30sEffect(game);
+            plus1sEffect(game);
             break;
         case 2:
             shuffleEffect(game);
@@ -148,10 +148,10 @@ void Gadget::doubleGameGadgetEffect(LinkGame *game, Player *anotherPlayer)
     }
 }
 
-void Gadget::plus30sEffect(LinkGame *game)
+void Gadget::plus1sEffect(LinkGame *game)
 {
-    //加30秒效果
-    game->setRemainTime(game->getRemainTime() + 30);
+    //加1秒效果
+    game->setRemainTime(game->getRemainTime() + 1);
 }
 
 void Gadget::shuffleEffect(LinkGame *game)
