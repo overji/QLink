@@ -233,25 +233,26 @@ void SimpleTest::threeTwistWrongTest1()
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0,linkGame);
     linkGame->getBoxMap()[1][0]->setTypeOfBox(1);;
-    linkGame->getBoxMap()[1][4]->setTypeOfBox(1);;
+    linkGame->getBoxMap()[0][4]->setTypeOfBox(1);;
     player->appendToCurrentSelected(QPair<int,int>(1,0));
-    player->appendToCurrentSelected(QPair<int,int>(1,4));
+    player->appendToCurrentSelected(QPair<int,int>(0,4));
     SelectChecker::checkSelected(linkGame, player);
     QPainter painter;
     player->drawLine(painter);
     QVERIFY(player->getCurrentSelected().size() == 0);
     QVERIFY(linkGame->getBoxMap()[1][0]->getBoxState().boxToBeRemoved == false);
-    QVERIFY(linkGame->getBoxMap()[1][4]->getBoxState().boxToBeRemoved == false);
+    QVERIFY(linkGame->getBoxMap()[0][4]->getBoxState().boxToBeRemoved == false);
     delete linkGame;
     delete player;
 }
 
 void SimpleTest::threeTwistWrongTest2()
 {
-    //测试三折线应当不消除方块
+    //测试多折线应当不消除方块
     LinkGame * linkGame = new LinkGame(4,5);
     Player * player = new Player(0,0,0,0,0,linkGame);
-    linkGame->getBoxMap()[0][1]->setTypeOfBox(1);;    linkGame->getBoxMap()[3][2]->setTypeOfBox(1);;
+    linkGame->getBoxMap()[0][1]->setTypeOfBox(1);
+    linkGame->getBoxMap()[3][2]->setTypeOfBox(1);
     player->appendToCurrentSelected(QPair<int,int>(0,1));
     player->appendToCurrentSelected(QPair<int,int>(3,2));
     SelectChecker::checkSelected(linkGame, player);

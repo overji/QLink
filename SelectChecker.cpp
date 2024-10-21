@@ -139,6 +139,7 @@ bool SelectChecker::checkLine(LinkGame *game, Player *player, int direction, int
     //应当注意start和end传入的是画面的坐标，相对应与800,600
     //dirction为1时是横线，y大小不变
     //dirction为2时是竖线，x大小不变
+    //anotherLocation是大小不变的那个变量
     if(start > end){
         int temp = start;
         start = end;
@@ -240,7 +241,7 @@ QVector<QPair<int,int>> SelectChecker::twoTwistCheck(LinkGame * game,Player * pl
 
 QVector<QPair<int,int>> SelectChecker::getEdgeBox(LinkGame *game, Player *player)
 {
-    //获取周边存在一处没有被包围起来的箱子
+    //获取外围至少一边没有被包围起来的箱子
     QVector<QPair<int,int>>EdgeBox;
     for(int row = 0; row < game->getBoxRow(); row ++){
         for(int col = 0; col < game->getBoxCol(); col ++){

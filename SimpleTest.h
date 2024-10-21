@@ -21,7 +21,7 @@ private slots:
     void twoTwistCorrectTest();//两折线正确消除方块(外侧)
     void twoTwistCorrectTest2(); //两折线正确消除方块(内侧)
     void threeTwistWrongTest1(); //三折线应当不消除方块
-    void threeTwistWrongTest2(); //三折线应当不消除方块
+    void threeTwistWrongTest2(); //多折线应当不消除方块
     void differentTypeWrongTest();//不同类型的方块应当不消除
     void popSameBoxTest();//相同方块只选择一次
     void removeSelectedTest(); //测试取消选中无法消除的方块

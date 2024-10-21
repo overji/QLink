@@ -134,6 +134,7 @@ private:
     LinkGame * game;
 
     int direction;//玩家移动方向 ，0上 1下 2左 3右 4不动
+
     void leftMoveCheckEdge(int &currentTopY, BoxOfGame *&topBox, int &topIndex, int &currentBottomY, BoxOfGame *&bottomBox,
                       int &bottomIndex);
 
